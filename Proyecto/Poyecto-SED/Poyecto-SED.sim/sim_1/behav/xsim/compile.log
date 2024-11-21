@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'COUNTER'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/COUNTER_TB.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'COUNTER_tb'
