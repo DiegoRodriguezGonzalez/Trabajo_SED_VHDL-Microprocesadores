@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd" \
-"../../../../Poyecto-SED.srcs/sim_1/new/decoder_indicador_tb.vhd" \
-
-# Do not sort compile order
-nosort

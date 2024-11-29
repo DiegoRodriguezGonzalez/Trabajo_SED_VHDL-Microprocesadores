@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Nov 28 17:36:01 2024
-# Process ID: 21784
+# Start of session at: Wed Nov 27 20:47:54 2024
+# Process ID: 11196
 # Current directory: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22640 C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent30488 C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
 # Log file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
 # Journal file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
 # Running On        :LAPTOP-260PTFG4
@@ -19,14 +19,14 @@
 # Host memory       :16479 MB
 # Swap memory       :10200 MB
 # Total Virtual     :26680 MB
-# Available Virtual :15787 MB
+# Available Virtual :15724 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
 update_compile_order -fileset sources_1
 launch_simulation
-source Panel_tb.tcl
-close_sim
+launch_simulation
+launch_simulation
 launch_simulation
 source Panel_tb.tcl
 close_sim
@@ -37,14 +37,14 @@ launch_simulation
 source Panel_tb.tcl
 close_sim
 launch_simulation
-source Panel_tb.tcl
-close_sim
+synth_design -top Top -part xc7a100tcsg324-1 -lint 
 launch_simulation
 source Panel_tb.tcl
 close_sim
 launch_simulation
 source Panel_tb.tcl
 close_sim
+launch_simulation
 launch_simulation
 source Panel_tb.tcl
 close_sim

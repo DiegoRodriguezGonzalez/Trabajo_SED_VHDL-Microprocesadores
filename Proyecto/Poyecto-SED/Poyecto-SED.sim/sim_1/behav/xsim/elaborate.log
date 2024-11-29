@@ -1,7 +1,7 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot decoder_indicador_tb_behav xil_defaultlib.decoder_indicador_tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Panel_tb_behav xil_defaultlib.Panel_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,6 +11,7 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling architecture behavioral of entity xil_defaultlib.decoder_indicador [decoder_indicador_default]
-Compiling architecture behavioral of entity xil_defaultlib.decoder_indicador_tb
-Built simulation snapshot decoder_indicador_tb_behav
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.Panel [panel_default]
+Compiling architecture testbench of entity xil_defaultlib.panel_tb
+Built simulation snapshot Panel_tb_behav

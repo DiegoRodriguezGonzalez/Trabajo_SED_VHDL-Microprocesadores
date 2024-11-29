@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/decoder_indicador_tb.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'decoder_indicador_tb'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Panel'
