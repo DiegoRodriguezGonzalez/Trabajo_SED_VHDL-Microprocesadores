@@ -1,0 +1,7 @@
+Running: xsim.dir/agrupador_tb_behav/xsimk.exe -simmode gui -wdb agrupador_tb_behav.wdb -simrunnum 0 -socket 54567
+Design successfully loaded
+Design Loading Memory Usage: 9004 KB (Peak: 9004 KB)
+Design Loading CPU Usage: 15 ms
+Simulation completed
+Simulation Memory Usage: 9476 KB (Peak: 9476 KB)
+Simulation CPU Usage: 15 ms
