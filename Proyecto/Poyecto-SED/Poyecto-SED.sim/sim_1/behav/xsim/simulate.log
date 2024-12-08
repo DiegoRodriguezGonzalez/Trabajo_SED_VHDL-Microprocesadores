@@ -1,4 +1,3 @@
 Time resolution is 1 ps
-Failure: [PASSED]: simulation finished.
-Time: 40 ns  Iteration: 0  Process: /agrupador_tb/stim_proc  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/agrupador_tb.vhd
-$finish called at time : 40 ns : File "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/agrupador_tb.vhd" Line 63
+Error: Error: Emergencia no detectada correctamente.
+Time: 120 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/line__86  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd

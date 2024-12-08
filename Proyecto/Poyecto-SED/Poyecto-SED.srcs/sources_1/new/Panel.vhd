@@ -33,9 +33,6 @@ use IEEE.NUMERIC_STD.ALL; -- Para convertir entre std_logic_vector e integer
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
 entity Panel is
     generic (
         Nplantas : positive := 4  -- Número de plantas del ascensor
@@ -56,7 +53,7 @@ begin
     process(BOTON, EMERGENCIA, FLAGPLANTA, PLANTAACTUAL)
     variable Destino : integer range Nplantas-1 downto 0 := 0; -- Planta a la que se desea ir
     variable PlantaActualInt : integer range Nplantas-1 downto 0 := 0; -- Planta actual como número entero
-    variable DestinoEncontrado : boolean := false; -- Indica si se encontró un destino válido
+    
     begin
         PlantaActualInt := to_integer(unsigned(PLANTAACTUAL)); --Convierte la planta actual en número entero
         if EMERGENCIA = '1' then -- Caso de emergencia

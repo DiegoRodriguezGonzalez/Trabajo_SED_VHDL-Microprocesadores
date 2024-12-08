@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "Codificador_Panel_Decoder_tb_behav" "xil_defaultlib.Codificador_Panel_Decoder_tb" -log "elaborate.log" 
