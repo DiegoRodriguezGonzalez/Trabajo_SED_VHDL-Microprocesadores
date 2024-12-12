@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "i2c-lcd.h"
+#include "key.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -45,6 +46,7 @@ I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
+char key;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -97,6 +99,8 @@ int main(void)
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   lcd_init();
+  lcd_enviar("Selecciona:",0,0);
+  HAL_Delay(2000);
 
   /* USER CODE END 2 */
 
@@ -104,13 +108,26 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  lcd_enviar("  Planta 2", 2, 2); //(ms,row,colum)
+	  //lcd_barrido("Planta 2");
+	  /*lcd_enviar("Planta 2", 0, 4); //(ms,row,colum-> mueve a la derecha) Centrado
 	  HAL_Delay(5000);
-	  lcd_clear();
+	  lcd_clear();*/
 
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  key = Keypad_Get_Char();
+	  if (key!=0)
+	  {
+		  lcd_clear();
+		  switch (key){
+		  case '1': lcd_enviar("Planta 1", 0, 4); break;
+		  case '2': lcd_enviar("Planta 2", 0, 4); break;
+		  case '3': lcd_enviar("Planta 3", 0, 4); break;
+		  case '*': lcd_enviar("Emergencia", 0, 3); break;
+		  }
+		  //lcd_send_string(&key);
+	  }
 	  //CS_LOW(); // Activar esclavo
 	  //HAL_SPI_TransmitReceive(&hspi1, txData, rxData, sizeof(txData), HAL_MAX_DELAY);
 	  //CS_HIGH(); // Desactivar esclavo
@@ -250,11 +267,21 @@ static void MX_GPIO_Init(void)
 /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(SS_GPIO_Port, SS_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOB, R4_Pin|R3_Pin|R2_Pin|R1_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : C4_Pin C3_Pin C2_Pin C1_Pin */
+  GPIO_InitStruct.Pin = C4_Pin|C3_Pin|C2_Pin|C1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /*Configure GPIO pin : SS_Pin */
   GPIO_InitStruct.Pin = SS_Pin;
@@ -262,6 +289,13 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(SS_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : R4_Pin R3_Pin R2_Pin R1_Pin */
+  GPIO_InitStruct.Pin = R4_Pin|R3_Pin|R2_Pin|R1_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */

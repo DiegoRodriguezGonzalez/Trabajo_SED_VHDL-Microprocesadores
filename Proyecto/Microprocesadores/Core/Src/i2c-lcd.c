@@ -62,6 +62,29 @@ void lcd_put_cur(int row, int col)
     lcd_send_cmd (col);
 }
 
+void lcd_barrido(char *message)
+{
+	int len = strlen(message);
+	    int i, j;
+
+	    lcd_clear();
+
+	    for(i = -15; i < len; i++){
+	        for(j = 0; j < 15; j++){
+	            if(i + j >= 0 && i + j < len){
+	                lcd_put_cur(0, j);
+	                lcd_send_data(message[i + j]);
+	            }
+	        }
+
+	        HAL_Delay(500);
+	        lcd_clear();
+
+
+    }
+	    HAL_Delay(100);
+}
+
 
 void lcd_init (void)
 {
