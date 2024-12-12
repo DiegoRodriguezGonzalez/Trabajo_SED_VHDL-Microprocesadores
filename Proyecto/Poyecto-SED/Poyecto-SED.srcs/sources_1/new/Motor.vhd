@@ -1,66 +1,49 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 08.12.2024 17:56:30
--- Design Name: 
--- Module Name: Motor - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
 
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
-
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
-entity Motores is
-    Generic(
-           TIPO : integer :=0 -- 0: motor elevación // 1: motor de fuerza (puertas)
+entity Motor is
+    generic
+    (
+        constant speed: integer :=30_000    -- Velocidad del motor
     );
-    Port ( CLK : in STD_LOGIC; -- Señal de reloj
-           RESET_N : in STD_LOGIC; -- Señal de reinicio(emergencia)
-           ACCION : in STD_LOGIC_VECTOR (1 downto 0); -- Acción a tratar
-           MOTOR : out STD_LOGIC_VECTOR (1 downto 0); -- Resultado del bloque Motor
-           TIPO_MOTOR: out integer -- Tipo de motor
-           );
-           
-end Motores;
+    port(
+        CLK : in std_logic; -- Reloj
+        ORDEN_MOTOR : in std_logic_vector(1 downto 0); -- Orden de subir, bajar o quieto
+        PWM1, PWM2 : out std_logic -- Salidas PWM para el motor
+    );
+end Motor;
 
-architecture Behavioral of Motores is
+architecture Behavioral of Motor is
+  signal count: integer range 0 to 50_000 := 0; 
 
 begin
-TIPO_MOTOR <= TIPO; -- Asignación del tipo de motor útil para conocer aguas abajo si es el de puerta o el de la cabina
-proceso_motor: process (CLK, RESET_N)
-  begin
-    if RESET_N = '0' then
-        MOTOR <= "00";  -- Parada motor
-    elsif rising_edge (CLK) then
-        case ACCION is
-            when "10" => 
-            MOTOR <= "10"; -- Giro antihorario (subir)
-            when "01" => 
-            MOTOR <= "01"; -- Giro horario (bajar)
-            when others => 
-            MOTOR <= "00"; -- Parada               
-        end case;
+process(CLK)
+begin
+    if rising_edge(CLK) then
+        -- Se incrementa el contador para ajustar el PWM (ciclo de trabajo de 0,6)
+        count <= count + 1;
+        if (count = 49_999) then
+            count <= 0;
+        end if;
+
+        -- Generar señal PWM 
+        if (count < speed) then
+            case ORDEN_MOTOR is
+                when "10" =>        -- Motor sube
+                    PWM1 <= '1';
+                    PWM2 <= '0';
+                when "01" =>        -- Motor baja
+                    PWM1 <= '0';
+                    PWM2 <= '1';
+                when others =>      -- Ascensor quieto
+                    PWM1 <= '0';
+                    PWM2 <= '0';
+            end case;
+        else                        -- En cualquier otro caso está quieto
+            PWM1 <= '0';
+            PWM2 <= '0';
+        end if;
     end if;
-  end process;
+end process;
 end Behavioral;
+

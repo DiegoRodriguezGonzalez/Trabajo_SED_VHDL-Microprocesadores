@@ -1,105 +1,67 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 08.12.2024 18:33:05
--- Design Name: 
--- Module Name: Motor_TB - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
 
 entity Motor_tb is
-    -- El testbench no necesita puertos
 end Motor_tb;
 
 architecture Behavioral of Motor_tb is
-    -- Componentes y señales internas
-    component Motores
-        Generic(
-            TIPO : integer := 0 -- Motor de elevación
+
+    component Motor is
+        generic (
+            speed : integer := 30_000  -- Velocidad del motor
         );
-        Port (
-            CLK        : in  STD_LOGIC;
-            RESET_N    : in  STD_LOGIC;
-            ACCION     : in  STD_LOGIC_VECTOR(1 downto 0);
-            MOTOR      : out STD_LOGIC_VECTOR(1 downto 0);
-            TIPO_MOTOR : out integer
+        port (
+            CLK : in std_logic;           
+            ORDEN_MOTOR : in std_logic_vector(1 downto 0);
+            PWM1, PWM2 : out std_logic
         );
     end component;
 
-    -- Señales internas para conectar a la UUT (UNIT Under Test)
-    signal CLK        : STD_LOGIC := '0';
-    signal RESET_N    : STD_LOGIC := '1';
-    signal ACCION     : STD_LOGIC_VECTOR(1 downto 0) := "00";
-    signal MOTOR      : STD_LOGIC_VECTOR(1 downto 0);
-    signal TIPO_MOTOR : integer;
+    signal CLK : std_logic := '0';
+    signal ORDEN_MOTOR : std_logic_vector(1 downto 0) := (others => '0');
+    signal PWM1, PWM2 : std_logic;
 
-    -- Parámetro del tipo de motor
-    constant TIPO : integer := 0; 
+    constant CLK_PERIOD : time := 20 ns; -- Periodo del reloj
+
 begin
-    -- Instancia del módulo Motor
-    UUT: Motores
+
+    -- Unit Under Test
+    uut: Motor
         generic map (
-            TIPO => TIPO
+            speed => 30_000  -- Velocidad del motor
         )
         port map (
             CLK => CLK,
-            RESET_N => RESET_N,
-            ACCION => ACCION,
-            MOTOR => MOTOR,
-            TIPO_MOTOR => TIPO_MOTOR
+            ORDEN_MOTOR => ORDEN_MOTOR,
+            PWM1 => PWM1,
+            PWM2 => PWM2
         );
 
-    -- Generador de reloj
-    clock_gen: process
+    -- Generación del reloj
+    CLK <= not CLK after CLK_PERIOD/2;
+
+    -- Generación de señales
+    stim : process
     begin
-     for I in 0 to 10 loop
-            CLK <= '1';
-            wait for 10 ns;
-            CLK <= '0';
-            wait for 10 ns;
-     end loop;
-    end process;
+        -- Motor quieto
+        ORDEN_MOTOR <= "00";
+        wait for 100 ns;
 
-    -- Proceso de prueba
-    stim: process
-    begin
-        -- Emergencia activa
-        RESET_N <= '0';
-        wait for 30 ns;
+        -- Motor sube
+        ORDEN_MOTOR <= "10";
+        wait for 100 ns;
 
-        -- Salida de reinicio
-        RESET_N <= '1';
-        wait for 5 ns;
+        -- Motor baja
+        ORDEN_MOTOR <= "01";
+        wait for 100 ns;
 
-        -- Probar acción: "10" (subir)
-        ACCION <= "10";
-        wait for 10 ns;
+        -- Motor quieto
+        ORDEN_MOTOR <= "00";
+        wait for 100 ns;
 
-        -- Probar acción: "01" (bajar)
-        ACCION <= "01";
-        wait for 10 ns;
-
-        -- Probar acción: "00" (parada)
-        ACCION <= "00";
-        wait for 10 ns;
-
-        -- Probar acción no esperada (por ejemplo, "11")
-        ACCION <= "11";
-        wait for 40 ns;
-
+        assert false
+        report "[PASSED]: simulation finished."
+        severity failure;
     end process;
 end Behavioral;

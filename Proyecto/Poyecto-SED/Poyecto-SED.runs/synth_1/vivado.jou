@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Thu Dec 12 16:53:37 2024
+# Process ID: 1588
+# Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1
+# Command line: vivado.exe -log Motor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Motor.tcl
+# Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1/Motor.vds
+# Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1\vivado.jou
+# Running On        :Diego
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :22631
+# Processor Detail  :AMD Ryzen 7 7730U with Radeon Graphics         
+# CPU Frequency     :1996 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16474 MB
+# Swap memory       :1874 MB
+# Total Virtual     :18349 MB
+# Available Virtual :6496 MB
+#-----------------------------------------------------------
+source Motor.tcl -notrace

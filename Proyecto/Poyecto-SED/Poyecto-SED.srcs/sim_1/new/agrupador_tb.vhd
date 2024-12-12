@@ -58,6 +58,7 @@ begin
         PLANTA0 <= '0'; PLANTA1 <= '1'; PLANTA2 <= '0'; PLANTA3 <= '1';
         wait for 10 ns;
         -- Finalización simulación
+        wait for 600 ns;
         assert false
         report "[PASSED]: simulation finished."
         severity failure;

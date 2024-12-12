@@ -11,6 +11,7 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling architecture behavioral of entity xil_defaultlib.Motores [motores_default]
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.Motor [motor_default]
 Compiling architecture behavioral of entity xil_defaultlib.motor_tb
 Built simulation snapshot Motor_tb_behav
