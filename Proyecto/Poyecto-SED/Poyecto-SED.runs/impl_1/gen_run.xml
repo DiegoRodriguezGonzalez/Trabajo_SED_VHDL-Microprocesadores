@@ -4,67 +4,60 @@
   <File Type="PA-TCL" Name="Motor.tcl"/>
   <File Type="ROUTE-PWR-SUM" Name="Motor_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="Motor_reports.tcl"/>
-  <File Type="OPT-RQA-PB" Name="Motor_rqa_opted.pb"/>
+  <File Type="BITSTR-MSK" Name="Motor.msk"/>
+  <File Type="ROUTE-CLK" Name="Motor_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="Motor.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Motor_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="Motor.bit"/>
+  <File Type="BG-DRC" Name="Motor.drc"/>
+  <File Type="BG-BGN" Name="Motor.bgn"/>
+  <File Type="BG-BIN" Name="Motor.bin"/>
+  <File Type="BITSTR-RBT" Name="Motor.rbt"/>
+  <File Type="BITSTR-NKY" Name="Motor.nky"/>
+  <File Type="BITSTR-BMM" Name="Motor_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="Motor.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="Motor_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="Motor_timing_summary_init.rpt"/>
-  <File Type="OPT-TIMING" Name="Motor_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="Motor_opt.dcp"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="Motor_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="Motor.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="Motor.ltx"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="OPT-DRC" Name="Motor_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="Motor.hwdef"/>
-  <File Type="PWROPT-DCP" Name="Motor_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="Motor_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="Motor_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="Motor_placed.dcp"/>
   <File Type="PLACE-IO" Name="Motor_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="Motor_clock_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL" Name="Motor_utilization_placed.rpt"/>
   <File Type="PLACE-UTIL-PB" Name="Motor_utilization_placed.pb"/>
   <File Type="PLACE-CTRL" Name="Motor_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="Motor_incremental_reuse_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="Motor_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="Motor.bin"/>
-  <File Type="PLACE-TIMING" Name="Motor_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="Motor_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="Motor_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="Motor_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="Motor.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="Motor_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="Motor_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="Motor_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="Motor.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="Motor_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="Motor_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="Motor_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="Motor_routed_bb.dcp"/>
   <File Type="ROUTE-DRC" Name="Motor_drc_routed.rpt"/>
   <File Type="ROUTE-DRC-PB" Name="Motor_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="Motor_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="Motor_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Motor_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Motor_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="Motor_rqs_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="Motor_power_routed.rpx"/>
   <File Type="ROUTE-STATUS" Name="Motor_route_status.rpt"/>
   <File Type="ROUTE-STATUS-PB" Name="Motor_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="Motor_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="Motor_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="Motor_routed_bb.dcp"/>
   <File Type="ROUTE-TIMINGSUMMARY" Name="Motor_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="Motor_timing_summary_routed.pb"/>
   <File Type="ROUTE-TIMING-RPX" Name="Motor_timing_summary_routed.rpx"/>
   <File Type="ROUTE-SIMILARITY" Name="Motor_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="Motor_clock_utilization_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW" Name="Motor_bus_skew_routed.rpt"/>
   <File Type="ROUTE-BUS-SKEW-PB" Name="Motor_bus_skew_routed.pb"/>
   <File Type="ROUTE-BUS-SKEW-RPX" Name="Motor_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="Motor_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="Motor_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="Motor_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="Motor_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="Motor_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="Motor_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Motor_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Top_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Top_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Top_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Top_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="Motor.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Top_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Top_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="Motor.nky"/>
-  <File Type="BITSTR-BMM" Name="Motor_bd.bmm"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Motor_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Motor_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Motor_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Motor_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Motor_bus_skew_postroute_physopted.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Motor_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="Motor_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Motor_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="Motor.pdi"/>
   <File Type="BOOT-PDI-FILE" Name="Motor_boot.pdi"/>
   <File Type="PL-PDI-FILE" Name="Motor_pld.pdi"/>
@@ -73,13 +66,6 @@
   <File Type="RNPI_FILE" Name="Motor.rnpi"/>
   <File Type="NPI_FILE" Name="Motor.npi"/>
   <File Type="RBD_FILE" Name="Motor.rbd"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="Motor.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="Motor.sysdef"/>
-  <File Type="BG-BGN" Name="Motor.bgn"/>
-  <File Type="BG-DRC" Name="Motor.drc"/>
-  <File Type="RDI-RDI" Name="Motor.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="ROUTE-RQS" Name="Motor_routed.rqs"/>
   <File Type="POSTROUTE-PHYSOPT-RQS" Name="Motor_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
@@ -185,5 +171,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>
