@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -31,89 +32,121 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
 
+-- Declaración de la entidad del Testbench (sin puertos, ya que es solo para simulación)
 entity Panel_tb is
--- No hay puertos en el testbench
-end Panel_tb;
+end entity Panel_tb;
 
 architecture TestBench of Panel_tb is
-    -- Parámetros del módulo
-    constant Nplantas : positive := 4; -- Número de plantas
-    
-    -- Señales para conectar al módulo
-    signal BOTON : std_logic_vector(Nplantas-1 downto 0);
-    signal EMERGENCIA : std_logic;
-    signal FLAGPLANTA : std_logic_vector(Nplantas-1 downto 0);
-    signal PLANTAACTUAL : std_logic_vector(Nplantas-1 downto 0);
-    signal MOVIMIENTOMOTOR : std_logic_vector(1 downto 0);
-    signal SALIDAEMERGENCIA : std_logic;
 
-    -- Instancia del módulo bajo prueba (Unit Under Test, UUT)
-    component Panel is
+    constant TIEMPO_DESCARGA : positive := 15;
+    -- Componentes del panel a probar
+    component Panel
         generic (
-            Nplantas : positive := 4
+            Nplantas : positive := 4;  -- Número de plantas
+            TIEMPO_ABRIR : positive := 3;  -- Nuevo tiempo de apertura en ciclos (1 us)
+            TIEMPO_CERRAR : positive := 3;  -- Nuevo tiempo de cierre en ciclos (1 us)
+            TIEMPO_ABIERTO : positive := 3  -- Nuevo tiempo de puertas abiertas (1 us)
         );
         port (
-            BOTON : in std_logic_vector(Nplantas-1 downto 0);
+            DESTINO : in std_logic_vector(3 downto 0); -- Ajustado a 4 bits para 4 plantas
             EMERGENCIA : in std_logic;
-            FLAGPLANTA : in std_logic_vector(Nplantas-1 downto 0);
-            PLANTAACTUAL : std_logic_vector(Nplantas-1 downto 0);
+            PLANTAACTUAL : in std_logic_vector(3 downto 0); -- Ajustado a 4 bits para 4 plantas
+            CLK : in std_logic;
             MOVIMIENTOMOTOR : out std_logic_vector(1 downto 0);
-            SALIDAEMERGENCIA : out std_logic
+            MOVIMIENTOPUERTA : out std_logic_vector(1 downto 0);
+            SALIDAEMERGENCIA : out std_logic;
+            ESTADO_ACTUAL : out std_logic_vector(3 downto 0)
         );
     end component;
 
+    -- Señales para la instanciación del módulo Panel
+    signal DESTINO : std_logic_vector(3 downto 0) := "0000"; -- Planta destino inicial
+    signal EMERGENCIA : std_logic := '0'; -- Emergencia desactivada
+    signal PLANTAACTUAL : std_logic_vector(3 downto 0) := "0000"; -- Planta actual
+    signal CLK : std_logic := '0'; -- Reloj inicializado a 0
+    signal MOVIMIENTOMOTOR : std_logic_vector(1 downto 0);
+    signal MOVIMIENTOPUERTA : std_logic_vector(1 downto 0);
+    signal SALIDAEMERGENCIA : std_logic;
+    signal ESTADO_ACTUAL : std_logic_vector(3 downto 0);
+    signal contador_descarga: positive  := 0;
+
 begin
-    -- Instanciación del módulo
+
+    -- Instanciación del módulo Panel
     uut: Panel
-        generic map (
-            Nplantas => Nplantas
-        )
         port map (
-            BOTON => BOTON,
+            DESTINO => DESTINO,
             EMERGENCIA => EMERGENCIA,
-            FLAGPLANTA => FLAGPLANTA,
             PLANTAACTUAL => PLANTAACTUAL,
+            CLK => CLK,
             MOVIMIENTOMOTOR => MOVIMIENTOMOTOR,
-            SALIDAEMERGENCIA => SALIDAEMERGENCIA
+            MOVIMIENTOPUERTA => MOVIMIENTOPUERTA,
+            SALIDAEMERGENCIA => SALIDAEMERGENCIA,
+            ESTADO_ACTUAL => ESTADO_ACTUAL
         );
 
-    -- Proceso de estimulación
-    stim_proc: process
+    -- Generación del reloj (CLK) con ciclo de 1 ns
+    clk_process : process
     begin
-        -- Caso 1: Sin emergencia, planta actual en 0, destino a 2
-        PLANTAACTUAL <= "0001" ;
-        EMERGENCIA <= '0';
-        BOTON <= "0100"; -- Solicitud de planta 2
-        FLAGPLANTA <= "0000"; -- Ninguna planta llena
-        wait for 10 ns;
+        CLK <= '0';
+        wait for 1 ns;  -- Ajuste a 1 ns para simular en ciclos de 1 ns
+        CLK <= '1';
+        wait for 1 ns;
+    end process;
 
-        -- Caso 2: Solicitar planta 3, pero está llena
-        BOTON <= "1000"; -- Solicitud de planta 3
-        FLAGPLANTA <= "1000"; -- Planta 3 está llena
-        wait for 10 ns;
-
-        -- Caso 3: Emergencia activada
-        EMERGENCIA <= '1';
-        BOTON <= "0100"; -- Solicitud de planta 2 (sin efecto por emergencia)
-        wait for 10 ns;
-
-        -- Caso 4: Sin emergencia, planta actual en 2, destino a 0
-        EMERGENCIA <= '0';
+    -- Estímulos para el testbench
+    stimulus_process : process
+    begin
+        -- Caso 1: Prueba de funcionamiento normal (ascensor sube)
+        PLANTAACTUAL <= "0001";  -- Planta actual: Planta 0
+        DESTINO <= "0010";  -- Destino: Planta 1
+        EMERGENCIA <= '0';  -- No hay emergencia
+        wait for 5 ns;
+        PLANTAACTUAL <= "0010";  --Llega al destino
+        wait for 5 ns;
+        for i in 0 to 20 loop
+        if rising_edge(CLK) then
+                if contador_descarga < TIEMPO_DESCARGA then
+                    contador_descarga <= contador_descarga + 1;
+                elsif contador_descarga = TIEMPO_DESCARGA then
+                    contador_descarga <= 0;
+                end if;
+              end if;
+            end loop;
+            
+        -- Caso 2: El ascensor baja
+        PLANTAACTUAL <= "0100";  -- Planta actual: Planta 2
+        DESTINO <= "0001";  -- Destino: Planta 1
+        EMERGENCIA <= '0';  -- No hay emergencia
+        wait for 5 ns;
+        PLANTAACTUAL <= "0010";
+        wait for 5 ns;
         PLANTAACTUAL <= "0100";
-        BOTON <= "0001"; -- Solicitud de planta 0
-        FLAGPLANTA <= "0000"; -- Ninguna planta llena
-        wait for 10 ns;
+        
+        wait for 50 ns;
+        
+        -- Caso 3: El ascensor llega a la planta de destino y las puertas se abren
+        PLANTAACTUAL <= "0001";  -- Planta actual: Planta 1
+        DESTINO <= "0001";  -- Destino: Planta 1 (ya se ha llegado)
+        EMERGENCIA <= '0';  -- No hay emergencia
+        wait for 50 ns;
 
-        -- Caso 5: Planta solicitada es la misma en la que está
-        PLANTAACTUAL <= "0001";
-        BOTON <= "0001"; -- Solicitud de planta 0
-        wait for 10 ns;
+        -- Caso 4: Emergencia activada
+        EMERGENCIA <= '1';  -- Activamos la emergencia
+        wait for 50 ns;  -- Esperar un tiempo para observar el comportamiento
 
-        -- Finalizar simulación
+        -- Caso 5: Emergencia desactivada y regreso al estado inicial
+        EMERGENCIA <= '0';  -- Desactivamos la emergencia
+        wait for 50 ns;  -- Esperar un tiempo para observar el comportamiento
+
+        -- Caso 6: El ascensor está en espera sin movimiento
+        PLANTAACTUAL <= "0000";  -- Planta actual: Planta 0
+        DESTINO <= "0000";  -- No hay destino (ascensor espera)
+        wait for 50 ns;  -- Esperar un tiempo para observar el comportamiento
+
+        -- Fin de la simulación
         wait;
     end process;
 
-end TestBench;
+end architecture TestBench;

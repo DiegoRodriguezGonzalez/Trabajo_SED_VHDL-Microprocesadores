@@ -3,28 +3,29 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Dec 12 19:51:41 2024
-# Process ID: 17788
-# Current directory: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent21140 C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
-# Log file: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
-# Journal file: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
-# Running On        :Usuario
+# Start of session at: Thu Dec 12 20:53:25 2024
+# Process ID: 19760
+# Current directory: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent18884 C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
+# Log file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
+# Journal file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
+# Running On        :LAPTOP-260PTFG4
 # Platform          :Windows Server 2016 or Windows 10
 # Operating System  :19045
-# Processor Detail  :Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
-# CPU Frequency     :2394 MHz
-# CPU Physical cores:2
-# CPU Logical cores :4
-# Host memory       :17098 MB
-# Swap memory       :2550 MB
-# Total Virtual     :19648 MB
-# Available Virtual :5995 MB
+# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics         
+# CPU Frequency     :3194 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16479 MB
+# Swap memory       :10200 MB
+# Total Virtual     :26680 MB
+# Available Virtual :14741 MB
 #-----------------------------------------------------------
-start_gui
-open_project C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
+start_guioopen_project C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xprWWARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-25:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/arty-s7-25/E.0/board.xml as part xc7s25csga324-1 specified in board_part file is either invalid or not availableIINFO: [Project 1-313] Project file moved from 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED' since last save.
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-s7-50:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/arty-s7-50/B.0/board.xml as part xc7s50csga324-1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-10:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/arty-z7-10/A.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part digilentinc.com:arty-z7-20:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/arty-z7-20/A.0/board.xml as part xc7z020clg400-1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cmod-s7-25:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/cmod-s7-25/B.0/board.xml as part xc7s25csga225-1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-07s:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/cora-z7-07s/B.0/board.xml as part xc7z007sclg400-1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part digilentinc.com:cora-z7-10:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/cora-z7-10/B.0/board.xml as part xc7z010clg400-1 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part digilentinc.com:eclypse-z7:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/boards/board_files/eclypse-z7/A.0/board.xml as part xc7z020clg484-1 specified in board_part file is either invalid or not available
@@ -59,6 +60,8 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:kr260_som:part0:1.1 avai
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260_som/1.2/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.3 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260_som/1.3/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:kv260_som:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/kv260_som/1.4/board.xml as part xck26-sfvc784-2lv-c specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.0/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:sp701:part0:1.1 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/sp701/1.1/board.xml as part xc7s100fgga676-2 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc707:part0:1.4 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc707/1.4/board.xml as part xc7vx485tffg1761-2 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vc709:part0:1.8 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vc709/1.8/board.xml as part xc7vx690tffg1761-2 specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:vck190:part0:2.2 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vck190/production/2.2/board.xml as part xcvc1902-vsva2197-2mp-e-s specified in board_part file is either invalid or not available
@@ -118,71 +121,66 @@ WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1275:part0:1.0 availa
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu1285:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu1285/1.0/board.xml as part xczu39dr-ffvf1760-2-i specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208/production/2.0/board.xml as part xczu48dr-fsvg1517-2-e specified in board_part file is either invalid or not available
 WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216/production/2.0/board.xml as part xczu49dr-ffvf1760-2-e specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
-WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2024.1/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
-INFO: [Project 1-313] Project file moved from 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED' since last save.
-INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.gen/sources_1'.
-Scanning sources...
-Finished scanning sources
+INFO: [Common 17-14] Message 'Board 49-26' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.gen/sources_1'.
+SScanning sources...Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:48 ; elapsed = 00:00:23 . Memory (MB): peak = 1551.508 ; gain = 514.195
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repositexit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 20:54:55 2024...
+0:59 ; elapsed = 00:00:31 . Memory (MB): peak = 1597.777 ; gain = 518.887
 update_compile_order -fileset sources_1
-close [ open C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd w ]
-add_files C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-update_compile_order -fileset sources_1
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-close [ open C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd w ]
-add_files -fileset sim_1 C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
-update_compile_order -fileset sim_1
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\GestorPrioridades.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-ERROR: [Common 17-180] Spawn failed: No error
-set_property top GestorPrioridades_TB [get_filesets sim_1]
+set_property top Panel_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\GestorPrioridades.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\Panel.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
 ERROR: [Common 17-180] Spawn failed: No error
 update_compile_order -fileset sim_1
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\GestorPrioridades.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
-WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\Julio\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\GestorPrioridades_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\Panel.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\Panel.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\Panel.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\Panel_tb.vhd:]
 ERROR: [Common 17-180] Spawn failed: No error
 launch_simulation
 Command: launch_simulation 
-INFO: [Vivado 12-12493] Simulation top is 'GestorPrioridades_TB'
+INFO: [Vivado 12-12493] Simulation top is 'Panel_tb'
 WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
-INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
 INFO: [SIM-utils-51] Simulation object is 'sim_1'
 INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
-INFO: [SIM-utils-54] Inspecting design source files for 'GestorPrioridades_TB' in fileset 'sim_1'...
+INFO: [SIM-utils-54] Inspecting design source files for 'Panel_tb' in fileset 'sim_1'...
 INFO: [USF-XSim-97] Finding global include files...
 INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
-"xvhdl --incr --relax -prj GestorPrioridades_TB_vhdl.prj"
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'GestorPrioridades'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'GestorPrioridades_TB'
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj Panel_tb_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Panel'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Panel_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'Panel_tb'
 INFO: [USF-XSim-69] 'compile' step finished in '4' seconds
 INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
-"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot GestorPrioridades_TB_behav xil_defaultlib.GestorPrioridades_TB -log elaborate.log"
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Panel_tb_behav xil_defaultlib.Panel_tb -log elaborate.log"
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot GestorPrioridades_TB_behav xil_defaultlib.GestorPrioridades_TB -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Panel_tb_behav xil_defaultlib.Panel_tb -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-1537] value 0 is out of target constraint range 1 to 2147483647 [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Panel_tb.vhd:72]
+WARNING: [VRFC 10-1537] value 0 is out of target constraint range 1 to 2147483647 [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Panel_tb.vhd:113]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -191,17 +189,18 @@ Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
 Compiling package ieee.numeric_std
-Compiling architecture behavioral of entity xil_defaultlib.GestorPrioridades [gestorprioridades_default]
-Compiling architecture behavioral of entity xil_defaultlib.gestorprioridades_tb
-Built simulation snapshot GestorPrioridades_TB_behav
-INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+Compiling architecture behavioral of entity xil_defaultlib.Panel [panel_default]
+Compiling architecture testbench of entity xil_defaultlib.panel_tb
+Built simulation snapshot Panel_tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1636.129 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
-INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
-   with args "GestorPrioridades_TB_behav -key {Behavioral:sim_1:Functional:GestorPrioridades_TB} -tclbatch {GestorPrioridades_TB.tcl} -log {simulate.log}"
+   with args "Panel_tb_behav -key {Behavioral:sim_1:Functional:Panel_tb} -tclbatch {Panel_tb.tcl} -log {simulate.log}"
 INFO: [USF-XSim-8] Loading simulator feature
 Time resolution is 1 ps
-source GestorPrioridades_TB.tcl
+source Panel_tb.tcl
 # set curr_wave [current_wave_config]
 # if { [string length $curr_wave] == 0 } {
 #   if { [llength [get_objects]] > 0} {
@@ -212,83 +211,10 @@ source GestorPrioridades_TB.tcl
 #   }
 # }
 # run 1000ns
-Note: Se resetean señales y variables
-Time: 0 ps  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 5 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 10 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 15 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 120 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 125 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 130 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 135 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 240 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 245 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 250 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 255 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 360 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 365 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 370 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 375 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 480 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 485 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 490 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 495 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 600 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 605 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 610 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 615 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 720 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 725 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 730 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 735 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 840 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 845 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 850 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 855 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 960 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 965 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 970 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-Note: Se resetean señales y variables
-Time: 975 ns  Iteration: 1  Process: /GestorPrioridades_TB/UUT/Gestor  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd
-xsim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1596.102 ; gain = 6.129
-INFO: [USF-XSim-96] XSim completed. Design snapshot 'GestorPrioridades_TB_behav' loaded.
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'Panel_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 1596.102 ; gain = 6.129
+launch_simulation: Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1702.422 ; gain = 66.293
 close_sim
 INFO: [Simtcl 6-16] Simulation closed
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 19:56:32 2024...
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 20:59:31 2024...
