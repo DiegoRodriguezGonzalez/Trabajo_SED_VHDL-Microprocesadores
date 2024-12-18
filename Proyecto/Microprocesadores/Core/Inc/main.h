@@ -75,6 +75,8 @@ void Error_Handler(void);
 #define R2_GPIO_Port GPIOB
 #define R1_Pin GPIO_PIN_13
 #define R1_GPIO_Port GPIOB
+#define Trigger_Pin GPIO_PIN_15
+#define Trigger_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
