@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL; -- Para convertir entre std_logic_vector e integer
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity Panel is
+entity FSM is
     generic (
         Nplantas : positive := 4;  -- Número de plantas del ascensor
       	constant TIEMPO_ABRIR : integer := 3;
@@ -51,9 +51,9 @@ entity Panel is
         SALIDAEMERGENCIA : out std_logic;  -- Indicador de emergencia
         ESTADO_ACTUAL : out std_logic_vector(3 downto 0)
     );
-end Panel;
+end FSM;
 
-architecture Behavioral of Panel is
+architecture Behavioral of FSM is
 
 type STATE_T is (S0_ESPERA, S1_SUBIENDO, S2_BAJANDO, S3_PUERTA_ABRIENDO, S4_PUERTA_ABIERTA, S5_PUERTA_CERRANDO, S6_EMERGENCIA); --Estado
 signal cur_state :  STATE_T := S0_ESPERA;
@@ -145,20 +145,20 @@ begin
               ESTADO_ACTUAL <= "0000"; 
         
       	   when S1_SUBIENDO =>
-    		  MOVIMIENTOMOTOR <= "01";
+    		  MOVIMIENTOMOTOR <= "10";
               MOVIMIENTOPUERTA <= "00";
               SALIDAEMERGENCIA <= '0';
               ESTADO_ACTUAL <= "0001"; 
             
            when S2_BAJANDO =>
-    		 MOVIMIENTOMOTOR <= "10";
+    		 MOVIMIENTOMOTOR <= "01";
              MOVIMIENTOPUERTA <= "00";
              SALIDAEMERGENCIA <= '0';
              ESTADO_ACTUAL <= "0010"; 
             
            when S3_PUERTA_ABRIENDO =>
     		 MOVIMIENTOMOTOR <= "00";
-             MOVIMIENTOPUERTA <= "01";
+             MOVIMIENTOPUERTA <= "10";
              SALIDAEMERGENCIA <= '0';
              ESTADO_ACTUAL <= "0011"; 
             
@@ -170,7 +170,7 @@ begin
             
            when S5_PUERTA_CERRANDO =>
     		 MOVIMIENTOMOTOR <= "00";
-             MOVIMIENTOPUERTA <= "10";
+             MOVIMIENTOPUERTA <= "01";
              SALIDAEMERGENCIA <= '0';
              ESTADO_ACTUAL <= "0101"; 
             

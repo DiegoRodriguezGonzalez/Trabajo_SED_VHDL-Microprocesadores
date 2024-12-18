@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Dec 12 16:53:37 2024
-# Process ID: 1588
-# Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1
-# Command line: vivado.exe -log Motor.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Motor.tcl
-# Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1/Motor.vds
-# Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1\vivado.jou
-# Running On        :Diego
+# Start of session at: Wed Dec 18 10:05:26 2024
+# Process ID: 14296
+# Current directory: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1
+# Command line: vivado.exe -log decoder_indicador.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder_indicador.tcl
+# Log file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1/decoder_indicador.vds
+# Journal file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1\vivado.jou
+# Running On        :LAPTOP-260PTFG4
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :22631
-# Processor Detail  :AMD Ryzen 7 7730U with Radeon Graphics         
-# CPU Frequency     :1996 MHz
+# Operating System  :19045
+# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics         
+# CPU Frequency     :3194 MHz
 # CPU Physical cores:8
 # CPU Logical cores :16
-# Host memory       :16474 MB
-# Swap memory       :1874 MB
-# Total Virtual     :18349 MB
-# Available Virtual :6496 MB
+# Host memory       :16479 MB
+# Swap memory       :10200 MB
+# Total Virtual     :26680 MB
+# Available Virtual :13051 MB
 #-----------------------------------------------------------
-source Motor.tcl -notrace
+source decoder_indicador.tcl -notrace

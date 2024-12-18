@@ -1,79 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1734018809">
-  <File Type="ROUTE-PWR" Name="Motor_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="Motor.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="Motor_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="Motor_reports.tcl"/>
-  <File Type="BITSTR-MSK" Name="Motor.msk"/>
-  <File Type="ROUTE-CLK" Name="Motor_clock_utilization_routed.rpt"/>
-  <File Type="RDI-RDI" Name="Motor.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Motor_bus_skew_postroute_physopted.pb"/>
-  <File Type="BG-BIT" Name="Motor.bit"/>
-  <File Type="BG-DRC" Name="Motor.drc"/>
-  <File Type="BG-BGN" Name="Motor.bgn"/>
-  <File Type="BG-BIN" Name="Motor.bin"/>
-  <File Type="BITSTR-RBT" Name="Motor.rbt"/>
-  <File Type="BITSTR-NKY" Name="Motor.nky"/>
-  <File Type="BITSTR-BMM" Name="Motor_bd.bmm"/>
-  <File Type="BITSTR-MMI" Name="Motor.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="Motor_methodology_drc_routed.rpt"/>
-  <File Type="BITSTR-SYSDEF" Name="Motor.sysdef"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="Motor_methodology_drc_routed.pb"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="Motor.ltx"/>
-  <File Type="BOOT-PDI-FILE" Name="Motor_boot.pdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="NPI_FILE" Name="Motor.npi"/>
-  <File Type="OPT-DRC" Name="Motor_drc_opted.rpt"/>
-  <File Type="RBD_FILE" Name="Motor.rbd"/>
-  <File Type="OPT-HWDEF" Name="Motor.hwdef"/>
-  <File Type="PLACE-IO" Name="Motor_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="Motor_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="Motor_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="Motor_control_sets_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="Motor_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="Motor_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="Motor_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="Motor_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="Motor_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="Motor_route_status.pb"/>
-  <File Type="ROUTE-DCP" Name="Motor_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="Motor_routed_error.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="Motor_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="Motor_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="Motor_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="Motor_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="Motor_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="Motor_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="Motor_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="Motor_bus_skew_routed.rpx"/>
-  <File Type="OPT-DCP" Name="Motor_opt.dcp"/>
-  <File Type="PLACE-DCP" Name="Motor_placed.dcp"/>
-  <File Type="PWROPT-DCP" Name="Motor_pwropt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="Motor_postplace_pwropt.dcp"/>
-  <File Type="PHYSOPT-DCP" Name="Motor_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="Motor_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="Motor_postroute_physopt_bb.dcp"/>
+<GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1734512723">
+  <File Type="ROUTE-PWR" Name="decoder_indicador_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="decoder_indicador.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="decoder_indicador_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="decoder_indicador_reports.tcl"/>
+  <File Type="OPT-RQA-PB" Name="decoder_indicador_rqa_opted.pb"/>
+  <File Type="BITSTR-MMI" Name="decoder_indicador.mmi"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="decoder_indicador_methodology_drc_opted.rpt"/>
+  <File Type="INIT-TIMING" Name="decoder_indicador_timing_summary_init.rpt"/>
+  <File Type="OPT-TIMING" Name="decoder_indicador_timing_summary_opted.rpt"/>
+  <File Type="OPT-DCP" Name="decoder_indicador_opt.dcp"/>
+  <File Type="OPT-DRC" Name="decoder_indicador_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="decoder_indicador.hwdef"/>
+  <File Type="PWROPT-DCP" Name="decoder_indicador_pwropt.dcp"/>
+  <File Type="PWROPT-DRC" Name="decoder_indicador_drc_pwropted.rpt"/>
+  <File Type="PWROPT-TIMING" Name="decoder_indicador_timing_summary_pwropted.rpt"/>
+  <File Type="PLACE-DCP" Name="decoder_indicador_placed.dcp"/>
+  <File Type="PLACE-IO" Name="decoder_indicador_io_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="decoder_indicador_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="decoder_indicador_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="decoder_indicador_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="decoder_indicador_control_sets_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="decoder_indicador_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="decoder_indicador_incremental_reuse_pre_placed.rpt"/>
+  <File Type="BG-BIN" Name="decoder_indicador.bin"/>
+  <File Type="PLACE-TIMING" Name="decoder_indicador_timing_summary_placed.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="decoder_indicador_power_routed.rpx"/>
+  <File Type="PLACE-RQA-PB" Name="decoder_indicador_rqa_placed.pb"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="decoder_indicador_postplace_pwropt.dcp"/>
+  <File Type="BITSTR-MSK" Name="decoder_indicador.msk"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="decoder_indicador_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="decoder_indicador_physopt.dcp"/>
+  <File Type="PHYSOPT-DRC" Name="decoder_indicador_drc_physopted.rpt"/>
+  <File Type="BITSTR-RBT" Name="decoder_indicador.rbt"/>
+  <File Type="PHYSOPT-TIMING" Name="decoder_indicador_timing_summary_physopted.rpt"/>
+  <File Type="ROUTE-ERROR-DCP" Name="decoder_indicador_routed_error.dcp"/>
+  <File Type="ROUTE-DCP" Name="decoder_indicador_routed.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="decoder_indicador_routed_bb.dcp"/>
+  <File Type="ROUTE-DRC" Name="decoder_indicador_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="decoder_indicador_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="decoder_indicador_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="decoder_indicador_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="decoder_indicador_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="decoder_indicador_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-RQS-PB" Name="decoder_indicador_rqs_routed.pb"/>
+  <File Type="ROUTE-STATUS" Name="decoder_indicador_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="decoder_indicador_route_status.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="decoder_indicador_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="decoder_indicador_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="decoder_indicador_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="decoder_indicador_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="decoder_indicador_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="decoder_indicador_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="decoder_indicador_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="decoder_indicador_bus_skew_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="decoder_indicador_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="decoder_indicador_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING" Name="Motor_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="Motor_timing_summary_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="Motor_timing_summary_postroute_physopted.rpx"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="Motor_bus_skew_postroute_physopted.rpt"/>
+  <File Type="BG-BIT" Name="decoder_indicador.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="Motor_bus_skew_postroute_physopted.pb"/>
   <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="Motor_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-DRC-RPX" Name="Motor_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="Motor_methodology_drc_routed.rpx"/>
-  <File Type="PDI-FILE" Name="Motor.pdi"/>
-  <File Type="PL-PDI-FILE" Name="Motor_pld.pdi"/>
-  <File Type="RCFI_FILE" Name="Motor.rcfi"/>
-  <File Type="CFI_FILE" Name="Motor.cfi"/>
-  <File Type="RNPI_FILE" Name="Motor.rnpi"/>
-  <File Type="ROUTE-RQS" Name="Motor_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="Motor_postroute_physopted.rqs"/>
+  <File Type="BITSTR-NKY" Name="decoder_indicador.nky"/>
+  <File Type="BITSTR-BMM" Name="decoder_indicador_bd.bmm"/>
+  <File Type="PDI-FILE" Name="decoder_indicador.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="decoder_indicador_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="decoder_indicador_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="decoder_indicador.rcfi"/>
+  <File Type="CFI_FILE" Name="decoder_indicador.cfi"/>
+  <File Type="RNPI_FILE" Name="decoder_indicador.rnpi"/>
+  <File Type="NPI_FILE" Name="decoder_indicador.npi"/>
+  <File Type="RBD_FILE" Name="decoder_indicador.rbd"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="decoder_indicador.ltx"/>
+  <File Type="BITSTR-SYSDEF" Name="decoder_indicador.sysdef"/>
+  <File Type="BG-BGN" Name="decoder_indicador.bgn"/>
+  <File Type="BG-DRC" Name="decoder_indicador.drc"/>
+  <File Type="RDI-RDI" Name="decoder_indicador.vdi"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="ROUTE-RQS" Name="decoder_indicador_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="decoder_indicador_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/decoder_indicador.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/Motor.vhd">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -86,13 +107,6 @@
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/COUNTER.vhd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/decoder_indicador.vhd">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -127,9 +141,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/GestorPrioridades.vhd">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="Motor"/>
+      <Option Name="TopModule" Val="decoder_indicador"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
@@ -143,6 +164,7 @@
       </FileInfo>
     </File>
     <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc"/>
       <Option Name="ConstrsType" Val="XDC"/>
     </Config>
   </FileSet>
@@ -161,7 +183,9 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024"/>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2024">
+      <Desc>Default settings for Implementation.</Desc>
+    </StratHandle>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -170,7 +194,8 @@
     <Step Id="phys_opt_design"/>
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
-    <Step Id="write_bitstream"/>
-    <Step Id="write_device_image"/>
+    <Step Id="write_bitstream">
+      <Option Id="BinFile">1</Option>
+    </Step>
   </Strategy>
 </GenRun>

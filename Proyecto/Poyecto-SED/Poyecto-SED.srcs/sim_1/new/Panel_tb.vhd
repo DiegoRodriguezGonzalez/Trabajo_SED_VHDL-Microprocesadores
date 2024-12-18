@@ -34,10 +34,10 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 -- Declaración de la entidad del Testbench (sin puertos, ya que es solo para simulación)
-entity Panel_tb is
-end entity Panel_tb;
+entity FSM_tb is
+end entity FSM_tb;
 
-architecture TestBench of Panel_tb is
+architecture TestBench of FSM_tb is
 
     constant TIEMPO_DESCARGA : positive := 15;
     -- Componentes del panel a probar

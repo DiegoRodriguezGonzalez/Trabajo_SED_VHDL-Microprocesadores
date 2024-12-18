@@ -21,103 +21,85 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Entidad del testbench
 entity Codificador_Panel_Decoder_tb is
--- No tiene puertos porque es un testbench
 end Codificador_Panel_Decoder_tb;
 
 architecture TestBench of Codificador_Panel_Decoder_tb is
-    -- Declaración de señales para conectar con el DUT (Device Under Test)
-    constant Nplantas : positive := 4;
-    constant Plantas_Bin : positive := 2;
-    
-    signal IN_PLANTA : std_logic_vector(Nplantas-1 downto 0);
-    signal IN_EMERGENCIA : std_logic;
-    signal IN_MOTOR : std_logic_vector(1 downto 0);
-    signal OUT_PLANTA : std_logic_vector(Plantas_Bin downto 0);
-    signal OUT_MOTOR : std_logic_vector(1 downto 0);
-    signal OUT_EMERGENCIA : std_logic;
-    signal CLK : std_logic := '0';
 
-    -- Instancia del diseño a probar (DUT)
-    component Codificador_Panel_Decoder is
+    -- Component Declaration for the Unit Under Test (UUT)
+    component Codificador_Panel_Decoder
         generic (
-            Nplantas : positive := 4;
-            Plantas_Bin: positive := 2
+            Nplantas : positive := 4;  -- Número de plantas del ascensor
+            Plantas_Bin: positive := 2 -- Número de bits+1 que tiene el valor binario de la planta
         );
         port (
-            IN_PLANTA : in std_logic_vector(Nplantas-1 downto 0);
-            IN_EMERGENCIA : in std_logic;
-            IN_MOTOR : in std_logic_vector(1 downto 0);
-            OUT_PLANTA : out std_logic_vector(Plantas_Bin downto 0);
-            OUT_MOTOR : out std_logic_vector(1 downto 0);
-            OUT_EMERGENCIA : out std_logic;
-            CLK : in std_logic
+            IN_PLANTA : in std_logic_vector(Nplantas-1 downto 0); -- Planta que llega del panel o los sensores
+            OUT_PLANTA : out std_logic_vector(Plantas_Bin downto 0); -- Conversión del valor de la planta a binario
+            CLK : in std_logic -- Señal síncrona de reloj
         );
     end component;
 
+    -- Signals for the testbench
+    signal IN_PLANTA_tb : std_logic_vector(3 downto 0);  -- Entrada de planta (4 bits)
+    signal OUT_PLANTA_tb : std_logic_vector(2 downto 0);  -- Salida de planta (2 bits)
+    signal CLK_tb : std_logic := '0';  -- Reloj de prueba (inicialmente '0')
+
+    -- Clock period
+    constant clk_period : time := 10 ns; 
+
 begin
-    -- Instanciamos el UUT
-    UUT: Codificador_Panel_Decoder
+    -- Instantiate the Unit Under Test (UUT)
+    uut: Codificador_Panel_Decoder
         generic map (
-            Nplantas => Nplantas,
-            Plantas_Bin => Plantas_Bin
+            Nplantas => 4,  -- Número de plantas
+            Plantas_Bin => 2  -- 2 bits de salida
         )
         port map (
-            IN_PLANTA => IN_PLANTA,
-            IN_EMERGENCIA => IN_EMERGENCIA,
-            IN_MOTOR => IN_MOTOR,
-            OUT_PLANTA => OUT_PLANTA,
-            OUT_MOTOR => OUT_MOTOR,
-            OUT_EMERGENCIA => OUT_EMERGENCIA,
-            CLK => CLK
+            IN_PLANTA => IN_PLANTA_tb,
+            OUT_PLANTA => OUT_PLANTA_tb,
+            CLK => CLK_tb
         );
 
-    -- Generador de reloj
-    process
+    -- Clock process
+    clk_process :process
     begin
-        while true loop
-            CLK <= not CLK;
-            wait for 10 ns; -- Periodo de reloj 20 ns
-        end loop;
+        CLK_tb <= '0';
+        wait for clk_period / 2;
+        CLK_tb <= '1';
+        wait for clk_period / 2;
     end process;
 
-    -- Proceso de estimulación
-    process
+    -- Stimulus process
+    stimulus_process: process
     begin
-        -- Inicialización de señales
-        IN_EMERGENCIA <= '0';
-        IN_MOTOR <= "00";
-        IN_PLANTA <= "0001";
-        wait for 20 ns;
+        -- Test 1: Planta 0
+        IN_PLANTA_tb <= "0001";  -- Planta 0
+        wait for clk_period;
+        assert (OUT_PLANTA_tb = "00") report "Error: Planta 0" severity error;
 
-        -- Prueba: Motor parado, planta 0
-        IN_PLANTA <= "0001";
-        wait for 20 ns;
-        assert (OUT_PLANTA = "000") report "Error: Planta 0 no detectada correctamente." severity error;
+        -- Test 2: Planta 1
+        IN_PLANTA_tb <= "0010";  -- Planta 1
+        wait for clk_period;
+        assert (OUT_PLANTA_tb = "01") report "Error: Planta 1" severity error;
 
-        -- Prueba: Motor parado, planta 1
-        IN_PLANTA <= "0010";
-        wait for 20 ns;
-        assert (OUT_PLANTA = "001") report "Error: Planta 1 no detectada correctamente." severity error;
+        -- Test 3: Planta 2
+        IN_PLANTA_tb <= "0100";  -- Planta 2
+        wait for clk_period;
+        assert (OUT_PLANTA_tb = "10") report "Error: Planta 2" severity error;
 
-        -- Prueba: Motor subiendo
-        IN_MOTOR <= "10";
-        wait for 20 ns;
-        assert (OUT_MOTOR = "01") report "Error: Movimiento subiendo no detectado correctamente." severity error;
+        -- Test 4: Planta 3
+        IN_PLANTA_tb <= "1000";  -- Planta 3
+        wait for clk_period;
+        assert (OUT_PLANTA_tb = "11") report "Error: Planta 3" severity error;
 
-        -- Prueba: Motor bajando
-        IN_MOTOR <= "01";
-        wait for 20 ns;
-        assert (OUT_MOTOR = "10") report "Error: Movimiento bajando no detectado correctamente." severity error;
+        -- Test 5: Estado de emergencia (ninguna planta)
+        IN_PLANTA_tb <= "1111";  -- Entrada de emergencia (ninguna planta válida)
+        wait for clk_period;
+        assert (OUT_PLANTA_tb = "10") report "Error: Emergencia" severity error;
 
-        -- Prueba: Emergencia
-        IN_EMERGENCIA <= '1';
-        wait for 20 ns;
-        assert (OUT_EMERGENCIA = '0') report "Error: Emergencia no detectada correctamente." severity error;
-
-        -- Finalizamos la simulación
+        -- End simulation
         wait;
     end process;
 
 end TestBench;
+

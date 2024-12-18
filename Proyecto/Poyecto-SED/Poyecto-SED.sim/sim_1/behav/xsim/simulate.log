@@ -1,1 +1,11 @@
 Time resolution is 1 ps
+Error: Error: Planta 0
+Time: 10 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
+Error: Error: Planta 1
+Time: 20 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
+Error: Error: Planta 2
+Time: 30 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
+Error: Error: Planta 3
+Time: 40 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
+Error: Error: Emergencia
+Time: 50 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
