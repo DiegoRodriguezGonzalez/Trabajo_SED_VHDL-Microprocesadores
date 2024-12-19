@@ -109,7 +109,7 @@ architecture Behavioral of Top is
            );
      end component;
   
-    Component Panel is
+    Component FSM is
       generic (
         Nplantas : positive := 4;  -- Número de plantas del ascensor
       	constant TIEMPO_ABRIR : integer := 3;

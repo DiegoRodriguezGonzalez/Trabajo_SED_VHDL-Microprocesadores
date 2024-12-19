@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Dec  9 16:01:11 2024
-# Process ID: 11968
+# Start of session at: Thu Dec 19 20:13:53 2024
+# Process ID: 372
 # Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent19544 C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9652 C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
 # Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
 # Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
 # Running On        :Diego
@@ -17,8 +17,14 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :16474 MB
-# Swap memory       :1874 MB
-# Total Virtual     :18349 MB
-# Available Virtual :7417 MB
+# Swap memory       :1923 MB
+# Total Virtual     :18397 MB
+# Available Virtual :9160 MB
 #-----------------------------------------------------------
-start_guioopen_project C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpruupdate_compile_order -fileset sources_1
+start_gui
+open_project C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd w ]
+add_files -fileset sim_1 C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd
+update_compile_order -fileset sim_1
