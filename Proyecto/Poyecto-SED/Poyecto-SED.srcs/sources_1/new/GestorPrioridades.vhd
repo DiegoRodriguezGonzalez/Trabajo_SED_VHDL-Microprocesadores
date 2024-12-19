@@ -1,25 +1,8 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 12.12.2024 19:53:00
--- Design Name: 
--- Module Name: GestorPrioridades - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
+use ieee.std_logic_textio.all;
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -53,20 +36,30 @@ begin
     variable dest_fin: STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0):= (others => '0'); -- Variable intermedia que asignar a DESTINO_FINAL
     variable PRIORIDADES : vector_unsigned := (others => (others => '0')); -- Vector de unsigned que almacena llamadas pendientes
     variable pendiente: boolean := false; -- Flag usada para saber si ya hay petición de llamada en botón
+    
+    variable mensaje : string(1 to 100); -- Mensaje temporal
+    variable valor   : string(1 to 20);  -- Para cada unsigned
+ 
     begin
         if RESET = '1' then 
             dest_fin := (others => '0'); 
             PRIORIDADES := (others => (others => '0')); 
             pendiente := false;
-            report "Se resetean señales y variables";
+            --report "Se resetean señales y variables";
         elsif rising_edge(CLK) then
+            for i in NUMERO_PLANTAS-1 downto 0 loop
+                --valor := to_string(std_logic_vector(PRIORIDADES(i))); -- Convertir cada unsigned
+                --mensaje := mensaje & "Elemento(" & integer'image(i) & ")=" & valor & " ";
+            end loop;
+            --report mensaje;
             if ACCION_MOTOR = "00" then -- Gestión cuando el ascensor está parado 
+            dest_fin := "0000";
                 for i in NUMERO_PLANTAS-1 downto 0 loop --Prioridad interna (panel de cabina)
                     if PLANTA_PULSADA(i) = '1' then -- Se detecta el primer 1
                         if LLENO(i) = '0' then -- Se evalúa si no está llena la planta. Planta 0 siempre está a 0 
                             dest_fin := (others => '0');
                             dest_fin(i) := '1'; -- Se asigna dest_fin como la llamada realizada
-                            --report "Destino según PLANTA_PULSADA con motor parado:" dest_fin;
+                            --report "Destino según PLANTA_PULSADA con motor parado:" ;
                             exit;
                         end if;
                     end if;

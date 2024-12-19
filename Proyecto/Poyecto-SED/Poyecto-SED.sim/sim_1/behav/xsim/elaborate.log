@@ -1,14 +1,9 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot Codificador_Panel_Decoder_tb_behav xil_defaultlib.Codificador_Panel_Decoder_tb -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot GestorPrioridades_TB_behav xil_defaultlib.GestorPrioridades_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
-WARNING: [VRFC 10-8856] comparison between unequal length arrays always returns FALSE; left argument length 3 is different from right argument length 2 for 'std_logic_vector_93' array [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd:78]
-WARNING: [VRFC 10-8856] comparison between unequal length arrays always returns FALSE; left argument length 3 is different from right argument length 2 for 'std_logic_vector_93' array [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd:83]
-WARNING: [VRFC 10-8856] comparison between unequal length arrays always returns FALSE; left argument length 3 is different from right argument length 2 for 'std_logic_vector_93' array [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd:88]
-WARNING: [VRFC 10-8856] comparison between unequal length arrays always returns FALSE; left argument length 3 is different from right argument length 2 for 'std_logic_vector_93' array [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd:93]
-WARNING: [VRFC 10-8856] comparison between unequal length arrays always returns FALSE; left argument length 3 is different from right argument length 2 for 'std_logic_vector_93' array [C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd:98]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -16,6 +11,8 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling architecture behavioral of entity xil_defaultlib.Codificador_Panel_Decoder [codificador_panel_decoder_defaul...]
-Compiling architecture testbench of entity xil_defaultlib.codificador_panel_decoder_tb
-Built simulation snapshot Codificador_Panel_Decoder_tb_behav
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling architecture behavioral of entity xil_defaultlib.GestorPrioridades [gestorprioridades_default]
+Compiling architecture behavioral of entity xil_defaultlib.gestorprioridades_tb
+Built simulation snapshot GestorPrioridades_TB_behav

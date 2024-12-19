@@ -1,11 +1,127 @@
 Time resolution is 1 ps
-Error: Error: Planta 0
-Time: 10 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
-Error: Error: Planta 1
-Time: 20 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
-Error: Error: Planta 2
-Time: 30 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
-Error: Error: Planta 3
-Time: 40 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
-Error: Error: Emergencia
-Time: 50 ns  Iteration: 0  Process: /Codificador_Panel_Decoder_tb/stimulus_process  File: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/Codificador_Panel_Decoder_tb.vhd
+Note: TEST 2:
+Time: 30 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 30 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 40 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 50 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 60 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 110 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 110 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 120 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 130 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 140 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 190 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 190 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 200 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 210 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 220 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 270 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 270 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 280 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 290 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 300 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 350 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 350 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 360 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 370 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 380 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 430 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 430 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 440 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 450 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 460 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 510 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 510 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 520 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 530 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 540 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 590 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 590 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 600 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 610 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 620 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 670 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 670 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 680 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 690 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 700 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 750 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 750 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 760 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 770 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 780 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 830 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 830 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 840 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 850 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 860 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 910 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 910 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 920 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 5:
+Time: 930 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 6:
+Time: 940 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 2:
+Time: 990 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 3:
+Time: 990 ns  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
+Note: TEST 4:
+Time: 1 us  Iteration: 0  Process: /GestorPrioridades_TB/stim_proc  File: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd
