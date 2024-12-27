@@ -3,10 +3,10 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Thu Dec 19 20:21:41 2024
-# Process ID: 16688
+# Start of session at: Mon Dec 23 18:19:29 2024
+# Process ID: 19208
 # Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent24476 C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20248 C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
 # Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
 # Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
 # Running On        :Diego
@@ -17,9 +17,9 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :16474 MB
-# Swap memory       :1923 MB
-# Total Virtual     :18397 MB
-# Available Virtual :9247 MB
+# Swap memory       :1073 MB
+# Total Virtual     :17548 MB
+# Available Virtual :7106 MB
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
@@ -130,7 +130,252 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2024.1/data/ip'.
-open_project: Time (s): cpu = 00:00:37 ; elapsed = 00:00:26 . Memory (MB): peak = 1593.828 ; gain = 491.402
+open_project: Time (s): cpu = 00:00:35 ; elapsed = 00:00:26 . Memory (MB): peak = 1597.152 ; gain = 487.406
 update_compile_order -fileset sources_1
+set_property top SPI_SLAVE [current_fileset]
+update_compile_order -fileset sources_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+set_property top SPI_SLAVE_tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sim_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sim_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+set_property top SPI_SLAVE_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+update_compile_order -fileset sim_1
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'SPI_SLAVE_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'SPI_SLAVE_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj SPI_SLAVE_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE_TB'
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1662.359 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '6' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot SPI_SLAVE_TB_behav xil_defaultlib.SPI_SLAVE_TB -log elaborate.log"
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot SPI_SLAVE_TB_behav xil_defaultlib.SPI_SLAVE_TB -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.SPI_SLAVE [spi_slave_default]
+Compiling architecture behavioral of entity xil_defaultlib.spi_slave_tb
+Built simulation snapshot SPI_SLAVE_TB_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1662.359 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "SPI_SLAVE_TB_behav -key {Behavioral:sim_1:Functional:SPI_SLAVE_TB} -tclbatch {SPI_SLAVE_TB.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source SPI_SLAVE_TB.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+Error: Error: Datos no coinciden en PLANTA_PANEL
+Time: 410 ns  Iteration: 0  Process: /SPI_SLAVE_TB/TEST_PROCESS  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd
+Error: Error: Datos no coinciden en PLANTA_EXTERNA
+Time: 670 ns  Iteration: 0  Process: /SPI_SLAVE_TB/TEST_PROCESS  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd
+Error: Error: Datos no coinciden en PLANTA_ACTUAL
+Time: 930 ns  Iteration: 0  Process: /SPI_SLAVE_TB/TEST_PROCESS  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd
+xsim: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1693.797 ; gain = 31.438
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'SPI_SLAVE_TB_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:19 . Memory (MB): peak = 1693.797 ; gain = 31.438
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'SPI_SLAVE_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'SPI_SLAVE_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj SPI_SLAVE_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE_TB'
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:87]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:100]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:113]
+ERROR: [VRFC 10-9458] unit 'behavioral' is ignored due to previous errors [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:8]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd' is ignored due to errors
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:05 . Memory (MB): peak = 2737.004 ; gain = 0.000
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+launch_simulation: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 2737.004 ; gain = 0.000
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'SPI_SLAVE_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'SPI_SLAVE_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj SPI_SLAVE_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE_TB'
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:87]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:100]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:113]
+ERROR: [VRFC 10-9458] unit 'behavioral' is ignored due to previous errors [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:8]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd' is ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\SPI_SLAVE_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\decoder_indicador_tb.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sim_1\new\COUNTER_TB.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+WARNING: [filemgmt 56-199] Attempt to get parsing info during refresh. "On-the-fly" syntax checking information may be incorrect. [C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.srcs\sources_1\new\SPI_SLAVE.vhd:]
+ERROR: [Common 17-180] Spawn failed: No error
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-12493] Simulation top is 'SPI_SLAVE_TB'
+WARNING: [Vivado 12-13340] Unable to auto find GCC executables from simulator install path! (path not set)
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/Xilinx/Vivado/2024.1/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'SPI_SLAVE_TB' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim'
+"xvhdl --incr --relax -prj SPI_SLAVE_TB_vhdl.prj"
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE_TB'
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:87]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:100]
+ERROR: [VRFC 10-2989] 'data_to_send' is not declared [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:113]
+ERROR: [VRFC 10-9458] unit 'behavioral' is ignored due to previous errors [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd:8]
+INFO: [VRFC 10-8704] VHDL file 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd' is ignored due to errors
+INFO: [USF-XSim-69] 'compile' step finished in '5' seconds
+INFO: [USF-XSim-99] Step results log file:'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log'
+ERROR: [USF-XSim-62] 'compile' step failed with error(s). Please check the Tcl console output or 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.sim/sim_1/behav/xsim/xvhdl.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
 exit
-INFO: [Common 17-206] Exiting Vivado at Thu Dec 19 20:23:20 2024...
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 23 19:24:35 2024...

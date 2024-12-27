@@ -41,7 +41,7 @@ architecture TestBench of FSM_tb is
 
     constant TIEMPO_DESCARGA : positive := 15;
     -- Componentes del panel a probar
-    component Panel
+    component FSM
         generic (
             Nplantas : positive := 4;  -- Número de plantas
             TIEMPO_ABRIR : positive := 3;  -- Nuevo tiempo de apertura en ciclos (1 us)
@@ -74,7 +74,7 @@ architecture TestBench of FSM_tb is
 begin
 
     -- Instanciación del módulo Panel
-    uut: Panel
+    uut: FSM
         port map (
             DESTINO => DESTINO,
             EMERGENCIA => EMERGENCIA,

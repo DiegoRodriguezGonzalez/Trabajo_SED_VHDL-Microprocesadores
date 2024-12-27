@@ -70,20 +70,20 @@ begin
       end process;
       
 
-      secuencia: process(cur_state, PLANTAACTUAL, DESTINO, CLK)
+   secuencia: process(cur_state, PLANTAACTUAL, DESTINO, CLK)
       
-      variable contador_abrir: integer  := 0;
-      variable contador_cerrar: integer  := 0;
-      variable contador_abierto: integer := 0;
-      variable contador_espera: integer := 0;
-
-      begin
+    variable contador_abrir: integer  := 0;
+    variable contador_cerrar: integer  := 0;
+    variable contador_abierto: integer := 0;
+    variable contador_espera: integer := 0;
+      
+        begin
 		  nxt_state <= cur_state; --Se conserva estado actual si no pasa nada
 		  
 		  case cur_state is
             
             when S0_ESPERA => --Estado de espera antes de recibir orden a realizar
-             contador_abrir := contador_abrir + 1;
+                contador_abrir := contador_abrir+1;
                 if contador_abrir = TIEMPO_ABRIR then
                     contador_abrir := 0;
                     if PLANTAACTUAL < DESTINO then
@@ -94,7 +94,6 @@ begin
                        nxt_state <= S3_PUERTA_ABRIENDO;
                      end if;
                 end if;
-			
             when S1_SUBIENDO => --Estado ascensor sube
             if PLANTAACTUAL = DESTINO then
               nxt_state <= S3_PUERTA_ABRIENDO;
@@ -105,21 +104,21 @@ begin
               nxt_state <= S3_PUERTA_ABRIENDO;
             end if;
             
-            when S3_PUERTA_ABRIENDO => --Estado se abren puertas. Destino alcanzado
-                    contador_abrir := contador_abrir + 1;
+            when S3_PUERTA_ABRIENDO => --Estado se abren puertas. Destino alcanzado  
+                contador_abrir := contador_abrir + 1;
                 if contador_abrir = TIEMPO_ABRIR then
                     contador_abrir := 0;
                     nxt_state <= S4_PUERTA_ABIERTA;
               end if;
             
-            when S4_PUERTA_ABIERTA => --Estado puertas permanecen abiertas para salida/entrada.
+            when S4_PUERTA_ABIERTA => --Estado puertas permanecen abiertas para salida/entrada.    
                     contador_abierto := contador_abierto + 1;
                 if contador_abierto = TIEMPO_ABIERTO then
             		contador_abierto := 0;
                     nxt_state <= S5_PUERTA_CERRANDO;
                 end if;
             
-            when S5_PUERTA_CERRANDO => --Estado se cierran puertas
+            when S5_PUERTA_CERRANDO => --Estado se cierran puertas     
                     contador_cerrar := contador_cerrar + 1;
                 if contador_cerrar = TIEMPO_CERRAR then
             		contador_cerrar := 0;

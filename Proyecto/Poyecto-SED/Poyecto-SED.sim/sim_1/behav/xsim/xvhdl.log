@@ -1,2 +1,2 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/GestorPrioridades_TB.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'GestorPrioridades_TB'
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'SPI_SLAVE_TB'

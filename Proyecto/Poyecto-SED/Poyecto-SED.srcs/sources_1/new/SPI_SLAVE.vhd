@@ -12,17 +12,18 @@ entity SPI_SLAVE is
         SCLK     : in  std_logic;  -- Reloj SPI STM32
         CS_N     : in  std_logic;  -- Chip select (activo en nivel bajo)
         MOSI     : in  std_logic;  -- Master output slave input (datos de STM a FPGA)
-        MISO     : out std_logic;  -- Master input slave output (datos de FPGA a STM)
-        REG     : out std_logic_vector(TAM_PALABRA-1 downto 0); -- Datos recibidos
-        DOUT     : out std_logic
-        --DOUT_VLD : out std_logic  -- Datos válidos recibidos
+      --  MISO     : out std_logic;  -- Master input slave output (datos de FPGA a STM)
+        PLANTA_PANEL : out std_logic_vector(TAM_PALABRA-5 downto 0);
+        PLANTA_EXTERNA : out std_logic_vector(TAM_PALABRA-5 downto 0);
+        PLANTA_ACTUAL : out std_logic_vector(TAM_PALABRA-5 downto 0)
+       -- REG : out std_logic_vector(TAM_PALABRA-1 downto 0);
+       -- DOUT_VLD : out std_logic  -- Datos válidos recibidos
     );
 end entity;
 
 architecture Behavioral of SPI_SLAVE is
     constant MAX : natural := 3; --Contador que crece cuando recibe los datos.
     signal contador : unsigned(MAX-1 downto 0) := (others => '0');
-    signal data_reg : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');
     signal valido : std_logic := '0';
     signal mosi_sync : std_logic;
     signal miso_shift_reg : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');  
@@ -50,46 +51,46 @@ begin
     -- Cada vez que se recibe un dato (MOSI), incrementa el contador y se registran en la variable.
     -- Se trata de un registro de desplazamiento.
     process (SCLK)
+    -- Se declara variable para que se actualice en el mismo ciclo.
+    variable data_reg : std_logic_vector(TAM_PALABRA-1 downto 0) := (others => '0');
     begin
         if rising_edge(SCLK) then
             if RST_N = '0' or CS_N = '1' then
                 contador <= (others => '0');
             else
                 contador <= contador + 1;
-                data_reg <= data_reg(TAM_PALABRA-2 downto 0) & MOSI; 
+                data_reg := data_reg(TAM_PALABRA-2 downto 0) & MOSI; 
+                if contador = "111" then
+                  --valido <= '1';
+                  if data_reg(TAM_PALABRA-1) = '1' then
+                    PLANTA_PANEL <= data_reg(TAM_PALABRA-5 downto 0);
+                  elsif data_reg(TAM_PALABRA-2) = '1' then
+                    PLANTA_EXTERNA <= data_reg(TAM_PALABRA-5 downto 0);
+                  elsif data_reg(TAM_PALABRA-3) = '1' then
+                    PLANTA_ACTUAL <= data_reg(TAM_PALABRA-5 downto 0);
+                  end if; 
+             -- else
+             --     valido <= '0';
+                end if;
             end if;
         end if;
-    end process;
-
-    -- Cuando se alcanza el máximo, los datos son válidos.
-    process (SCLK)
-    begin
-        if rising_edge(SCLK) then
-            if contador = "111" then
-                valido <= '1';
-            else
-                valido <= '0';
-            end if;
-        end if;
+        --REG <= data_reg;
     end process;
 
     -- Se realiza otro registro de desplazamiento para MISO (a STM32).
     -- Se puede eliminar si no se utiliza.
-    process (SCLK)
-    begin
-        if rising_edge(SCLK) then
-            if RST_N = '0' or CS_N = '1' then
-                miso_shift_reg <= (others => '0');  
-            else
-                miso_shift_reg <= data_reg(TAM_PALABRA-2 downto 0) & '0';  -- Desplazamiento del contenido
-                miso_data <= miso_shift_reg(TAM_PALABRA-1);  -- Se envía el MSB por MISO
-            end if;
-        end if;
-    end process;
-    -- Se asignan las variables a las salidas.
-    REG <= data_reg;  
-    DOUT <= data_reg(data_reg'left);  -- Se asigna el MSB a la salida
-    --DOUT_VLD <= valido; -- No necesario  
-    MISO <= miso_data;  -- El MSB 
-    
+   -- process (SCLK)
+   --begin
+   --     if rising_edge(SCLK) then
+    --        if RST_N = '0' or CS_N = '1' then
+     --           miso_shift_reg <= (others => '0');  
+      --      else
+      --          miso_shift_reg <= data_reg(TAM_PALABRA-2 downto 0) & '0';  -- Desplazamiento del contenido
+      --         miso_data <= miso_shift_reg(TAM_PALABRA-1);  -- Se envía el MSB por MISO
+      --      end if;
+      --  end if;
+    --end process;
+
+    --MISO <= miso_data;  -- El MSB 
+    --DOUT_VLD <= valido;
 end Behavioral;
