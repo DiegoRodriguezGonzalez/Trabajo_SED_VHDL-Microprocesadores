@@ -39,7 +39,8 @@ end entity FSM_tb;
 
 architecture TestBench of FSM_tb is
 
-    constant TIEMPO_DESCARGA : positive := 15;
+    constant TIEMPO_DESCARGA : positive := 10;
+
     -- Componentes del panel a probar
     component FSM
         generic (
@@ -60,7 +61,7 @@ architecture TestBench of FSM_tb is
         );
     end component;
 
-    -- Señales para la instanciación del módulo Panel
+    -- Señales para la instanciación del módulo FSM
     signal DESTINO : std_logic_vector(3 downto 0) := "0000"; -- Planta destino inicial
     signal EMERGENCIA : std_logic := '0'; -- Emergencia desactivada
     signal PLANTAACTUAL : std_logic_vector(3 downto 0) := "0000"; -- Planta actual
@@ -69,11 +70,10 @@ architecture TestBench of FSM_tb is
     signal MOVIMIENTOPUERTA : std_logic_vector(1 downto 0);
     signal SALIDAEMERGENCIA : std_logic;
     signal ESTADO_ACTUAL : std_logic_vector(3 downto 0);
-    signal contador_descarga: positive  := 0;
 
 begin
 
-    -- Instanciación del módulo Panel
+    -- Instanciación del módulo FSM
     uut: FSM
         port map (
             DESTINO => DESTINO,
@@ -90,41 +90,32 @@ begin
     clk_process : process
     begin
         CLK <= '0';
-        wait for 1 ns;  -- Ajuste a 1 ns para simular en ciclos de 1 ns
+        wait for 5 ns;  -- Ajuste a 1 ns para simular en ciclos de 1 ns
         CLK <= '1';
-        wait for 1 ns;
+        wait for 5 ns;
     end process;
 
     -- Estímulos para el testbench
     stimulus_process : process
     begin
+         
         -- Caso 1: Prueba de funcionamiento normal (ascensor sube)
         PLANTAACTUAL <= "0001";  -- Planta actual: Planta 0
         DESTINO <= "0010";  -- Destino: Planta 1
         EMERGENCIA <= '0';  -- No hay emergencia
-        wait for 5 ns;
-        PLANTAACTUAL <= "0010";  --Llega al destino
-        wait for 5 ns;
-        for i in 0 to 20 loop
-        if rising_edge(CLK) then
-                if contador_descarga < TIEMPO_DESCARGA then
-                    contador_descarga <= contador_descarga + 1;
-                elsif contador_descarga = TIEMPO_DESCARGA then
-                    contador_descarga <= 0;
-                end if;
-              end if;
-            end loop;
-            
+        wait for 50 ns;
+        PLANTAACTUAL <= "0010";  -- Llega al destino
+        wait for 100 ns;
+        
         -- Caso 2: El ascensor baja
         PLANTAACTUAL <= "0100";  -- Planta actual: Planta 2
         DESTINO <= "0001";  -- Destino: Planta 1
         EMERGENCIA <= '0';  -- No hay emergencia
-        wait for 5 ns;
-        PLANTAACTUAL <= "0010";
-        wait for 5 ns;
-        PLANTAACTUAL <= "0100";
-        
         wait for 50 ns;
+        PLANTAACTUAL <= "0010";  -- Planta intermedia
+        wait for 100 ns;
+        PLANTAACTUAL <= "0100";  -- Llega a la planta destino
+        
         
         -- Caso 3: El ascensor llega a la planta de destino y las puertas se abren
         PLANTAACTUAL <= "0001";  -- Planta actual: Planta 1

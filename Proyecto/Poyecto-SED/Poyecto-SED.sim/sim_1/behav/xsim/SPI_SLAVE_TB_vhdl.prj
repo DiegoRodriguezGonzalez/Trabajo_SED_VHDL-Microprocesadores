@@ -1,7 +1,0 @@
-# compile vhdl design source files
-vhdl xil_defaultlib  \
-"../../../../Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd" \
-"../../../../Poyecto-SED.srcs/sim_1/new/SPI_SLAVE_tb.vhd" \
-
-# Do not sort compile order
-nosort
