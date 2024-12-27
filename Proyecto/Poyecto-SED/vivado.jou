@@ -3,34 +3,75 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Fri Dec 27 16:25:35 2024
-# Process ID: 11452
-# Current directory: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15020 C:\Users\marla\OneDrive\Documentos\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
-# Log file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
-# Journal file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
-# Running On        :LAPTOP-260PTFG4
+# Start of session at: Fri Dec 27 17:28:38 2024
+# Process ID: 16400
+# Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2128 C:\Users\diego\Documents\GitHub\VHDL-Trabajo\Proyecto\Poyecto-SED\Poyecto-SED.xpr
+# Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/vivado.log
+# Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED\vivado.jou
+# Running On        :Diego
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics         
-# CPU Frequency     :3194 MHz
+# Operating System  :22631
+# Processor Detail  :AMD Ryzen 7 7730U with Radeon Graphics         
+# CPU Frequency     :1996 MHz
 # CPU Physical cores:8
 # CPU Logical cores :16
-# Host memory       :16479 MB
-# Swap memory       :10200 MB
-# Total Virtual     :26680 MB
-# Available Virtual :14465 MB
+# Host memory       :16474 MB
+# Swap memory       :1543 MB
+# Total Virtual     :18018 MB
+# Available Virtual :7374 MB
 #-----------------------------------------------------------
 start_gui
-open_project C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
+open_project C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.xpr
 update_compile_order -fileset sources_1
 # Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
 set_property source_mgmt_mode None [current_project]
-set_property top FSM_tb [get_filesets sim_1]
+set_property top SPI_SLAVE_TB [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 # Re-enabling previously disabled source management mode.
 set_property source_mgmt_mode All [current_project]
 update_compile_order -fileset sim_1
 launch_simulation
-source FSM_tb.tcl
+source SPI_SLAVE_TB.tcl
+close_sim
+launch_simulation
+launch_simulation
+launch_simulation
+source SPI_SLAVE_TB.tcl
+close_sim
+launch_simulation
+source SPI_SLAVE_TB.tcl
+close_sim
+launch_simulation
+source SPI_SLAVE_TB.tcl
+close_sim
+close [ open C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd w ]
+add_files C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+close [ open C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SINCRONIZADOR_MICRO_A_FPGA_TB.vhd w ]
+add_files -fileset sim_1 C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SINCRONIZADOR_MICRO_A_FPGA_TB.vhd
+update_compile_order -fileset sim_1
+launch_simulation
+source SPI_SLAVE_TB.tcl
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top SINCRONIZADOR_MICRO_A_FPGA_TB [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top SINCRONIZADOR_MICRO_A_FPGA [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sim_1
+update_compile_order -fileset sources_1
+launch_simulation
+close_sim
+launch_simulation
+source SINCRONIZADOR_MICRO_A_FPGA_TB.tcl
+close_sim
+launch_simulation
+source SINCRONIZADOR_MICRO_A_FPGA_TB.tcl
 close_sim

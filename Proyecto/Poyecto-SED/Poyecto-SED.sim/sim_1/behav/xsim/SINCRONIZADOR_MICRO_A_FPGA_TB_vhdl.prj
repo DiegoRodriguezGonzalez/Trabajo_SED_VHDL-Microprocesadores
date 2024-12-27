@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd" \
+"../../../../Poyecto-SED.srcs/sim_1/new/SINCRONIZADOR_MICRO_A_FPGA_TB.vhd" \
+
+# Do not sort compile order
+nosort

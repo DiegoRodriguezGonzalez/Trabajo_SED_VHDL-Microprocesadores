@@ -1,0 +1,1 @@
+--incr --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "SINCRONIZADOR_MICRO_A_FPGA_TB_behav" "xil_defaultlib.SINCRONIZADOR_MICRO_A_FPGA_TB" -log "elaborate.log" 

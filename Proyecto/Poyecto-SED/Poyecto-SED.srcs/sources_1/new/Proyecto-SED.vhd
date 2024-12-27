@@ -39,22 +39,17 @@ entity Top is
     );
     Port ( 
     clk : in std_logic;
-    RESET_N_top_to_counter: in std_logic; --Reseteo general de contadores de parking
+    RESET_N : in std_logic; --Reset de la FPGA
     C_I1_top_to_counter: in std_logic; --señal de entrada de coche en piso 1
     C_I2_top_to_counter: in std_logic; --señal de entrada de coche en piso 2
     C_I3_top_to_counter: in std_logic; --señal de entrada de coche en piso 3
     C_O1_top_to_counter: in std_logic; --señal de salida de coche en piso 1
     C_O2_top_to_counter: in std_logic; --señal de salida de coche en piso 2
     C_O3_top_to_counter: in std_logic; --señal de salida de coche en piso 3
-    BEXT_P0_top_to_agrupador: in std_logic; --Boton planta 0 que solicita el ascensor
-    BEXT_P1_top_to_agrupador: in std_logic; --Boton planta 1 que solicita el ascensor
-    BEXT_P2_top_to_agrupador: in std_logic; --Boton planta 2 que solicita el ascensor
-    BEXT_P3_top_to_agrupador: in std_logic; --Boton planta 3 que solicita el ascensor
-    BINT_P0_top_to_agrupador: in std_logic; --Boton del interior de la cabina que solicita ir a la planta 0
-    BINT_P1_top_to_agrupador: in std_logic; --Boton del interior de la cabina que solicita ir a la planta 1
-    BINT_P2_top_to_agrupador: in std_logic; --Boton del interior de la cabina que solicita ir a la planta 2
-    BINT_P3_top_to_agrupador: in std_logic; --Boton del interior de la cabina que solicita ir a la planta 3
     Emergencia_top: in std_logic; --Emergencia del ascensor
+    SCLK : in std_logic;    -- Reloj del microprocesador
+    CS_N : in std_logic;    -- Chip select del microprocesador
+    MOSI : in std_logic;    -- Master output slave input
     EMER_FMS_to_top : out std_logic;
     ASCENSOR_SUBE_motor_to_top: out std_logic;
     ASCENSOR_BAJA_motor_to_top: out std_logic;
@@ -65,6 +60,38 @@ entity Top is
 end Top;
 
 architecture Behavioral of Top is
+
+    component SPI_SLAVE
+        generic (
+            TAM_PALABRA : natural := 8 -- Tamaño de la palabra
+        );
+        port (
+            RST_N    : in  std_logic;  -- Reset FPGA
+            SCLK     : in  std_logic;  -- Reloj SPI STM32
+            CS_N     : in  std_logic;  -- Chip select (activo en nivel bajo)
+            MOSI     : in  std_logic;  -- Master output slave input (datos de STM a FPGA)
+            PLANTA_PANEL : out std_logic_vector(TAM_PALABRA-5 downto 0);
+            PLANTA_EXTERNA : out std_logic_vector(TAM_PALABRA-5 downto 0);
+            PLANTA_ACTUAL : out std_logic_vector(TAM_PALABRA-5 downto 0)
+        );
+     end component;
+
+    component SINCRONIZADOR_MICRO_A_FPGA 
+        generic (
+            TAM_PALABRA : natural := 8 -- Tamaño de la palabra
+        );
+        port (
+            CLK             : in  std_logic;  -- Reloj FPGA
+            RST_N           : in  std_logic;  -- Reset FPGA
+            PLANTA_PANEL_IN : in  std_logic_vector(TAM_PALABRA-5 downto 0);  
+            PLANTA_EXTERNA_IN : in  std_logic_vector(TAM_PALABRA-5 downto 0); 
+            PLANTA_ACTUAL_IN : in  std_logic_vector(TAM_PALABRA-5 downto 0);  
+            PLANTA_PANEL_SYNC : out std_logic_vector(TAM_PALABRA-5 downto 0);  -- Salida PLANTA_PANEL sincronizada
+            PLANTA_EXTERNA_SYNC : out std_logic_vector(TAM_PALABRA-5 downto 0);  -- Salida PLANTA_EXTERNA sincronizada
+            PLANTA_ACTUAL_SYNC : out std_logic_vector(TAM_PALABRA-5 downto 0)   -- Salida PLANTA_ACTUAL sincronizada
+        );
+    end component;
+
     Component COUNTER
     Generic (                                                   
            WIDTH : positive := 4
@@ -168,20 +195,32 @@ architecture Behavioral of Top is
      signal FULL2_Counter_to_agrupador: std_logic; --Señal segundo parking lleno
      signal FULL3_Counter_to_agrupador: std_logic; --Señal tercer parking lleno
      signal VECTORLLENO_agrupador_toPrioridad: std_logic_vector(Nplantas-1 downto 0); --Vector palntas llenas
-     signal VECTOREXT_agrupador_to_Prioridad: std_logic_vector(Nplantas-1 downto 0); --Vector solicitudes externas
-     signal VECTORINT_agrupador_to_Prioridad: std_logic_vector(Nplantas-1 downto 0);  --Vector solicitudes internas
+     signal PLANTA_PANEL_SPI_to_SINCRONIZADOR: std_logic_vector(Nplantas-1 downto 0); --Vector solicitudes externas
+     signal PLANTA_EXTERNA_SPI_to_SINCRONIZADOR: std_logic_vector(Nplantas-1 downto 0);  --Vector solicitudes internas
+     signal PLANTA_ACTUAL_SPI_to_SINCRONIZADOR: std_logic_vector(Nplantas-1 downto 0); --Vector de la planta actual que va al sincronizador 
+     signal PLANTA_PANEL_SINCRONIZADOR_to_Prioridad: std_logic_vector(Nplantas-1 downto 0); --Vector solicitudes externas
+     signal PLANTA_EXTERNA_SINCRONIZADOR_to_Prioridad: std_logic_vector(Nplantas-1 downto 0);  --Vector solicitudes internas
+     signal PLANTA_ACTUAL_SINCRONIZADOR_to_FSM: std_logic_vector(Nplantas-1 downto 0); --Vector de la planta actual que va al sincronizador 
      signal MOTOR_PUERTA: std_logic_vector(1 downto 0); -- Señal motor de puerta
      signal MOTOR_ASCENSOR: std_logic_vector(1 downto 0);  --Señal motor de ascensor
      signal DESTINO_Prioridad_to_FMS: std_logic_vector(Nplantas-1 downto 0); --Vector con planta a la que moverse
-     signal PLANTAACTUAL_Top_to_FMS: std_logic_vector(Nplantas-1 downto 0); --PENDIENTE DE DETERMINAR COMO SE CONFORMA Vector que indica en que planta se encuentra el sistema en cada momento 
      signal PLANTAACTUAL_BIN_Codificador_to_Decoder: std_logic_vector(Plantas_BIN downto 0);
      signal EMER_FMS_to_señal: std_logic;
      
-     
      begin
      
+Inst_SpiSlave : SPI_SLAVE Port map (
+    RST_N => RESET_N,    
+    SCLK  => SCLK,    
+    CS_N  => CS_N,   
+    MOSI  => MOSI,  
+    PLANTA_PANEL => PLANTA_PANEL_SPI_to_SINCRONIZADOR,
+    PLANTA_EXTERNA => PLANTA_EXTERNA_SPI_to_SINCRONIZADOR,
+    PLANTA_ACTUAL => PLANTA_ACTUAL_SPI_to_SINCRONIZADOR 
+    );
+    
 Inst_Counter1: COUNTER Port map ( --Contador de parking planta 1
-    RESET_N => RESET_N_top_to_counter,
+    RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
     CAR_IN => C_I1_top_to_counter,
@@ -190,7 +229,7 @@ Inst_Counter1: COUNTER Port map ( --Contador de parking planta 1
 );
 
 Inst_Counter2: COUNTER Port map ( --Contador de parking planta 2
-    RESET_N => RESET_N_top_to_counter,
+    RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
     CAR_IN => C_I2_top_to_counter,
@@ -199,7 +238,7 @@ Inst_Counter2: COUNTER Port map ( --Contador de parking planta 2
 );
 
 Inst_Counter3: COUNTER Port map (  --Contador de parking planta 3
-    RESET_N => RESET_N_top_to_counter,
+    RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
     CAR_IN => C_I3_top_to_counter,
@@ -215,27 +254,23 @@ Inst_agrupador_lleno: agrupador Port map (
             SALIDA => VECTORLLENO_agrupador_toPrioridad
 );
 
-Inst_agrupador_ext: agrupador Port map (
-            PLANTA0 =>  BEXT_P0_top_to_agrupador,
-            PLANTA1 =>  BEXT_P1_top_to_agrupador,
-            PLANTA2 =>  BEXT_P2_top_to_agrupador,
-            PLANTA3 =>  BEXT_P3_top_to_agrupador,
-            SALIDA => VECTOREXT_agrupador_to_Prioridad
-);
+Inst_Sincronizador: SINCRONIZADOR_MICRO_A_FPGA Port map(
+        CLK => clk,
+        RST_N => RESET_N,
+        PLANTA_PANEL_IN => PLANTA_PANEL_SPI_to_SINCRONIZADOR,
+        PLANTA_EXTERNA_IN => PLANTA_EXTERNA_SPI_to_SINCRONIZADOR,
+        PLANTA_ACTUAL_IN => PLANTA_ACTUAL_SPI_to_SINCRONIZADOR,  
+        PLANTA_PANEL_SYNC => PLANTA_PANEL_SINCRONIZADOR_to_Prioridad,
+        PLANTA_EXTERNA_SYNC => PLANTA_EXTERNA_SINCRONIZADOR_to_Prioridad,
+        PLANTA_ACTUAL_SYNC => PLANTA_ACTUAL_SINCRONIZADOR_to_FSM
+); 
 
-Inst_agrupador_int: agrupador Port map (
-            PLANTA0 =>  BINT_P0_top_to_agrupador,
-            PLANTA1 =>  BINT_P1_top_to_agrupador,
-            PLANTA2 =>  BINT_P2_top_to_agrupador,
-            PLANTA3 =>  BINT_P3_top_to_agrupador,
-            SALIDA => VECTORINT_agrupador_to_Prioridad
-);
 
 Inst_GestorPrioridades: GestorPrioridades Port map( 
            CLK  => clk, 
            RESET => Emergencia_top,
-           PLANTA_PULSADA => VECTORINT_agrupador_to_Prioridad, 
-           PLANTA_LLAMADA => VECTOREXT_agrupador_to_Prioridad, 
+           PLANTA_PULSADA => PLANTA_PANEL_SINCRONIZADOR_to_Prioridad,
+           PLANTA_LLAMADA => PLANTA_EXTERNA_SINCRONIZADOR_to_Prioridad,
            LLENO=> VECTORLLENO_agrupador_toPrioridad, 
            ACCION_MOTOR => MOTOR_ASCENSOR, 
            DESTINO_FINAL => DESTINO_Prioridad_to_FMS
@@ -244,7 +279,7 @@ Inst_GestorPrioridades: GestorPrioridades Port map(
 Inst_FMS: FSM Port map (
       	DESTINO => DESTINO_Prioridad_to_FMS, 
         EMERGENCIA => Emergencia_top,  
-      	PLANTAACTUAL => PLANTAACTUAL_Top_to_FMS,
+      	PLANTAACTUAL => PLANTA_ACTUAL_SINCRONIZADOR_to_FSM,
       	CLK => clk,
         MOVIMIENTOMOTOR => MOTOR_ASCENSOR,
         MOVIMIENTOPUERTA => MOTOR_PUERTA, 
@@ -266,13 +301,13 @@ Inst_Motor_Ascensor: Motor Port map(
 ); 
 
 Inst_codificador: Codificador_Panel_Decoder Port map(
-        IN_PLANTA => PLANTAACTUAL_Top_to_FMS,
+        IN_PLANTA => PLANTA_ACTUAL_SINCRONIZADOR_to_FSM,
         OUT_PLANTA => PLANTAACTUAL_BIN_Codificador_to_Decoder,
         CLK => clk
 );
 
 Inst_decoder_indicador: decoder_indicador Port map(
-          PLANTA => PLANTAACTUAL_Top_to_FMS,     -- Indica la planta. En total 4
+          PLANTA => PLANTAACTUAL_BIN_Codificador_to_Decoder,
           EMER  => EMER_FMS_to_señal,
           MOTOR_ASCENSOR => MOTOR_ASCENSOR,  -- Motor indica subiendo o bajando
           LED_PANTALLA => LEDS    -- Se muestra por los segmentos el número o letra

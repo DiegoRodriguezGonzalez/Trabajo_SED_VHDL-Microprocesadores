@@ -1,1 +1,4 @@
 Time resolution is 1 ps
+Failure: Simulación completada.
+Time: 100 ns  Iteration: 0  Process: /SINCRONIZADOR_MICRO_A_FPGA_TB/stim_proc  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SINCRONIZADOR_MICRO_A_FPGA_TB.vhd
+$finish called at time : 100 ns : File "C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/SINCRONIZADOR_MICRO_A_FPGA_TB.vhd" Line 86
