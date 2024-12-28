@@ -24,7 +24,7 @@ entity GestorPrioridades is
            PLANTA_PULSADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica el botón seleccionado en la cabina
            PLANTA_LLAMADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica botones de planta externos
            LLENO : in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que almacena el estado de las plantas del parking (plantas 0,1,2,3) 0 siempre estará a 0
-           ACCION_MOTOR: in STD_LOGIC_VECTOR (1 downto 0); -- Vector con estado del motor
+           ESTADO_ACTUAL : in std_logic_vector(3 downto 0); -- Vector con estado del ascensor
            DESTINO_FINAL: out STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0) -- Indica planta a la que ir
            );
 end GestorPrioridades;
@@ -52,7 +52,7 @@ begin
                 --mensaje := mensaje & "Elemento(" & integer'image(i) & ")=" & valor & " ";
             end loop;
             --report mensaje;
-            if ACCION_MOTOR = "00" then -- Gestión cuando el ascensor está parado 
+            if ESTADO_ACTUAL = "0000" then -- Gestión cuando el ascensor está parado 
             dest_fin := "0000";
                 for i in NUMERO_PLANTAS-1 downto 0 loop --Prioridad interna (panel de cabina)
                     if PLANTA_PULSADA(i) = '1' then -- Se detecta el primer 1
@@ -81,7 +81,7 @@ begin
                 end if;
             end if;
 
-            if ACCION_MOTOR /= "00" then    -- Gestión en movimiento
+            if ESTADO_ACTUAL /= "0000" then    -- Gestión en movimiento
                 -- Se añaden llamadas externas al vector de prioridades
                 for j in NUMERO_PLANTAS-1 downto 0 loop
                     if PRIORIDADES(j) = unsigned(PLANTA_LLAMADA) then   -- Se evalúa si ya está en pendientes

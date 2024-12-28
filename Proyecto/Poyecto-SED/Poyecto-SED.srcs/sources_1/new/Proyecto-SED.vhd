@@ -131,7 +131,7 @@ architecture Behavioral of Top is
            PLANTA_PULSADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica el botón seleccionado en la cabina
            PLANTA_LLAMADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica botones de planta externos
            LLENO : in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que almacena el estado de las plantas del parking (plantas 0,1,2,3) 0 siempre estará a 0
-           ACCION_MOTOR: in STD_LOGIC_VECTOR (1 downto 0); -- Vector con estado del motor
+           ESTADO_ACTUAL : in std_logic_vector(3 downto 0); -- Vector con estado del motor
            DESTINO_FINAL: out STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0) -- Indica planta a la que ir
            );
      end component;
@@ -206,6 +206,7 @@ architecture Behavioral of Top is
      signal DESTINO_Prioridad_to_FMS: std_logic_vector(Nplantas-1 downto 0); --Vector con planta a la que moverse
      signal PLANTAACTUAL_BIN_Codificador_to_Decoder: std_logic_vector(Plantas_BIN downto 0);
      signal EMER_FMS_to_señal: std_logic;
+     signal ESTADO_FSM_to_Gestor_Prioridad: std_logic_vector(3 downto 0);
      
      begin
      
@@ -272,7 +273,7 @@ Inst_GestorPrioridades: GestorPrioridades Port map(
            PLANTA_PULSADA => PLANTA_PANEL_SINCRONIZADOR_to_Prioridad,
            PLANTA_LLAMADA => PLANTA_EXTERNA_SINCRONIZADOR_to_Prioridad,
            LLENO=> VECTORLLENO_agrupador_toPrioridad, 
-           ACCION_MOTOR => MOTOR_ASCENSOR, 
+           ESTADO_ACTUAL => ESTADO_FSM_to_Gestor_Prioridad, 
            DESTINO_FINAL => DESTINO_Prioridad_to_FMS
 );
 
@@ -283,7 +284,8 @@ Inst_FMS: FSM Port map (
       	CLK => clk,
         MOVIMIENTOMOTOR => MOTOR_ASCENSOR,
         MOVIMIENTOPUERTA => MOTOR_PUERTA, 
-        SALIDAEMERGENCIA => EMER_FMS_to_señal  
+        SALIDAEMERGENCIA => EMER_FMS_to_señal,
+        ESTADO_ACTUAL => ESTADO_FSM_to_Gestor_Prioridad
 );
 
 Inst_Motor_Puerta: Motor Port map(
