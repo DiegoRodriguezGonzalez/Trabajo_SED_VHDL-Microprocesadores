@@ -23,6 +23,7 @@ entity GestorPrioridades is
            RESET : in STD_LOGIC;    -- Señal de RESET para EMERGENCIA
            PLANTA_PULSADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica el botón seleccionado en la cabina
            PLANTA_LLAMADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica botones de planta externos
+           PLANTAACTUAL : in std_logic_vector(NUMERO_PLANTAS-1 downto 0); -- Vector que indica la planta actual.
            LLENO : in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que almacena el estado de las plantas del parking (plantas 0,1,2,3) 0 siempre estará a 0
            ESTADO_ACTUAL : in std_logic_vector(3 downto 0); -- Vector con estado del ascensor
            DESTINO_FINAL: out STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0) -- Indica planta a la que ir
@@ -64,9 +65,15 @@ begin
                         end if;
                     end if;
                 end loop;
-                if dest_fin = "0000" then   -- Si no hay prioridad interna, atender llamadas guardadas y si no hay, comprobar si en dicho instante se llama externamente
+                if dest_fin = "0000" then   -- Si no hay prioridad interna, atender llamadas guardadas y si no hay, comprobar si en dicho instante se llama externamento
                     dest_fin := std_logic_vector(PRIORIDADES(PRIORIDADES'LEFT));
-                    PRIORIDADES := PRIORIDADES(NUMERO_PLANTAS-2 downto 0) & "0000"; -- Se elimina la llamada ya atendida
+                    -- La prioridad almacenada se cumple cuando ya se
+                    -- ha llegado al destino, ya que al hacerlo solamente con 
+                    -- flancos de reloj sería todo 0.
+                    if PLANTAACTUAL = dest_fin then
+                        PRIORIDADES := PRIORIDADES(NUMERO_PLANTAS-2 downto 0) & "0000"; -- Se elimina la llamada ya atendida
+                    end if;
+                end if;
                     --report "Destino según PRIORIDAD con motor movimiento:" dest_fin;
                     if dest_fin = "0000" then
                         for i in NUMERO_PLANTAS-1 downto 0 loop --Prioridad externa (panel de planta)
@@ -77,7 +84,6 @@ begin
                                 exit;
                             end if;
                         end loop;
-                    end if;
                 end if;
             end if;
 

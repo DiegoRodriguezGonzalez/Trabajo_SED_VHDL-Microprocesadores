@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1734512723">
-  <File Type="ROUTE-PWR" Name="SPI_SLAVE_power_routed.rpt"/>
+  <File Type="ROUTE-PWR" Name="SINCRONIZADOR_MICRO_A_FPGA_power_routed.rpt"/>
   <File Type="PA-TCL" Name="decoder_indicador.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="SPI_SLAVE_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR-SUM" Name="SINCRONIZADOR_MICRO_A_FPGA_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="decoder_indicador_reports.tcl"/>
   <File Type="BITSTR-MSK" Name="decoder_indicador.msk"/>
-  <File Type="ROUTE-CLK" Name="SPI_SLAVE_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="SINCRONIZADOR_MICRO_A_FPGA_clock_utilization_routed.rpt"/>
   <File Type="RDI-RDI" Name="decoder_indicador.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="SPI_SLAVE_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_postroute_physopted.pb"/>
   <File Type="BG-BIT" Name="decoder_indicador.bit"/>
   <File Type="BG-DRC" Name="decoder_indicador.drc"/>
   <File Type="BG-BGN" Name="decoder_indicador.bgn"/>
@@ -16,37 +16,37 @@
   <File Type="BITSTR-NKY" Name="decoder_indicador.nky"/>
   <File Type="BITSTR-BMM" Name="decoder_indicador_bd.bmm"/>
   <File Type="BITSTR-MMI" Name="decoder_indicador.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="SPI_SLAVE_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="SINCRONIZADOR_MICRO_A_FPGA_methodology_drc_routed.rpt"/>
   <File Type="BITSTR-SYSDEF" Name="decoder_indicador.sysdef"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="SPI_SLAVE_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_methodology_drc_routed.pb"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="decoder_indicador.ltx"/>
   <File Type="BOOT-PDI-FILE" Name="decoder_indicador_boot.pdi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="NPI_FILE" Name="decoder_indicador.npi"/>
-  <File Type="OPT-DRC" Name="SPI_SLAVE_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="SINCRONIZADOR_MICRO_A_FPGA_drc_opted.rpt"/>
   <File Type="RBD_FILE" Name="decoder_indicador.rbd"/>
   <File Type="OPT-HWDEF" Name="decoder_indicador.hwdef"/>
-  <File Type="PLACE-IO" Name="SPI_SLAVE_io_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="SPI_SLAVE_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="SPI_SLAVE_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="SPI_SLAVE_control_sets_placed.rpt"/>
+  <File Type="PLACE-IO" Name="SINCRONIZADOR_MICRO_A_FPGA_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="SINCRONIZADOR_MICRO_A_FPGA_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="SINCRONIZADOR_MICRO_A_FPGA_control_sets_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="decoder_indicador_incremental_reuse_pre_placed.rpt"/>
-  <File Type="ROUTE-DRC" Name="SPI_SLAVE_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="SPI_SLAVE_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="SPI_SLAVE_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="SPI_SLAVE_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="SPI_SLAVE_route_status.pb"/>
+  <File Type="ROUTE-DRC" Name="SINCRONIZADOR_MICRO_A_FPGA_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="SINCRONIZADOR_MICRO_A_FPGA_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_route_status.pb"/>
   <File Type="ROUTE-DCP" Name="decoder_indicador_routed.dcp"/>
   <File Type="ROUTE-ERROR-DCP" Name="decoder_indicador_routed_error.dcp"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="decoder_indicador_routed_bb.dcp"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="SPI_SLAVE_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="SINCRONIZADOR_MICRO_A_FPGA_timing_summary_routed.rpt"/>
   <File Type="ROUTE-TIMING-PB" Name="decoder_indicador_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="SPI_SLAVE_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="SPI_SLAVE_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="SPI_SLAVE_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="SPI_SLAVE_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="SPI_SLAVE_bus_skew_routed.rpx"/>
+  <File Type="ROUTE-TIMING-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="SINCRONIZADOR_MICRO_A_FPGA_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_routed.rpx"/>
   <File Type="OPT-DCP" Name="decoder_indicador_opt.dcp"/>
   <File Type="PLACE-DCP" Name="decoder_indicador_placed.dcp"/>
   <File Type="PWROPT-DCP" Name="decoder_indicador_pwropt.dcp"/>
@@ -54,13 +54,13 @@
   <File Type="PHYSOPT-DCP" Name="decoder_indicador_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="decoder_indicador_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="decoder_indicador_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="SPI_SLAVE_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="SPI_SLAVE_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="SPI_SLAVE_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="SPI_SLAVE_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="SPI_SLAVE_bus_skew_postroute_physopted.rpx"/>
-  <File Type="ROUTE-DRC-RPX" Name="SPI_SLAVE_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="SPI_SLAVE_methodology_drc_routed.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="SINCRONIZADOR_MICRO_A_FPGA_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="SINCRONIZADOR_MICRO_A_FPGA_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_bus_skew_postroute_physopted.rpx"/>
+  <File Type="ROUTE-DRC-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="SINCRONIZADOR_MICRO_A_FPGA_methodology_drc_routed.rpx"/>
   <File Type="PDI-FILE" Name="decoder_indicador.pdi"/>
   <File Type="PL-PDI-FILE" Name="decoder_indicador_pld.pdi"/>
   <File Type="RCFI_FILE" Name="decoder_indicador.rcfi"/>

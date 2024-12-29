@@ -130,6 +130,7 @@ architecture Behavioral of Top is
            RESET : in STD_LOGIC;    -- Señal de RESET para EMERGENCIA
            PLANTA_PULSADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica el botón seleccionado en la cabina
            PLANTA_LLAMADA: in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que indica botones de planta externos
+           PLANTAACTUAL : in std_logic_vector(NUMERO_PLANTAS-1 downto 0); -- Vector que indica la planta actual.
            LLENO : in STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0); -- Vector que almacena el estado de las plantas del parking (plantas 0,1,2,3) 0 siempre estará a 0
            ESTADO_ACTUAL : in std_logic_vector(3 downto 0); -- Vector con estado del motor
            DESTINO_FINAL: out STD_LOGIC_VECTOR (NUMERO_PLANTAS-1 downto 0) -- Indica planta a la que ir
@@ -272,6 +273,7 @@ Inst_GestorPrioridades: GestorPrioridades Port map(
            RESET => Emergencia_top,
            PLANTA_PULSADA => PLANTA_PANEL_SINCRONIZADOR_to_Prioridad,
            PLANTA_LLAMADA => PLANTA_EXTERNA_SINCRONIZADOR_to_Prioridad,
+           PLANTAACTUAL => PLANTA_ACTUAL_SINCRONIZADOR_to_FSM,
            LLENO=> VECTORLLENO_agrupador_toPrioridad, 
            ESTADO_ACTUAL => ESTADO_FSM_to_Gestor_Prioridad, 
            DESTINO_FINAL => DESTINO_Prioridad_to_FMS

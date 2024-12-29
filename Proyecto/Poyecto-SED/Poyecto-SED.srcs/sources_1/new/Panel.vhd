@@ -51,6 +51,8 @@ architecture Behavioral of FSM is
     signal contador_abrir_i : integer := 0;
     signal contador_cerrar_i : integer := 0;
     signal contador_abierto_i : integer := 0;
+    SIGNAL contador_estado_0 : integer :=0;
+    signal listo_0: std_logic := '0';
     signal listo_3: std_logic := '0';
     signal listo_4: std_logic := '0';
     signal listo_5: std_logic := '0';
@@ -68,12 +70,15 @@ begin
     end process;
 
     -- Proceso de la lógica de transición de estados
-    secuencia: process (cur_state, PLANTAACTUAL, DESTINO, listo_3, listo_4, listo_5)
+    secuencia: process (cur_state, PLANTAACTUAL, DESTINO, listo_0, listo_3, listo_4, listo_5, EMERGENCIA)
     begin
         nxt_state <= cur_state; -- Se conserva el estado actual si no pasa nada
 
         case cur_state is
             when S0_ESPERA =>
+              -- Se incluye tiempo pequeño (3 flancos )para que la FSM pueda 
+              -- asimilar el nuevo destino que le llega y no permanezca en el estado 0.
+              if listo_0 = '1' then      
                 if DESTINO /= "0000" then 
                  if unsigned(PLANTAACTUAL) < unsigned(DESTINO) then
                     nxt_state <= S1_SUBIENDO;
@@ -85,6 +90,7 @@ begin
                 else 
                     nxt_state <= S0_ESPERA;
                 end if;
+              end if;
                 
             when S1_SUBIENDO =>
                 if PLANTAACTUAL = DESTINO then
@@ -128,20 +134,30 @@ begin
                 contador_abrir_i <= 0;
                 contador_abierto_i <= 0;
                 contador_cerrar_i <= 0;
+                contador_estado_0 <= contador_estado_0 + 1;
+                if contador_estado_0 = TIEMPO_ESPERA - 2 then
+                    listo_0 <= '1';
+                end if;
 
-                when S1_SUBIENDO =>
+            when S1_SUBIENDO =>
                 contador_abrir_i <= 0;
                 contador_abierto_i <= 0;
                 contador_cerrar_i <= 0;
+                contador_estado_0 <= 0;
+                listo_0 <= '0';
                 
-                when S2_BAJANDO =>
+            when S2_BAJANDO =>
                 contador_abrir_i <= 0;
                 contador_abierto_i <= 0;
                 contador_cerrar_i <= 0;
+                contador_estado_0 <= 0;
+                listo_0 <= '0';
                                
             when S3_PUERTA_ABRIENDO =>
                 contador_abierto_i <= 0;
                 contador_cerrar_i <= 0;
+                contador_estado_0 <= 0;
+                listo_0 <= '0';
                 contador_abrir_i <= contador_abrir_i + 1;
                 if contador_abrir_i = TIEMPO_ABRIR - 2 then
                  listo_3 <= '1';
@@ -169,6 +185,8 @@ begin
                 contador_abrir_i <= 0;
                 contador_abierto_i <= 0;
                 contador_cerrar_i <= 0;
+                contador_estado_0 <= 0;
+                listo_0 <= '0';
                 listo_3 <= '0';
                 listo_4 <= '0';
                 listo_5 <= '0';
