@@ -1,7 +1,12 @@
-/*#ifndef INC_KEYPAD_4X4_H_
+#ifndef INC_KEYPAD_4X4_H_
 #define INC_KEYPAD_4X4_H_
 
-char Keypad_Get_Char();
+#define NUM_ROWS 4
+#define NUM_COLS 4
+#define DEBOUNCE_TIME 50   // Tiempo entre verificaciones (ms)
+
+void interrupt (uint16_t GPIO_Pin);
+void flagTecla(char *key);
 
 #endif
-*/
+

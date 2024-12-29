@@ -27,7 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
 #include "i2c-lcd.h"
-//#include "key.h"
+#include "key.h"
 #include "hc_sr04.h"
 /* USER CODE END Includes */
 
@@ -38,8 +38,9 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define NUM_ROWS 4
-#define NUM_COLS 4
+
+#define tres_s 500
+
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -51,63 +52,34 @@
 
 /* USER CODE BEGIN PV */
 volatile char key = '\0';
-volatile uint8_t flag_key = 0;
-const char keys[NUM_ROWS][NUM_COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}
-};
 
-GPIO_TypeDef* row_ports[NUM_ROWS] = {R1_GPIO_Port, R2_GPIO_Port, R3_GPIO_Port, R4_GPIO_Port};
-uint16_t row_pins[NUM_ROWS] = {R1_Pin, R2_Pin, R3_Pin, R4_Pin};
-
-GPIO_TypeDef* col_ports[NUM_COLS] = {C1_GPIO_Port, C2_GPIO_Port, C3_GPIO_Port, C4_GPIO_Port};
-uint16_t col_pins[NUM_COLS] = {C1_Pin, C2_Pin, C3_Pin, C4_Pin};
-
-volatile uint8_t active_column = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-
+void representaPlanta(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-#define CS_LOW()  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET)
-#define CS_HIGH() HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_SET)
-#define tres_s 500
+
 uint16_t distancia = 0;
 char buf_lcd[18];
-volatile uint32_t temp;
-//volatile uint8_t flag;
+
+volatile uint8_t contador = 0;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-		static uint32_t last_interrupt_time = 0;
-	    uint32_t current_time = HAL_GetTick();
+		interrupt(GPIO_Pin);
+}
 
-	// Evitar rebotes con un retardo de 50 ms
-	    if (current_time - last_interrupt_time < 100) {
-	        return;
-	    }
-	    last_interrupt_time = current_time;
-
-	    if (flag_key == 1) {
-	            return; // Ya hay un evento en cola, descarta esta interrupción
-	        }
-
-	// Encontrar la columna del interruptor activado
-	    for (int col = 0; col < NUM_COLS; col++) {
-	        if (GPIO_Pin == col_pins[col]) {
-	            active_column = col;  // Almacenar columna
-	            flag_key = 1;         // Activar flag
-	            temp = HAL_GetTick();
-	            break;
-	        }
-	    }
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+    if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+    {
+    	procesadoTemporizador(htim);
+    }
 }
 
 
@@ -157,51 +129,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  if (flag_key == 1) {
+	  //Gestión de la interrupción
+	  flagTecla(&key);
 
-		  int local_column = active_column; // Copiar datos a variables locales
-
-		  // Escanear la tecla presionada
-		  for (int row = 0; row < NUM_ROWS; row++) {
-			  for (int r = 0; r < NUM_ROWS; r++) {
-				  HAL_GPIO_WritePin(row_ports[r], row_pins[r], (r == row) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-			  }
-
-			  if (!(HAL_GPIO_ReadPin(col_ports[local_column], col_pins[local_column]))) {
-				  key = keys[row][local_column]; // Almacenar tecla localmente
-				  break;
-			  }
-
-		  }
-
-		  // Restaurar estado de las filas
-			  for (int r = 0; r < NUM_ROWS; r++) {
-				  HAL_GPIO_WritePin(row_ports[r], row_pins[r], GPIO_PIN_SET);
-			  }
-
-		  flag_key = 0;  // Reset flag
-	  }
-
-
-	  // Display the key pressed
-	  if (key != '\0') {
-		  lcd_clear();
-		  switch (key) {
-			  case '1': lcd_enviar("Planta 1", 0, 4); HAL_Delay(2000); break;
-			  case '2': lcd_enviar("Planta 2", 0, 4); break;
-			  case '3': lcd_enviar("Planta 3", 0, 4); break;
-			  case '*': lcd_enviar("Emergencia", 0, 3); break;
-			  default: break;
-		  }
-		  //if tiempo pasado (temporizador)
-		  key = '\0';  // Resetear tecla
-	  }
-	  else lcd_enviar("Elegir planta", 0, 1);
-
-	//  else if(HAL_GetTick - temp >= 2000)
-		  //for (volatile uint32_t i = 0; i < 300; i++)lcd_enviar("Elegir planta", 0, 1);
-
-
+	  // Mostrar la tecla pulsada
+	  representaPlanta();
 
 	  /*distancia = HCSR04_Get_Distance();
 	  sprintf(buf_lcd, "%lu", distancia);
@@ -217,12 +149,6 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-	  //CS_LOW(); // Activar esclavo
-	  //HAL_SPI_TransmitReceive(&hspi1, txData, rxData, sizeof(txData), HAL_MAX_DELAY);
-	  //CS_HIGH(); // Desactivar esclavo
-
-	  //HAL_Delay(1000); // Esperar 1 segundo
 }
   /* USER CODE END 3 */
 }
@@ -277,6 +203,36 @@ int __io_putchar(int ch) {
  ITM_SendChar(ch);
  return ch;
  }
+
+
+void representaPlanta(void){
+	if (key != '\0') {
+			  lcd_clear();
+			  switch (key) {
+				  case '1': lcd_enviar("Planta 1", 0, 4); HAL_Delay(2000); break;
+				  case '2': lcd_enviar("Planta 2", 0, 4); HAL_Delay(2000);break;
+				  case '3': lcd_enviar("Planta 3", 0, 4); HAL_Delay(2000);break;
+				  case '4': lcd_enviar("Planta 4", 0, 4); HAL_Delay(2000); break;
+				  case '5': lcd_enviar("Planta 5", 0, 4); HAL_Delay(2000);break;
+				  case '6': lcd_enviar("Planta 6", 0, 4); HAL_Delay(2000);break;
+				  case '7': lcd_enviar("Planta 7", 0, 3); HAL_Delay(2000);break;
+				  case '8': lcd_enviar("Planta 8", 0, 4); HAL_Delay(2000); break;
+				  case '9': lcd_enviar("Planta 9", 0, 4); HAL_Delay(2000);break;
+				  case 'A': lcd_enviar("Planta A", 0, 4); HAL_Delay(2000);break;
+				  case 'B': lcd_enviar("Planta B", 0, 3); HAL_Delay(2000);break;
+				  case 'C': lcd_enviar("Planta C", 0, 4); HAL_Delay(2000); break;
+				  case 'D': lcd_enviar("Planta D", 0, 4); HAL_Delay(2000);break;
+				  case '#': lcd_enviar("Planta #", 0, 4); HAL_Delay(2000);break;
+				  case '*': lcd_enviar("Emergencia", 0, 3); HAL_Delay(2000);break;
+				  default: break;
+			  }
+			  //if tiempo pasado (temporizador)
+			  key = '\0';  // Resetear tecla
+
+		  }
+		  else lcd_enviar("Elegir planta", 0, 1);
+}
+
 
 /* USER CODE END 4 */
 

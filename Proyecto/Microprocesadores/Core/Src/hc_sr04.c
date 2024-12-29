@@ -10,54 +10,49 @@ bool flag = false;	//Se emplea para que la primera medida se haga y no se enclav
 #define MAX_DISTANCE 100        // Distancia máxima válida (en cm)
 #define TOLERANCIA 4 // Tolerancia permitida en cm
 
-
-
-void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+void procesadoTemporizador(TIM_HandleTypeDef *htim)
 {
-    if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
-    {
-        static uint32_t t_ini = 0;
-        static uint32_t t_end = 0;
-        static uint8_t flag_captured = 0;
+		static uint32_t t_ini = 0;
+		static uint32_t t_end = 0;
+		static uint8_t flag_captured = 0;
 
-        if(flag_captured == 0)
-        {
-            // Primer borde detectado (RISING)
-            t_ini = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
-            flag_captured = 1;
+		if(flag_captured == 0)
+		{
+			// Primer borde detectado (RISING)
+			t_ini = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			flag_captured = 1;
 
-            // Cambiar polaridad a FALLING para capturar el siguiente borde
-            __HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
-        }
-        else if(flag_captured == 1)
-        {
-            // Segundo borde detectado (FALLING)
-            t_end = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
+			// Cambiar polaridad a FALLING para capturar el siguiente borde
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
+		}
+		else if(flag_captured == 1)
+		{
+			// Segundo borde detectado (FALLING)
+			t_end = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
 
-            uint32_t t_time = 0;
-            if(t_end > t_ini) {
-                t_time = t_end - t_ini;
-            } else {
-                t_time = (0xFFFF - t_ini) + t_end;
-            }
+			uint32_t t_time = 0;
+			if(t_end > t_ini) {
+				t_time = t_end - t_ini;
+			} else {
+				t_time = (0xFFFF - t_ini) + t_end;
+			}
 
-            // Calcular distancia (usando factor predefinido para mayor precisión)
-            #define FACTOR_ESCALA 0.017 // (0.034 / 2)
-            dist = (uint16_t)(t_time * FACTOR_ESCALA * 10);
+			// Calcular distancia (usando factor predefinido para mayor precisión)
+			#define FACTOR_ESCALA 0.017 // (0.034 / 2)
+			dist = (uint16_t)(t_time * FACTOR_ESCALA * 10);
 
-            if (!flag || (dist >= MIN_DISTANCE && dist <= MAX_DISTANCE)) //Filtrado de señales atípicas
-            {
-            	//Hacer que la distancia no pueda variar más de TOLERANCIA cm
+			if (!flag || (dist >= MIN_DISTANCE && dist <= MAX_DISTANCE)) //Filtrado de señales atípicas
+			{
+				//Hacer que la distancia no pueda variar más de TOLERANCIA cm
 				if (!flag ||(dist >= dist_fin - TOLERANCIA && dist <= dist_fin + TOLERANCIA))
 					dist_fin = dist; // Si dentro de rango, memoria almacena el valor
 				//Si no, se usa el valor anterior
 				flag = true;
-            }
-            // Preparar para la próxima medición
-            flag_captured = 0;
-            __HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
-        }
-    }
+			}
+			// Preparar para la próxima medición
+			flag_captured = 0;
+			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
+		}
 }
 
 

@@ -1,11 +1,8 @@
-/*#include "main.h"
+#include "main.h"
 #include "key.h"
 
-#define TIME 50
-#define NUM_ROWS 4
-#define NUM_COLS 4
-
-// Definición de las teclas
+volatile uint8_t active_column = 0;
+volatile uint8_t flag_key = 0;
 const char keys[NUM_ROWS][NUM_COLS] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
@@ -13,60 +10,84 @@ const char keys[NUM_ROWS][NUM_COLS] = {
     {'*', '0', '#', 'D'}
 };
 
-// Definir las filas y columnas
 GPIO_TypeDef* row_ports[NUM_ROWS] = {R1_GPIO_Port, R2_GPIO_Port, R3_GPIO_Port, R4_GPIO_Port};
 uint16_t row_pins[NUM_ROWS] = {R1_Pin, R2_Pin, R3_Pin, R4_Pin};
 
 GPIO_TypeDef* col_ports[NUM_COLS] = {C1_GPIO_Port, C2_GPIO_Port, C3_GPIO_Port, C4_GPIO_Port};
 uint16_t col_pins[NUM_COLS] = {C1_Pin, C2_Pin, C3_Pin, C4_Pin};
 
-// Función para leer la tecla
-char Keypad_Get_Char(void)
+
+void interrupt (uint16_t GPIO_Pin)
 {
-    char val_key = '\0'; // Inicializar tecla como "ninguna"
-    int timeout;
-    pritnf(val_key);
-    // Iterar por cada fila
-    for (int row = 0; row < NUM_ROWS; row++)
-    {
-        // Activar la fila actual (bajar a nivel bajo)
-        for (int r = 0; r < NUM_ROWS; r++) {
-            HAL_GPIO_WritePin(row_ports[r], row_pins[r], (r == row) ? GPIO_PIN_RESET : GPIO_PIN_SET);
-        }
+	static uint32_t last_interrupt_time = 0; // Tiempo del último interrupt
+			uint32_t current_time = HAL_GetTick();  // Tiempo actual en milisegundos
 
-        // Leer las columnas
-        for (int col = 0; col < NUM_COLS; col++)
-        {
-            if (!(HAL_GPIO_ReadPin(col_ports[col], col_pins[col])))
-            {
-                timeout = TIME; // Establecer límite de tiempo para evitar bloqueo
-                while (!(HAL_GPIO_ReadPin(col_ports[col], col_pins[col])) && --timeout > 0)
-                {
-                    // Breve retardo (puedes usar HAL_Delay para mayor consistencia)
-                    for (volatile uint32_t i = 0; i < 500; i++);
-                }
+		// Evitar rebotes con un retardo de DEBOUNCE_TIME ms
+		    if ((current_time - last_interrupt_time) < DEBOUNCE_TIME) {
+		        return; // Ignorar la interrupción si ocurre demasiado rápido
+		    }
 
-                if (timeout > 0) {
-                    val_key = keys[row][col]; // Obtener la tecla correspondiente
-                    pritnf(val_key);
-                    break; // Salir del bucle de columnas
-                }
-            }
-        }
+		    last_interrupt_time = current_time; // Actualizar el tiempo del último interrupt
 
-        // Si ya se detectó una tecla, salir del bucle de filas
-        if (val_key != '\0') {
-        	pritnf("Detectó:");
-        	pritnf(val_key);
-            break;
-        }
-    }
+		    if (flag_key == 0) {
 
-    // Restaurar filas a nivel alto
-    for (int r = 0; r < NUM_ROWS; r++) {
-        HAL_GPIO_WritePin(row_ports[r], row_pins[r], GPIO_PIN_SET);
-    }
+		    	 //__disable_irq();  // Desactivar interrupciones para evitar conflictos
 
-    return val_key; // Retornar la tecla presionada
+		    	 // Encontrar la columna del interruptor activado
+				for (int col = 0; col < NUM_COLS; col++) {
+					if (GPIO_Pin == col_pins[col]) {
+						active_column = col;  // Almacenar columna
+						flag_key = 1;         // Activar flag
+						break;
+					}
+				}
+			   // __enable_irq();  // Reactivar interrupciones
+		    }
+
+		    /*if (GPIO_Pin == GPIO_PIN_0 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+		    else if (GPIO_Pin == GPIO_PIN_1 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+		    else if (GPIO_Pin == GPIO_PIN_2 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+		    else if (GPIO_Pin == GPIO_PIN_3 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);*/
+
+		    /*if (contador == 0 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+			else if (contador == 1 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_13);
+			else if (contador == 2 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+			else if (contador == 3 )HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_15);
+
+		    contador++;*/
 }
-*/
+
+void flagTecla(char *key)
+{
+	if (flag_key == 1) {
+			//__disable_irq();  // Desactiva interrupciones durante el escaneo
+			int detected_row = -1;
+
+			for (int row = 0; row < NUM_ROWS; row++) {
+				// Configurar filas
+				for (int r = 0; r < NUM_ROWS; r++) {
+					HAL_GPIO_WritePin(row_ports[r], row_pins[r], (r == row) ? GPIO_PIN_RESET : GPIO_PIN_SET);
+				}
+
+				// Detectar columna activa
+				if (!HAL_GPIO_ReadPin(col_ports[active_column], col_pins[active_column])) {
+					detected_row = row;
+					break;
+				}
+			}
+
+			// Resetear filas
+			for (int r = 0; r < NUM_ROWS; r++) {
+				HAL_GPIO_WritePin(row_ports[r], row_pins[r], GPIO_PIN_SET);
+			}
+
+			// Registrar tecla detectada
+			if (detected_row != -1) {
+				*key = keys[detected_row][active_column]; //Cambio del contenido del puntero key. Sin * se cambia la dirección
+			}
+
+			flag_key = 0;  // Resetear el flag
+			//__enable_irq();
+	}
+
+}
