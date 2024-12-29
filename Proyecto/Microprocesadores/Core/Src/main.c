@@ -29,6 +29,7 @@
 #include "i2c-lcd.h"
 #include "key.h"
 #include "hc_sr04.h"
+#include "funciones.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,13 +53,15 @@
 
 /* USER CODE BEGIN PV */
 volatile char key = '\0';
+volatile char posicion[9]; //Para albergar el caracter nulo [9]
+volatile char destino[9]; //Para albergar el caracter nulo [9]
+
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void representaPlanta(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -129,18 +132,30 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //Gestión de la interrupción
+	  //Gestión de la interrupción. Obtención de tecla pulsada
 	  flagTecla(&key);
 
-	  // Mostrar la tecla pulsada
-	  representaPlanta();
+	  //Obtención posición del ascensor con ultrasonidos
+	  distancia = HCSR04_Get_Distance();
+	  	  /*sprintf(buf_lcd, "%lu", distancia);
+	  	  lcd_clear();
+	  	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
+	  	  lcd_send_string("     cm");
+	  	  HAL_Delay(400);*/ //No se va a representar pero es el código usado para ver las distancias con el ultrasonidos
 
-	  /*distancia = HCSR04_Get_Distance();
-	  sprintf(buf_lcd, "%lu", distancia);
-	  lcd_clear();
-	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
-	  lcd_send_string("     cm");
-	  HAL_Delay(400);*/
+
+	  //Codificación de planta para envío
+	  strncpy(posicion, calculaPosicion(distancia), sizeof(posicion));
+	  posicion[sizeof(posicion) - 1] = '\0'; // Asegura que esté terminada en '\0'
+
+	  //Codificación de tecla pulsada para envío
+	  strncpy(destino, calculaDestino(key), sizeof(destino));
+	  destino[sizeof(destino) - 1] = '\0'; // Asegura que esté terminada en '\0'
+
+	  // Mostrar en el panel LCD la tecla pulsada durante 2s
+	  representaPlanta(&key);
+
+	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");
 	  /*lcd_enviar("Planta 2", 0, 4); //(ms,row,colum-> mueve a la derecha) Centrado
 	  HAL_Delay(5000);
@@ -203,36 +218,6 @@ int __io_putchar(int ch) {
  ITM_SendChar(ch);
  return ch;
  }
-
-
-void representaPlanta(void){
-	if (key != '\0') {
-			  lcd_clear();
-			  switch (key) {
-				  case '1': lcd_enviar("Planta 1", 0, 4); HAL_Delay(2000); break;
-				  case '2': lcd_enviar("Planta 2", 0, 4); HAL_Delay(2000);break;
-				  case '3': lcd_enviar("Planta 3", 0, 4); HAL_Delay(2000);break;
-				  case '4': lcd_enviar("Planta 4", 0, 4); HAL_Delay(2000); break;
-				  case '5': lcd_enviar("Planta 5", 0, 4); HAL_Delay(2000);break;
-				  case '6': lcd_enviar("Planta 6", 0, 4); HAL_Delay(2000);break;
-				  case '7': lcd_enviar("Planta 7", 0, 3); HAL_Delay(2000);break;
-				  case '8': lcd_enviar("Planta 8", 0, 4); HAL_Delay(2000); break;
-				  case '9': lcd_enviar("Planta 9", 0, 4); HAL_Delay(2000);break;
-				  case 'A': lcd_enviar("Planta A", 0, 4); HAL_Delay(2000);break;
-				  case 'B': lcd_enviar("Planta B", 0, 3); HAL_Delay(2000);break;
-				  case 'C': lcd_enviar("Planta C", 0, 4); HAL_Delay(2000); break;
-				  case 'D': lcd_enviar("Planta D", 0, 4); HAL_Delay(2000);break;
-				  case '#': lcd_enviar("Planta #", 0, 4); HAL_Delay(2000);break;
-				  case '*': lcd_enviar("Emergencia", 0, 3); HAL_Delay(2000);break;
-				  default: break;
-			  }
-			  //if tiempo pasado (temporizador)
-			  key = '\0';  // Resetear tecla
-
-		  }
-		  else lcd_enviar("Elegir planta", 0, 1);
-}
-
 
 /* USER CODE END 4 */
 
