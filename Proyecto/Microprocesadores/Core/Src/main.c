@@ -53,8 +53,8 @@
 
 /* USER CODE BEGIN PV */
 volatile char key = '\0';
-volatile char posicion[9]; //Para albergar el caracter nulo [9]
-volatile char destino[9]; //Para albergar el caracter nulo [9]
+volatile uint8_t posicion; //Para albergar el caracter nulo [9]
+volatile uint8_t destino; //Para albergar el caracter nulo [9]
 
 
 /* USER CODE END PV */
@@ -69,8 +69,11 @@ void SystemClock_Config(void);
 
 uint16_t distancia = 0;
 char buf_lcd[18];
+volatile uint8_t cicloEnvio = 0;
 
 volatile uint8_t contador = 0;
+
+uint8_t envioDatos;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
@@ -117,9 +120,9 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_I2C1_Init();
   MX_TIM1_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
   HCSR04_Init();
   lcd_init();
@@ -137,23 +140,37 @@ int main(void)
 
 	  //Obtención posición del ascensor con ultrasonidos
 	  distancia = HCSR04_Get_Distance();
-	  	  /*sprintf(buf_lcd, "%lu", distancia);
-	  	  lcd_clear();
-	  	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
-	  	  lcd_send_string("     cm");
-	  	  HAL_Delay(400);*/ //No se va a representar pero es el código usado para ver las distancias con el ultrasonidos
-
+	  /*sprintf(buf_lcd, "%lu", distancia);
+	  lcd_clear();
+	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
+	  lcd_send_string("     cm");
+	  HAL_Delay(400);*/ //No se va a representar pero es el código usado para ver las distancias con el ultrasonidos
 
 	  //Codificación de planta para envío
-	  strncpy(posicion, calculaPosicion(distancia), sizeof(posicion));
-	  posicion[sizeof(posicion) - 1] = '\0'; // Asegura que esté terminada en '\0'
+	  posicion = calculaPosicion(distancia);
 
 	  //Codificación de tecla pulsada para envío
-	  strncpy(destino, calculaDestino(key), sizeof(destino));
-	  destino[sizeof(destino) - 1] = '\0'; // Asegura que esté terminada en '\0'
+	  destino = calculaDestino(key);
+
+	  if (cicloEnvio++ == 0)
+	  {
+		  envioDatos = posicion; //Ciclo primero envía el dato de la planta en la que se encuentra el ascensor
+	  }
+	  else
+	  {
+		  envioDatos = destino; //Ciclo segundo envía el dato del destino seleccionado
+		  cicloEnvio = 0;
+	  }
+
+	  //Envío de datos a través del SPI
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	  HAL_SPI_Transmit(&hspi3, &envioDatos, 1, HAL_MAX_DELAY);
+
+	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
 
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
-	  representaPlanta(&key);
+	  representaPlanta(&key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
 
 	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");
