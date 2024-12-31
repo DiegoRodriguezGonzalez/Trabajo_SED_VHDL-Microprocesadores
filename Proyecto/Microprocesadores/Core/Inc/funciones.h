@@ -11,3 +11,5 @@ uint8_t calculaPosicion (uint16_t distancia);
 
 uint8_t calculaDestino (char key);
 
+float getTemperature (uint32_t val);
+

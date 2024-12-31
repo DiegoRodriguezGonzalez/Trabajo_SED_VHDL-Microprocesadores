@@ -3,6 +3,7 @@
 
 volatile uint8_t active_column = 0;
 volatile uint8_t flag_key = 0;
+volatile uint32_t prueba;
 const char keys[NUM_ROWS][NUM_COLS] = {
     {'1', '2', '3', 'A'},
     {'4', '5', '6', 'B'},
@@ -36,11 +37,17 @@ void interrupt (uint16_t GPIO_Pin)
 		    	 // Encontrar la columna del interruptor activado
 				for (int col = 0; col < NUM_COLS; col++) {
 					if (GPIO_Pin == col_pins[col]) {
+						//__disable_irq();
 						active_column = col;  // Almacenar columna
 						flag_key = 1;         // Activar flag
+						//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+						//__enable_irq();
 						break;
 					}
 				}
+
+				// Limpieza del flag de interrupción
+				   // __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 			   // __enable_irq();  // Reactivar interrupciones
 		    }
 
@@ -86,8 +93,14 @@ void flagTecla(char *key)
 				*key = keys[detected_row][active_column]; //Cambio del contenido del puntero key. Sin * se cambia la dirección
 			}
 
+			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,1);
+			prueba = HAL_GetTick();
 			flag_key = 0;  // Resetear el flag
+
 			//__enable_irq();
 	}
+
+	if(HAL_GetTick()-prueba >= 2000)  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,0);
+
 
 }

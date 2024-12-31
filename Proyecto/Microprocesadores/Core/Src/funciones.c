@@ -73,3 +73,10 @@ uint8_t calculaDestino (char key)
 	 else return 0b00000000; //Si se devuelve 0000'0000 se ponen a 0000 planta_llamada y planta_pulsada
 
 }
+
+float getTemperature (uint32_t val){
+	float voltage;
+	float scale_factor = 18.0/56.2;
+	voltage = (val+1) * 3.3/256.0;
+	return ((voltage-0.76)/0.0025+25)*(scale_factor);	//Se observa que a 18 ºC le corresponde un retorno de 56,2 --> Se corrige para que dé algo coherente
+}

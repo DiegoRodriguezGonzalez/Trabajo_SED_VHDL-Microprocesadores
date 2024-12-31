@@ -18,6 +18,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "i2c.h"
 #include "spi.h"
 #include "tim.h"
@@ -62,6 +63,10 @@ volatile uint8_t destino; //Para albergar el caracter nulo [9]
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
+void actualizaInfoSPI (void);
+void enviaSPI (void);
+void gestorTemperatura (void);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -75,9 +80,18 @@ volatile uint8_t contador = 0;
 
 uint8_t envioDatos;
 
+uint32_t ADC_val;
+float temperature;
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 		interrupt(GPIO_Pin);
+		//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+		//HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+		//HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+		//HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+		//HAL_NVIC_EnableIRQ(EXTI3_IRQn);
+
 }
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
@@ -87,6 +101,15 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
     	procesadoTemporizador(htim);
     }
 }
+
+/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+		if(hadc-> Instance == ADC1 )
+		{
+			ADC_val = HAL_ADC_GetValue(&hadc1);
+			temperature = getTemperature(ADC_val);
+		}
+
+	}*/
 
 
 /* USER CODE END 0 */
@@ -123,18 +146,24 @@ int main(void)
   MX_I2C1_Init();
   MX_TIM1_Init();
   MX_SPI3_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   HCSR04_Init();
   lcd_init();
 
   for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
   lcd_clear();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   while (1)
   {
+	  //Gestión sensor temperatura
+	  gestorTemperatura();
+
 	  //Gestión de la interrupción. Obtención de tecla pulsada
 	  flagTecla(&key);
 
@@ -152,22 +181,11 @@ int main(void)
 	  //Codificación de tecla pulsada para envío
 	  destino = calculaDestino(key);
 
-	  if (cicloEnvio++ == 0)
-	  {
-		  envioDatos = posicion; //Ciclo primero envía el dato de la planta en la que se encuentra el ascensor
-	  }
-	  else
-	  {
-		  envioDatos = destino; //Ciclo segundo envía el dato del destino seleccionado
-		  cicloEnvio = 0;
-	  }
+	  //Almacenamiento de la información a transmitir
+	  actualizaInfoSPI();
 
 	  //Envío de datos a través del SPI
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
-
-	  HAL_SPI_Transmit(&hspi3, &envioDatos, 1, HAL_MAX_DELAY);
-
-	  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
+	  enviaSPI();
 
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
 	  representaPlanta(&key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
@@ -177,6 +195,7 @@ int main(void)
 	  /*lcd_enviar("Planta 2", 0, 4); //(ms,row,colum-> mueve a la derecha) Centrado
 	  HAL_Delay(5000);
 	  lcd_clear();*/
+
 
     /* USER CODE END WHILE */
 
@@ -235,6 +254,46 @@ int __io_putchar(int ch) {
  ITM_SendChar(ch);
  return ch;
  }
+
+void actualizaInfoSPI (void)
+{
+	if (cicloEnvio == 0)
+		  {
+			  envioDatos = posicion; //Ciclo primero envía el dato de la planta en la que se encuentra el ascensor
+			  cicloEnvio++;
+		  }
+		  else
+		  {
+			  envioDatos = destino; //Ciclo segundo envía el dato del destino seleccionado
+			  cicloEnvio = 0;
+		  }
+}
+
+void enviaSPI (void)
+{
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+
+	HAL_SPI_Transmit(&hspi3, &envioDatos, 1, HAL_MAX_DELAY);
+
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
+
+}
+
+void gestorTemperatura (void)
+{
+		  //Activación del ADC
+		  HAL_ADC_Start(&hadc1);
+
+		  //Obtener temperatura
+		  if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK)
+		  {
+			  ADC_val = HAL_ADC_GetValue(&hadc1);
+			  temperature = getTemperature(ADC_val);
+		  }
+
+		  //Desactivación del ADC
+		  HAL_ADC_Stop(&hadc1);
+}
 
 /* USER CODE END 4 */
 
