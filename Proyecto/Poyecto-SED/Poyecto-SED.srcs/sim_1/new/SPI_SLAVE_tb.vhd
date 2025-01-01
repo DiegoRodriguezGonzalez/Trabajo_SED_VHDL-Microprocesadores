@@ -74,10 +74,10 @@ begin
         RST_N <= '0';
         CS_N <= '1';
         MOSI <= '0';
-        wait for 100 ns;
+        wait for 20 ns;
 
         RST_N <= '1';
-        wait for 50 ns;
+        wait for 30 ns;
 
         -- La señal recibida es la planta pulsada en el panel
         CS_N <= '0';
@@ -118,6 +118,15 @@ begin
         -- Se verifica que se han recibido
         assert PLANTA_ACTUAL = DATOS_A_MOSI(TAM_PALABRA-5 downto 0) report "Error: Datos no coinciden en PLANTA_ACTUAL" severity error;
 
+        -- Se resetean los botones (se ponen a 0)
+        CS_N <= '0';
+        DATOS_A_MOSI := "00000000"; 
+        for i in TAM_PALABRA-1 downto 0 loop
+            MOSI <= DATOS_A_MOSI(i);
+            wait for CLK_PERIOD;
+        end loop;
+        CS_N <= '1';
+        wait for 100 ns;
         -- Fin de simulación
         wait;
     end process;

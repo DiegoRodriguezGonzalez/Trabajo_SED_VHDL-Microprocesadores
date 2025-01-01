@@ -58,11 +58,22 @@ begin
             if RST_N = '0' or CS_N = '1' then
                 contador <= (others => '0');
             else
+                -- Se incrementa el contador para que, cuando reciba los 8 bits, se actualicen
+                -- las salidas.
                 contador <= contador + 1;
-                data_reg := data_reg(TAM_PALABRA-2 downto 0) & MOSI; 
+                data_reg := data_reg(TAM_PALABRA-2 downto 0) & MOSI;
+                -- Cuando se alcanzan los 8 bits, se actualizan las 
+                -- salidas ya que ha recibido toda la información.
                 if contador = "111" then
                   --valido <= '1';
-                  if data_reg(TAM_PALABRA-1) = '1' then
+                  -- Primer caso prioritario: cuando se quieren resetear las salidas
+                  -- del botón interno y botón externo. Controlado desde STM para que 
+                  -- funcione como un botón. No es reset como tal ya que la señal
+                  -- viene desde STM32. La planta actual nunca se pone a 0.
+                  if data_reg(TAM_PALABRA-1) = '0' and data_reg(TAM_PALABRA-2) = '0' and data_reg(TAM_PALABRA-3) = '0' and data_reg(TAM_PALABRA-4) = '0' then
+                    PLANTA_PANEL <= (others => '0');
+                    PLANTA_EXTERNA <= (others => '0');
+                  elsif data_reg(TAM_PALABRA-1) = '1' then
                     PLANTA_PANEL <= data_reg(TAM_PALABRA-5 downto 0);
                   elsif data_reg(TAM_PALABRA-2) = '1' then
                     PLANTA_EXTERNA <= data_reg(TAM_PALABRA-5 downto 0);

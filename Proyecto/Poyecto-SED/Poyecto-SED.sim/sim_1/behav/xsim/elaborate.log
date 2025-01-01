@@ -1,7 +1,7 @@
 Vivado Simulator v2024.1
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot SINCRONIZADOR_MICRO_A_FPGA_TB_behav xil_defaultlib.SINCRONIZADOR_MICRO_A_FPGA_TB -log elaborate.log 
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L secureip --snapshot SPI_SLAVE_TB_behav xil_defaultlib.SPI_SLAVE_TB -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,8 +11,7 @@ Time Resolution for simulation is 1ps
 Compiling package std.standard
 Compiling package std.textio
 Compiling package ieee.std_logic_1164
-Compiling package ieee.std_logic_arith
-Compiling package ieee.std_logic_unsigned
-Compiling architecture behavioral of entity xil_defaultlib.SINCRONIZADOR_MICRO_A_FPGA [sincronizador_micro_a_fpga_defau...]
-Compiling architecture behavioral of entity xil_defaultlib.sincronizador_micro_a_fpga_tb
-Built simulation snapshot SINCRONIZADOR_MICRO_A_FPGA_TB_behav
+Compiling package ieee.numeric_std
+Compiling architecture behavioral of entity xil_defaultlib.SPI_SLAVE [spi_slave_default]
+Compiling architecture behavioral of entity xil_defaultlib.spi_slave_tb
+Built simulation snapshot SPI_SLAVE_TB_behav
