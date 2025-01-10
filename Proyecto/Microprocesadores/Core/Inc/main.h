@@ -57,8 +57,6 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define R4_Pin GPIO_PIN_2
-#define R4_GPIO_Port GPIOE
 #define C4_Pin GPIO_PIN_0
 #define C4_GPIO_Port GPIOA
 #define C4_EXTI_IRQn EXTI0_IRQn
@@ -73,6 +71,8 @@ void Error_Handler(void);
 #define C1_EXTI_IRQn EXTI3_IRQn
 #define SS_Pin GPIO_PIN_4
 #define SS_GPIO_Port GPIOA
+#define R4_Pin GPIO_PIN_10
+#define R4_GPIO_Port GPIOB
 #define R3_Pin GPIO_PIN_11
 #define R3_GPIO_Port GPIOB
 #define R2_Pin GPIO_PIN_12

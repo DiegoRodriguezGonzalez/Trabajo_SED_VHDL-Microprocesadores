@@ -1,5 +1,6 @@
 #include "main.h"
 #include "key.h"
+#include "tim.h"
 
 volatile uint8_t active_column = 0;
 volatile uint8_t flag_key = 0;
@@ -40,6 +41,7 @@ void interrupt (uint16_t GPIO_Pin)
 						//__disable_irq();
 						active_column = col;  // Almacenar columna
 						flag_key = 1;         // Activar flag
+						//HAL_TIM_Base_Start_IT(&htim3);
 						//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 						//__enable_irq();
 						break;
@@ -85,7 +87,7 @@ void flagTecla(char *key)
 
 			// Resetear filas
 			for (int r = 0; r < NUM_ROWS; r++) {
-				HAL_GPIO_WritePin(row_ports[r], row_pins[r], GPIO_PIN_SET);
+				HAL_GPIO_WritePin(row_ports[r], row_pins[r], GPIO_PIN_RESET);
 			}
 
 			// Registrar tecla detectada
@@ -93,14 +95,15 @@ void flagTecla(char *key)
 				*key = keys[detected_row][active_column]; //Cambio del contenido del puntero key. Sin * se cambia la dirección
 			}
 
-			HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,1);
+			//HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,1);
 			prueba = HAL_GetTick();
 			flag_key = 0;  // Resetear el flag
+			//active_column = 7;
 
 			//__enable_irq();
 	}
 
-	if(HAL_GetTick()-prueba >= 2000)  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,0);
+	//if(HAL_GetTick()-prueba >= 2000)  HAL_GPIO_WritePin(GPIOD, GPIO_PIN_12,0);
 
 
 }

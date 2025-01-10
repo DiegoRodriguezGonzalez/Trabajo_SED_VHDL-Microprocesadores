@@ -5,7 +5,7 @@
 #define P2_ar 22 //P3_ab
 #define P3_ar 30
 
-void representaPlanta(char *key);
+void representaPlanta(char *key, uint8_t *flag_t);
 
 uint8_t calculaPosicion (uint16_t distancia);
 

@@ -56,6 +56,7 @@
 volatile char key = '\0';
 volatile uint8_t posicion; //Para albergar el caracter nulo [9]
 volatile uint8_t destino; //Para albergar el caracter nulo [9]
+volatile uint8_t flag_tiempoTrans = 0; //Flag usado para borrar la tecla tras un tiempo de transmisión
 
 
 /* USER CODE END PV */
@@ -93,13 +94,29 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		//HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
 }
-
+/*
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
     if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
     {
     	procesadoTemporizador(htim);
     }
+}
+*/
+
+void HAL_TIM_PeriodEllapsedCallback(TIM_HandleTypeDef *htim)
+{
+	/*if (htim->Instance == TIM3)
+	{
+		flag_tiempoTrans = 1; //Pasados los 3 segundos tras llamar a la planta, se deja de enviar
+		HAL_TIM_Base_Stop_IT(htim); // Se para la cuenta del temporizador hasta que se vuelva a solicitar una planta con el teclado
+		__HAL_TIM_SET_COUNTER(htim,0); //Prepararlo para siguientes cuentas
+
+	}
+	*/
+	UNUSED(htim);
+	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+
 }
 
 /*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
@@ -147,20 +164,28 @@ int main(void)
   MX_TIM1_Init();
   MX_SPI3_Init();
   MX_ADC1_Init();
+  MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
+
   HCSR04_Init();
   lcd_init();
 
   for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
   lcd_clear();
 
+
+  HAL_TIM_Base_Start_IT(&htim3);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
+
+
   while (1)
   {
+
 	  //Gestión sensor temperatura
 	  gestorTemperatura();
 
@@ -169,6 +194,7 @@ int main(void)
 
 	  //Obtención posición del ascensor con ultrasonidos
 	  distancia = HCSR04_Get_Distance();
+
 	  /*sprintf(buf_lcd, "%lu", distancia);
 	  lcd_clear();
 	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
@@ -187,8 +213,10 @@ int main(void)
 	  //Envío de datos a través del SPI
 	  enviaSPI();
 
+	  //if(flag_tiempoTrans == 1) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
+
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
-	  representaPlanta(&key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
+	  representaPlanta(&key, &flag_tiempoTrans);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
 
 	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");

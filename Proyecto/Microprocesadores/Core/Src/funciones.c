@@ -2,7 +2,7 @@
 #include "main.h"
 
 
-void representaPlanta(char *key){
+void representaPlanta(char *key, uint8_t *flag_t){
 	if (*key != '\0') {
 			  lcd_clear();
 			  switch (*key) {
@@ -24,9 +24,16 @@ void representaPlanta(char *key){
 				  case '*': lcd_enviar("Emergencia", 0, 3); HAL_Delay(2000);break;
 				  default: break;
 			  }
-			  //if tiempo pasado (temporizador)
+
 			  *key = '\0';  // Resetear tecla
 
+/*			  if(*flag_t == 1)
+			  {
+				  *key = '\0';  // Resetear tecla
+				  *flag_t = 0;
+				  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
+			  }
+*/
 		  }
 		  else lcd_enviar("Elegir planta", 0, 1);
 }
