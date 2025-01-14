@@ -84,9 +84,16 @@ uint8_t envioDatos;
 uint32_t ADC_val;
 float temperature;
 
+volatile uint32_t tiempo_tick;
+volatile int int1=0;
+int tim3_count;
+extern TIM_HandleTypeDef htim3;
+
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 		interrupt(GPIO_Pin);
+		HAL_TIM_Base_Start_IT(&htim3);
+
 		//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 		//HAL_NVIC_EnableIRQ(EXTI0_IRQn);
 		//HAL_NVIC_EnableIRQ(EXTI1_IRQn);
@@ -94,7 +101,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 		//HAL_NVIC_EnableIRQ(EXTI3_IRQn);
 
 }
-/*
+
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
     if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
@@ -102,31 +109,28 @@ void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
     	procesadoTemporizador(htim);
     }
 }
-*/
 
-void HAL_TIM_PeriodEllapsedCallback(TIM_HandleTypeDef *htim)
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	/*if (htim->Instance == TIM3)
+	if (htim->Instance == TIM3)
 	{
 		flag_tiempoTrans = 1; //Pasados los 3 segundos tras llamar a la planta, se deja de enviar
-		HAL_TIM_Base_Stop_IT(htim); // Se para la cuenta del temporizador hasta que se vuelva a solicitar una planta con el teclado
-		__HAL_TIM_SET_COUNTER(htim,0); //Prepararlo para siguientes cuentas
+		HAL_TIM_Base_Stop_IT(&htim3);
+
 
 	}
-	*/
-	UNUSED(htim);
-	HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 
 }
 
-/*void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 		if(hadc-> Instance == ADC1 )
 		{
 			ADC_val = HAL_ADC_GetValue(&hadc1);
 			temperature = getTemperature(ADC_val);
 		}
 
-	}*/
+	}
 
 
 /* USER CODE END 0 */
@@ -165,6 +169,7 @@ int main(void)
   MX_SPI3_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 
   HCSR04_Init();
@@ -173,19 +178,13 @@ int main(void)
   for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
   lcd_clear();
 
-
-  HAL_TIM_Base_Start_IT(&htim3);
-
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
 
-
-
   while (1)
   {
-
 	  //Gestión sensor temperatura
 	  gestorTemperatura();
 
@@ -205,7 +204,7 @@ int main(void)
 	  posicion = calculaPosicion(distancia);
 
 	  //Codificación de tecla pulsada para envío
-	  destino = calculaDestino(key);
+	  destino = calculaDestino(&key, &flag_tiempoTrans);
 
 	  //Almacenamiento de la información a transmitir
 	  actualizaInfoSPI();
@@ -216,7 +215,7 @@ int main(void)
 	  //if(flag_tiempoTrans == 1) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
-	  representaPlanta(&key, &flag_tiempoTrans);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
+	  representaPlanta(key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
 
 	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");
