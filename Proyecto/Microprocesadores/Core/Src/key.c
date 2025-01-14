@@ -19,10 +19,11 @@ GPIO_TypeDef* col_ports[NUM_COLS] = {C1_GPIO_Port, C2_GPIO_Port, C3_GPIO_Port, C
 uint16_t col_pins[NUM_COLS] = {C1_Pin, C2_Pin, C3_Pin, C4_Pin};
 
 
-void interrupt (uint16_t GPIO_Pin)
+void interrupt (uint16_t GPIO_Pin, TIM_HandleTypeDef *htim)
 {
+	HAL_TIM_Base_Start_IT(&htim3);
 	static uint32_t last_interrupt_time = 0; // Tiempo del último interrupt
-			uint32_t current_time = HAL_GetTick();  // Tiempo actual en milisegundos
+	uint32_t current_time = HAL_GetTick();  // Tiempo actual en milisegundos
 
 		// Evitar rebotes con un retardo de DEBOUNCE_TIME ms
 		    if ((current_time - last_interrupt_time) < DEBOUNCE_TIME) {

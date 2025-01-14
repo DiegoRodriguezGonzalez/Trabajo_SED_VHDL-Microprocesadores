@@ -5,7 +5,7 @@
 #define NUM_COLS 4
 #define DEBOUNCE_TIME 50   // Tiempo entre verificaciones (ms)
 
-void interrupt (uint16_t GPIO_Pin);
+void interrupt (uint16_t GPIO_Pin, TIM_HandleTypeDef *htim);
 void flagTecla(char *key);
 
 #endif

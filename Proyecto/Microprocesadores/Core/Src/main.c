@@ -91,8 +91,7 @@ extern TIM_HandleTypeDef htim3;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-		interrupt(GPIO_Pin);
-		HAL_TIM_Base_Start_IT(&htim3);
+		interrupt(GPIO_Pin, &htim3);
 
 		//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
 		//HAL_NVIC_EnableIRQ(EXTI0_IRQn);
