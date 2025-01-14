@@ -1,15 +1,55 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="marla" Host="LAPTOP-260PTFG4" Pid="816" HostCore="16" HostMemory="016479834112">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="19120" HostCore="16" HostMemory="016474595328">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="marla" Host="LAPTOP-260PTFG4" Pid="11164" HostCore="16" HostMemory="016479834112">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="7796" HostCore="16" HostMemory="016474595328">
     </Process>
 </ProcessHandle>
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
-    <Process Command="vivado.bat" Owner="marla" Host="LAPTOP-260PTFG4" Pid="12060" HostCore="16" HostMemory="016479834112">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="324" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="10780" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="21160" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="11088" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="17904" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="11760" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="9740" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="6484" HostCore="16" HostMemory="016474595328">
+    </Process>
+</ProcessHandle>
+<?xml version="1.0"?>
+<ProcessHandle Version="1" Minor="0">
+    <Process Command="vivado.bat" Owner="diego" Host="DIEGO" Pid="19868" HostCore="16" HostMemory="016474595328">
     </Process>
 </ProcessHandle>

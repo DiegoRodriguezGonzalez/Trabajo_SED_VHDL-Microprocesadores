@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Wed Dec 18 10:06:15 2024
-# Process ID: 25796
-# Current directory: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1
-# Command line: vivado.exe -log decoder_indicador.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source decoder_indicador.tcl -notrace
-# Log file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1/decoder_indicador.vdi
-# Journal file: C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1\vivado.jou
-# Running On        :LAPTOP-260PTFG4
+# Start of session at: Tue Jan 14 13:06:33 2025
+# Process ID: 14088
+# Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1
+# Command line: vivado.exe -log SPI_SLAVE.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source SPI_SLAVE.tcl -notrace
+# Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1/SPI_SLAVE.vdi
+# Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1\vivado.jou
+# Running On        :Diego
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :AMD Ryzen 7 5800H with Radeon Graphics         
-# CPU Frequency     :3194 MHz
+# Operating System  :22631
+# Processor Detail  :AMD Ryzen 7 7730U with Radeon Graphics         
+# CPU Frequency     :1996 MHz
 # CPU Physical cores:8
 # CPU Logical cores :16
-# Host memory       :16479 MB
-# Swap memory       :10200 MB
-# Total Virtual     :26680 MB
-# Available Virtual :13053 MB
+# Host memory       :16474 MB
+# Swap memory       :3248 MB
+# Total Virtual     :19723 MB
+# Available Virtual :3961 MB
 #-----------------------------------------------------------
-source decoder_indicador.tcl -notrace
+source SPI_SLAVE.tcl -notrace

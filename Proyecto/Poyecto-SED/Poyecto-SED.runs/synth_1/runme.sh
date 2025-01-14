@@ -25,7 +25,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/marla/OneDrive/Documentos/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1'
+HD_PWD='C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -41,4 +41,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log decoder_indicador.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder_indicador.tcl
+EAStep vivado -log SPI_SLAVE.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SPI_SLAVE.tcl

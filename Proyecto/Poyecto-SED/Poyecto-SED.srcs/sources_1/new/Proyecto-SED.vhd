@@ -140,10 +140,10 @@ architecture Behavioral of Top is
     Component FSM is
       generic (
         Nplantas : positive := 4;  -- Número de plantas del ascensor
-      	constant TIEMPO_ABRIR : integer := 3;
-      	constant TIEMPO_CERRAR : integer := 3;
-      	constant TIEMPO_ABIERTO : integer := 3;
-      	constant TIEMPO_ESPERA : integer := 3
+      	constant TIEMPO_ABRIR : integer := 200_000_000;
+      	constant TIEMPO_CERRAR : integer := 200_000_000;
+      	constant TIEMPO_ABIERTO : integer := 300_000_000;
+      	constant TIEMPO_ESPERA : integer := 100_000_000
       );
       port (
       	DESTINO : in std_logic_vector(Nplantas-1 downto 0); -- Petición para ir a una nueva planta

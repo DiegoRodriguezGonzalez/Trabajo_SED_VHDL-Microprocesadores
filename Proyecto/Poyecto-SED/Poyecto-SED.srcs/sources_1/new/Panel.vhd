@@ -26,10 +26,10 @@ use IEEE.NUMERIC_STD.ALL; -- Para convertir entre std_logic_vector e integer
 entity FSM is
     generic (
         Nplantas : positive := 4;  -- Número de plantas del ascensor
-        TIEMPO_ABRIR : integer := 3;
-        TIEMPO_CERRAR : integer := 3;
-        TIEMPO_ABIERTO : integer := 3;
-        TIEMPO_ESPERA : integer := 3
+        TIEMPO_ABRIR : integer := 200_000_000;
+        TIEMPO_CERRAR : integer := 200_000_000;
+        TIEMPO_ABIERTO : integer := 300_000_000;
+        TIEMPO_ESPERA : integer := 100_000_000
     );
     port (
         DESTINO : in std_logic_vector(Nplantas-1 downto 0); -- Petición para ir a una nueva planta
