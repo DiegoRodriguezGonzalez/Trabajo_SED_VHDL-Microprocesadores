@@ -3,22 +3,22 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Tue Jan 14 18:09:00 2025
-# Process ID: 9164
-# Current directory: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1
+# Start of session at: Wed Jan 15 13:57:45 2025
+# Process ID: 5864
+# Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1
 # Command line: vivado.exe -log Top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Top.tcl -notrace
-# Log file: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1/Top.vdi
-# Journal file: C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1\vivado.jou
-# Running On        :Usuario
+# Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1/Top.vdi
+# Journal file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1\vivado.jou
+# Running On        :Diego
 # Platform          :Windows Server 2016 or Windows 10
-# Operating System  :19045
-# Processor Detail  :Intel(R) Core(TM) i7-5500U CPU @ 2.40GHz
-# CPU Frequency     :2394 MHz
-# CPU Physical cores:2
-# CPU Logical cores :4
-# Host memory       :17098 MB
-# Swap memory       :2550 MB
-# Total Virtual     :19648 MB
-# Available Virtual :5937 MB
+# Operating System  :22631
+# Processor Detail  :AMD Ryzen 7 7730U with Radeon Graphics         
+# CPU Frequency     :1996 MHz
+# CPU Physical cores:8
+# CPU Logical cores :16
+# Host memory       :16474 MB
+# Swap memory       :4408 MB
+# Total Virtual     :20883 MB
+# Available Virtual :4310 MB
 #-----------------------------------------------------------
 source Top.tcl -notrace

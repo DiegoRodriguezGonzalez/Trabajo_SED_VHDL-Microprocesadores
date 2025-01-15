@@ -28,7 +28,7 @@ entity FSM is
         Nplantas : positive := 4;  -- Número de plantas del ascensor
         TIEMPO_ABRIR : integer := 200_000_000;
         TIEMPO_CERRAR : integer := 200_000_000;
-        TIEMPO_ABIERTO : integer := 300_000_000;
+        TIEMPO_ABIERTO : integer := 400_000_000;
         TIEMPO_ESPERA : integer := 100_000_000
     );
     port (
@@ -76,7 +76,7 @@ begin
 
         case cur_state is
             when S0_ESPERA =>
-              -- Se incluye tiempo pequeño (3 flancos )para que la FSM pueda 
+              -- Se incluye tiempo pequeño para que la FSM pueda 
               -- asimilar el nuevo destino que le llega y no permanezca en el estado 0.
               if listo_0 = '1' then      
                 if DESTINO /= "0000" then 

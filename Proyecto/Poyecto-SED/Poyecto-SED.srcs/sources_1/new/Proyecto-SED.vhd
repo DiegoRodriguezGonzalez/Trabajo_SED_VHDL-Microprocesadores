@@ -55,7 +55,10 @@ entity Top is
     ASCENSOR_BAJA_motor_to_top: out std_logic;
     PUERTA_ABRE_motor_to_top: out std_logic;
     PUERTA_CIERRA_motor_to_top: out std_logic;
-    LEDS : out std_logic_vector(6 downto 0)
+    LEDS : out std_logic_vector(6 downto 0);
+    ESTADO_ACTUAL : out std_logic_vector(3 downto 0);
+    PLANTA_INTERNA : out std_logic_vector(3 downto 0);
+    PLANTA_EXTERNA : out std_logic_vector(3 downto 0)
     );
 end Top;
 
@@ -142,7 +145,7 @@ architecture Behavioral of Top is
         Nplantas : positive := 4;  -- Número de plantas del ascensor
       	constant TIEMPO_ABRIR : integer := 200_000_000;
       	constant TIEMPO_CERRAR : integer := 200_000_000;
-      	constant TIEMPO_ABIERTO : integer := 300_000_000;
+      	constant TIEMPO_ABIERTO : integer := 400_000_000;
       	constant TIEMPO_ESPERA : integer := 100_000_000
       );
       port (
@@ -316,5 +319,11 @@ Inst_decoder_indicador: decoder_indicador Port map(
           MOTOR_ASCENSOR => MOTOR_ASCENSOR,  -- Motor indica subiendo o bajando
           LED_PANTALLA => LEDS    -- Se muestra por los segmentos el número o letra
        );
+        
+        EMER_FMS_to_top <= EMER_FMS_to_señal;
+        ESTADO_ACTUAL <= ESTADO_FSM_to_Gestor_Prioridad;
+        PLANTA_INTERNA <= PLANTA_PANEL_SPI_to_SINCRONIZADOR;
+        PLANTA_EXTERNA <= PLANTA_EXTERNA_SPI_to_SINCRONIZADOR;
+        
         
 end Behavioral;

@@ -8,14 +8,14 @@
   **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
   **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
   **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-  **** Start of session at: Tue Jan 14 18:07:18 2025
+  **** Start of session at: Wed Jan 15 13:55:56 2025
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source Top.tcl -notrace
-create_project: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 520.352 ; gain = 237.488
-Command: read_checkpoint -auto_incremental -incremental C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/utils_1/imports/synth_1/Motor.dcp
-INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/utils_1/imports/synth_1/Motor.dcp for incremental synthesis
+create_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:19 . Memory (MB): peak = 539.141 ; gain = 236.672
+Command: read_checkpoint -auto_incremental -incremental C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/utils_1/imports/synth_1/Motor.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/utils_1/imports/synth_1/Motor.dcp for incremental synthesis
 INFO: [Vivado 12-7989] Please ensure there are no constraint changes
 Command: synth_design -top Top -part xc7a100tcsg324-1
 Starting synth_design
@@ -28,111 +28,109 @@ INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
 WARNING: [Common 17-1361] You have specified a new message control rule that is equivalent to an existing rule with attributes ' -id {17-179}  -suppress '. The existing rule will be replaced.
-INFO: [Synth 8-7075] Helper process launched with PID 20356
+INFO: [Synth 8-7075] Helper process launched with PID 6248
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1389.336 ; gain = 449.746
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:11 . Memory (MB): peak = 1407.527 ; gain = 449.926
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Top' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:62]
-INFO: [Synth 8-3491] module 'SPI_SLAVE' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:5' bound to instance 'Inst_SpiSlave' of component 'SPI_SLAVE' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:214]
-INFO: [Synth 8-638] synthesizing module 'SPI_SLAVE' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:24]
+INFO: [Synth 8-638] synthesizing module 'Top' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:65]
+INFO: [Synth 8-3491] module 'SPI_SLAVE' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:5' bound to instance 'Inst_SpiSlave' of component 'SPI_SLAVE' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'SPI_SLAVE' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:24]
 	Parameter TAM_PALABRA bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'SPI_SLAVE' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:24]
-INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter1' of component 'COUNTER' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:224]
-INFO: [Synth 8-638] synthesizing module 'COUNTER' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:48]
+INFO: [Synth 8-256] done synthesizing module 'SPI_SLAVE' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:24]
+INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter1' of component 'COUNTER' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:227]
+INFO: [Synth 8-638] synthesizing module 'COUNTER' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:48]
 	Parameter WIDTH bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'COUNTER' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:48]
-INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter2' of component 'COUNTER' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:233]
-INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter3' of component 'COUNTER' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:242]
-INFO: [Synth 8-3491] module 'agrupador' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:4' bound to instance 'Inst_agrupador_lleno' of component 'agrupador' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:251]
-INFO: [Synth 8-638] synthesizing module 'agrupador' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'COUNTER' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:48]
+INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter2' of component 'COUNTER' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:236]
+INFO: [Synth 8-3491] module 'COUNTER' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/COUNTER.vhd:33' bound to instance 'Inst_Counter3' of component 'COUNTER' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:245]
+INFO: [Synth 8-3491] module 'agrupador' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:4' bound to instance 'Inst_agrupador_lleno' of component 'agrupador' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:254]
+INFO: [Synth 8-638] synthesizing module 'agrupador' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:17]
 	Parameter Nplantas bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'agrupador' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:17]
-INFO: [Synth 8-3491] module 'SINCRONIZADOR_MICRO_A_FPGA' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:4' bound to instance 'Inst_Sincronizador' of component 'SINCRONIZADOR_MICRO_A_FPGA' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:259]
-INFO: [Synth 8-638] synthesizing module 'SINCRONIZADOR_MICRO_A_FPGA' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'agrupador' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/agrupador.vhd:17]
+INFO: [Synth 8-3491] module 'SINCRONIZADOR_MICRO_A_FPGA' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:4' bound to instance 'Inst_Sincronizador' of component 'SINCRONIZADOR_MICRO_A_FPGA' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:262]
+INFO: [Synth 8-638] synthesizing module 'SINCRONIZADOR_MICRO_A_FPGA' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:20]
 	Parameter TAM_PALABRA bound to: 8 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'SINCRONIZADOR_MICRO_A_FPGA' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:20]
-INFO: [Synth 8-3491] module 'GestorPrioridades' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:16' bound to instance 'Inst_GestorPrioridades' of component 'GestorPrioridades' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:271]
-INFO: [Synth 8-638] synthesizing module 'GestorPrioridades' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:33]
+INFO: [Synth 8-256] done synthesizing module 'SINCRONIZADOR_MICRO_A_FPGA' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SINCRONIZADOR_MICRO_A_FPGA.vhd:20]
+INFO: [Synth 8-3491] module 'GestorPrioridades' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:16' bound to instance 'Inst_GestorPrioridades' of component 'GestorPrioridades' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:274]
+INFO: [Synth 8-638] synthesizing module 'GestorPrioridades' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:33]
 	Parameter NUMERO_PLANTAS bound to: 4 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'GestorPrioridades' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:33]
-INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:26' bound to instance 'Inst_FMS' of component 'FSM' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:282]
-INFO: [Synth 8-638] synthesizing module 'FSM' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'GestorPrioridades' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/GestorPrioridades.vhd:33]
+INFO: [Synth 8-3491] module 'FSM' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:26' bound to instance 'Inst_FMS' of component 'FSM' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:285]
+INFO: [Synth 8-638] synthesizing module 'FSM' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:46]
 	Parameter Nplantas bound to: 4 - type: integer 
 	Parameter TIEMPO_ABRIR bound to: 200000000 - type: integer 
 	Parameter TIEMPO_CERRAR bound to: 200000000 - type: integer 
-	Parameter TIEMPO_ABIERTO bound to: 300000000 - type: integer 
+	Parameter TIEMPO_ABIERTO bound to: 400000000 - type: integer 
 	Parameter TIEMPO_ESPERA bound to: 100000000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'FSM' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:46]
-INFO: [Synth 8-3491] module 'Motor' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:4' bound to instance 'Inst_Motor_Puerta' of component 'Motor' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:293]
-INFO: [Synth 8-638] synthesizing module 'Motor' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'FSM' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Panel.vhd:46]
+INFO: [Synth 8-3491] module 'Motor' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:4' bound to instance 'Inst_Motor_Puerta' of component 'Motor' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:296]
+INFO: [Synth 8-638] synthesizing module 'Motor' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:16]
 	Parameter speed bound to: 30000 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Motor' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:16]
-INFO: [Synth 8-3491] module 'Motor' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:4' bound to instance 'Inst_Motor_Ascensor' of component 'Motor' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:300]
-INFO: [Synth 8-3491] module 'Codificador_Panel_Decoder' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:34' bound to instance 'Inst_codificador' of component 'Codificador_Panel_Decoder' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:307]
-INFO: [Synth 8-638] synthesizing module 'Codificador_Panel_Decoder' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'Motor' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:16]
+INFO: [Synth 8-3491] module 'Motor' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Motor.vhd:4' bound to instance 'Inst_Motor_Ascensor' of component 'Motor' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:303]
+INFO: [Synth 8-3491] module 'Codificador_Panel_Decoder' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:34' bound to instance 'Inst_codificador' of component 'Codificador_Panel_Decoder' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:310]
+INFO: [Synth 8-638] synthesizing module 'Codificador_Panel_Decoder' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:46]
 	Parameter Nplantas bound to: 4 - type: integer 
 	Parameter Plantas_Bin bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Codificador_Panel_Decoder' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:46]
-INFO: [Synth 8-3491] module 'decoder_indicador' declared at 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:4' bound to instance 'Inst_decoder_indicador' of component 'decoder_indicador' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:313]
-INFO: [Synth 8-638] synthesizing module 'decoder_indicador' [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'Codificador_Panel_Decoder' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Codificador_Panel_Decoder.vhd:46]
+INFO: [Synth 8-3491] module 'decoder_indicador' declared at 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:4' bound to instance 'Inst_decoder_indicador' of component 'decoder_indicador' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:316]
+INFO: [Synth 8-638] synthesizing module 'decoder_indicador' [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:18]
 	Parameter NPLANTAS bound to: 2 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'decoder_indicador' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'Top' (0#1) [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:62]
-WARNING: [Synth 8-3848] Net EMER_FMS_to_top in module/entity Top does not have driver. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:53]
-WARNING: [Synth 8-7129] Port EMER_FMS_to_top in module Top is either unconnected or has no load
+INFO: [Synth 8-256] done synthesizing module 'decoder_indicador' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/decoder_indicador.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'Top' (0#1) [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/Proyecto-SED.vhd:65]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1502.766 ; gain = 563.176
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1521.305 ; gain = 563.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1502.766 ; gain = 563.176
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1521.305 ; gain = 563.703
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1502.766 ; gain = 563.176
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:15 . Memory (MB): peak = 1521.305 ; gain = 563.703
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1502.766 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 1521.305 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
-WARNING: [Vivado 12-507] No nets matched 'SCLK_IBUF'. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:96]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:96]
+Parsing XDC File [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+WARNING: [Vivado 12-507] No nets matched 'SCLK_IBUF'. [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:96]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:96]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-507] No nets matched 'CS_N_IBUF'. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:97]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:97]
+WARNING: [Vivado 12-507] No nets matched 'CS_N_IBUF'. [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:97]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc:97]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_propImpl.xdc].
+Finished Parsing XDC File [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/constrs_1/imports/Downloads/Nexys-4-DDR-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Top_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/Top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1589.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1611.316 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1589.918 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1611.316 ; gain = 0.000
 INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:31 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:31 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:31 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3936] Found unconnected internal register 'data_reg_reg' and it is trimmed from '8' to '7' bits. [C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:64]
+WARNING: [Synth 8-3936] Found unconnected internal register 'data_reg_reg' and it is trimmed from '8' to '7' bits. [C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sources_1/new/SPI_SLAVE.vhd:64]
 INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'FSM'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -148,7 +146,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'cur_state_reg' in module 'F
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'cur_state_reg' using encoding 'one-hot' in module 'FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:32 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
@@ -195,28 +193,28 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
-WARNING: [Synth 8-7129] Port EMER_FMS_to_top in module Top is either unconnected or has no load
+WARNING: [Synth 8-3917] design Top has port ESTADO_ACTUAL[3] driven by constant 0
 WARNING: [Synth 8-3332] Sequential element (Inst_FMS/FSM_onehot_cur_state_reg[1]) is unused and will be removed from module Top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:40 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:45 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:29 ; elapsed = 00:00:51 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Timing Optimization : Time (s): cpu = 00:00:30 ; elapsed = 00:00:53 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Technology Mapping : Time (s): cpu = 00:00:31 ; elapsed = 00:00:53 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -234,37 +232,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished IO Insertion : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -282,42 +280,41 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     2|
 |2     |CARRY4 |    44|
-|3     |LUT1   |    13|
-|4     |LUT2   |    36|
-|5     |LUT3   |    26|
-|6     |LUT4   |    32|
-|7     |LUT5   |    44|
-|8     |LUT6   |    61|
+|3     |LUT1   |    10|
+|4     |LUT2   |    42|
+|5     |LUT3   |    27|
+|6     |LUT4   |    34|
+|7     |LUT5   |    48|
+|8     |LUT6   |    59|
 |9     |FDCE   |    41|
 |10    |FDPE   |     1|
 |11    |FDRE   |   217|
 |12    |IBUF   |    12|
-|13    |OBUF   |    11|
-|14    |OBUFT  |     1|
+|13    |OBUF   |    24|
 +------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:53 . Memory (MB): peak = 1589.918 ; gain = 563.176
-Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:00:57 . Memory (MB): peak = 1589.918 ; gain = 650.328
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:59 . Memory (MB): peak = 1611.316 ; gain = 563.703
+Synthesis Optimization Complete : Time (s): cpu = 00:00:36 ; elapsed = 00:01:03 . Memory (MB): peak = 1611.316 ; gain = 653.715
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1589.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1611.316 ; gain = 0.000
 INFO: [Netlist 29-17] Analyzing 44 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1589.918 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1611.316 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Synth Design complete | Checksum: 595c065f
+Synth Design complete | Checksum: 17407fb9
 INFO: [Common 17-83] Releasing license: Synthesis
-56 Infos, 9 Warnings, 2 Critical Warnings and 0 Errors encountered.
+56 Infos, 7 Warnings, 2 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:01 ; elapsed = 00:01:07 . Memory (MB): peak = 1589.918 ; gain = 1065.352
+synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:01:15 . Memory (MB): peak = 1611.316 ; gain = 1067.262
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
-Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1589.918 ; gain = 0.000
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Julio/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1/Top.dcp' has been generated.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1611.316 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/synth_1/Top.dcp' has been generated.
 INFO: [Vivado 12-24828] Executing command : report_utilization -file Top_utilization_synth.rpt -pb Top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Jan 14 18:08:45 2025...
+INFO: [Common 17-206] Exiting Vivado at Wed Jan 15 13:57:34 2025...
