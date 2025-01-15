@@ -174,8 +174,8 @@ int main(void)
   HCSR04_Init();
   lcd_init();
 
-  for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
-  lcd_clear();
+  //for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
+  //lcd_clear();
 
   /* USER CODE END 2 */
 
