@@ -2,72 +2,63 @@
 #include "hc_sr04.h"
 #include "stdbool.h"
 
-uint16_t dist = 0;	// Distancia auxiliar
-static uint16_t dist_fin = 0;	// Distancia final
-bool flag = false;	//Se emplea para que la primera medida se haga y no se enclave en caso de que el ascensor no haya quedado en la planta baja
+uint32_t IC_Val1 = 0;
+uint32_t IC_Val2 = 0;
+uint32_t Difference = 0;
+uint8_t Is_First_Captured = 0;  // is the first value captured ?
+uint8_t Distance  = 0;
 
-#define MIN_DISTANCE 0         // Distancia mínima válida (en cm)
-#define MAX_DISTANCE 100        // Distancia máxima válida (en cm)
-#define TOLERANCIA 4 // Tolerancia permitida en cm
+uint8_t getDistance(){return Distance;}
+
+void delay (uint16_t time)
+{
+	__HAL_TIM_SET_COUNTER(&htim1, 0);
+	while (__HAL_TIM_GET_COUNTER (&htim1) < time);
+}
 
 void procesadoTemporizador(TIM_HandleTypeDef *htim)
 {
-		static uint32_t t_ini = 0;
-		static uint32_t t_end = 0;
-		static uint8_t flag_captured = 0;
-
-		if(flag_captured == 0)
+	if (htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)  // if the interrupt source is channel1
 		{
-			// Primer borde detectado (RISING)
-			t_ini = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
-			flag_captured = 1;
-
-			// Cambiar polaridad a FALLING para capturar el siguiente borde
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
-		}
-		else if(flag_captured == 1)
-		{
-			// Segundo borde detectado (FALLING)
-			t_end = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);
-
-			uint32_t t_time = 0;
-			if(t_end > t_ini) {
-				t_time = t_end - t_ini;
-			} else {
-				t_time = (0xFFFF - t_ini) + t_end;
-			}
-
-			// Calcular distancia (usando factor predefinido para mayor precisión)
-			#define FACTOR_ESCALA 0.017 // (0.034 / 2)
-			dist = (uint16_t)(t_time * FACTOR_ESCALA * 10);
-
-			if (!flag || (dist >= MIN_DISTANCE && dist <= MAX_DISTANCE)) //Filtrado de señales atípicas
+			if (Is_First_Captured==0) // if the first value is not captured
 			{
-				//Hacer que la distancia no pueda variar más de TOLERANCIA cm
-				if (!flag ||(dist >= dist_fin - TOLERANCIA && dist <= dist_fin + TOLERANCIA))
-					dist_fin = dist; // Si dentro de rango, memoria almacena el valor
-				//Si no, se usa el valor anterior
-				flag = true;
+				IC_Val1 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1); // read the first value
+				Is_First_Captured = 1;  // set the first captured as true
+				// Now change the polarity to falling edge
+				__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_FALLING);
 			}
-			// Preparar para la próxima medición
-			flag_captured = 0;
-			__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
+
+			else if (Is_First_Captured==1)   // if the first is already captured
+			{
+				IC_Val2 = HAL_TIM_ReadCapturedValue(htim, TIM_CHANNEL_1);  // read second value
+				__HAL_TIM_SET_COUNTER(htim, 0);  // reset the counter
+
+				if (IC_Val2 > IC_Val1)
+				{
+					Difference = IC_Val2-IC_Val1;
+				}
+
+				else if (IC_Val1 > IC_Val2)
+				{
+					Difference = (0xffff - IC_Val1) + IC_Val2;
+				}
+
+				Distance = Difference * .034/2;
+				//Distance = Difference;
+				Is_First_Captured = 0; // set it back to false
+
+				// set polarity to rising edge
+				__HAL_TIM_SET_CAPTUREPOLARITY(htim, TIM_CHANNEL_1, TIM_INPUTCHANNELPOLARITY_RISING);
+				__HAL_TIM_DISABLE_IT(&htim1, TIM_IT_CC1);
+			}
 		}
 }
 
-
-void HCSR04_Init(void)
+void HCSR04_Read (void)
 {
-	HAL_GPIO_WritePin(Trigger_GPIO_Port, Trigger_Pin, GPIO_PIN_RESET);
-	HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_1);
-}
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_SET); // pull the TRIG pin HIGH
+	delay(10);  // wait for 10 us
+	HAL_GPIO_WritePin(GPIOB, GPIO_PIN_15, GPIO_PIN_RESET);// pull the TRIG pin low
 
-uint16_t HCSR04_Get_Distance(void)
-{
-	HAL_GPIO_WritePin(Trigger_GPIO_Port, Trigger_Pin, GPIO_PIN_SET);
-	__HAL_TIM_SetCounter(&htim1, 0);
-	while (__HAL_TIM_GetCounter(&htim1) < 10);
-	HAL_GPIO_WritePin(Trigger_GPIO_Port, Trigger_Pin, GPIO_PIN_RESET);
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC1);
-	return dist_fin;
 }

@@ -54,8 +54,8 @@
 
 /* USER CODE BEGIN PV */
 volatile char key = '\0';
-volatile uint8_t posicion; //Para albergar el caracter nulo [9]
-volatile uint8_t destino; //Para albergar el caracter nulo [9]
+volatile uint8_t posicion;
+volatile uint8_t destino;
 volatile uint8_t flag_tiempoTrans = 0; //Flag usado para borrar la tecla tras un tiempo de transmisión
 
 
@@ -73,7 +73,7 @@ void gestorTemperatura (void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint16_t distancia = 0;
+uint8_t distancia = 0;
 char buf_lcd[18];
 volatile uint8_t cicloEnvio = 0;
 
@@ -85,8 +85,7 @@ uint32_t ADC_val;
 float temperature;
 
 volatile uint32_t tiempo_tick;
-volatile int int1=0;
-int tim3_count;
+
 extern TIM_HandleTypeDef htim3;
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
@@ -103,12 +102,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
-    if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
-    {
-    	procesadoTemporizador(htim);
-    }
+	procesadoTemporizador(htim);
 }
-
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
@@ -130,6 +125,9 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 		}
 
 	}
+
+
+
 
 
 /* USER CODE END 0 */
@@ -170,9 +168,11 @@ int main(void)
   MX_TIM3_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_1);
 
-  HCSR04_Init();
+  //HCSR04_Init();
   lcd_init();
+
 
   //for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
   //lcd_clear();
@@ -191,7 +191,10 @@ int main(void)
 	  flagTecla(&key);
 
 	  //Obtención posición del ascensor con ultrasonidos
-	  distancia = HCSR04_Get_Distance();
+	  //distancia = HCSR04_Get_Distance();
+	  HCSR04_Read();
+	  HAL_Delay(200);
+	  distancia = getDistance();
 
 	  /*sprintf(buf_lcd, "%lu", distancia);
 	  lcd_clear();
@@ -200,6 +203,7 @@ int main(void)
 	  HAL_Delay(400);*/ //No se va a representar pero es el código usado para ver las distancias con el ultrasonidos
 
 	  //Codificación de planta para envío
+	  //posicion = calculaPosicion(distancia);
 	  posicion = calculaPosicion(distancia);
 
 	  //Codificación de tecla pulsada para envío
@@ -214,7 +218,7 @@ int main(void)
 	  //if(flag_tiempoTrans == 1) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
-	  representaPlanta(key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
+	  //representaPlanta(key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
 
 	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");
