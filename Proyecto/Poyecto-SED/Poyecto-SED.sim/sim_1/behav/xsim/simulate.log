@@ -1,1 +1,5 @@
 Time resolution is 1 ps
+Error: Error: El parking no está lleno cuando debería.
+Time: 430 ns  Iteration: 0  Process: /COUNTER_tb/stim_proc  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/COUNTER_TB.vhd
+Note: Simulación completada.
+Time: 770 ns  Iteration: 0  Process: /COUNTER_tb/stim_proc  File: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.srcs/sim_1/new/COUNTER_TB.vhd

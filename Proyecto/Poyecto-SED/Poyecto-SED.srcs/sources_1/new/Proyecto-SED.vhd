@@ -40,12 +40,12 @@ entity Top is
     Port ( 
     clk : in std_logic;
     RESET_N : in std_logic; --Reset de la FPGA
-    C_I1_top_to_counter: in std_logic; --señal de entrada de coche en piso 1
-    C_I2_top_to_counter: in std_logic; --señal de entrada de coche en piso 2
-    C_I3_top_to_counter: in std_logic; --señal de entrada de coche en piso 3
-    C_O1_top_to_counter: in std_logic; --señal de salida de coche en piso 1
-    C_O2_top_to_counter: in std_logic; --señal de salida de coche en piso 2
-    C_O3_top_to_counter: in std_logic; --señal de salida de coche en piso 3
+    C_I1_top_to_sincronizador: in std_logic; --señal de entrada de coche en piso 1
+    C_I2_top_to_sincronizador: in std_logic; --señal de entrada de coche en piso 2
+    C_I3_top_to_sincronizador: in std_logic; --señal de entrada de coche en piso 3
+    C_O1_top_to_sincronizador: in std_logic; --señal de salida de coche en piso 1
+    C_O2_top_to_sincronizador: in std_logic; --señal de salida de coche en piso 2
+    C_O3_top_to_sincronizador: in std_logic; --señal de salida de coche en piso 3
     Emergencia_top: in std_logic; --Emergencia del ascensor
     SCLK : in std_logic;    -- Reloj del microprocesador
     CS_N : in std_logic;    -- Chip select del microprocesador
@@ -57,8 +57,9 @@ entity Top is
     PUERTA_CIERRA_motor_to_top: out std_logic;
     LEDS : out std_logic_vector(6 downto 0);
     ESTADO_ACTUAL : out std_logic_vector(3 downto 0);
-    PLANTA_INTERNA : out std_logic_vector(3 downto 0);
-    PLANTA_EXTERNA : out std_logic_vector(3 downto 0)
+    FULL_PLANTA1 : out std_logic;
+    FULL_PLANTA2 : out std_logic;
+    FULL_PLANTA3 : out std_logic
     );
 end Top;
 
@@ -95,9 +96,26 @@ architecture Behavioral of Top is
         );
     end component;
 
+    Component sincronizadorBotones
+        port (
+         CLK : in std_logic;
+         ASYNC_IN : in std_logic;
+         SYNC_OUT : out std_logic
+         );
+    end component;
+    
+    Component EDGEDTCTR 
+     port (
+         CLK : in std_logic;
+         SYNC_IN : in std_logic;
+         EDGE : out std_logic
+     );
+    end component;
+    
     Component COUNTER
     Generic (                                                   
-           WIDTH : positive := 4
+           WIDTH : positive := 4;
+           MAX_CAPACITY : integer := 5
     );
     Port ( 
            RESET_N : in STD_LOGIC;                              -- Reset asíncrono activo a nivel bajo. Máxima prioridad
@@ -162,7 +180,7 @@ architecture Behavioral of Top is
       
      component Motor
       generic(
-        constant speed: integer :=30_000    -- Velocidad del motor
+        constant speed: integer :=19_000    -- Velocidad del motor
       );
       port(
         CLK : in std_logic; -- Reloj
@@ -211,6 +229,19 @@ architecture Behavioral of Top is
      signal PLANTAACTUAL_BIN_Codificador_to_Decoder: std_logic_vector(Plantas_BIN downto 0);
      signal EMER_FMS_to_señal: std_logic;
      signal ESTADO_FSM_to_Gestor_Prioridad: std_logic_vector(3 downto 0);
+     signal C_I1_sincronizador_to_edge: std_logic;
+     signal C_I2_sincronizador_to_edge: std_logic;
+     signal C_I3_sincronizador_to_edge: std_logic;
+     signal C_O1_sincronizador_to_edge: std_logic;
+     signal C_O2_sincronizador_to_edge: std_logic;
+     signal C_O3_sincronizador_to_edge: std_logic;
+     signal C_I1_edge_to_counter: std_logic;
+     signal C_I2_edge_to_counter: std_logic;
+     signal C_I3_edge_to_counter: std_logic;
+     signal C_O1_edge_to_counter: std_logic;
+     signal C_O2_edge_to_counter: std_logic;
+     signal C_O3_edge_to_counter: std_logic;
+     
      
      begin
      
@@ -224,12 +255,85 @@ Inst_SpiSlave : SPI_SLAVE Port map (
     PLANTA_ACTUAL => PLANTA_ACTUAL_SPI_to_SINCRONIZADOR 
     );
     
+Inst_SincronizadorI1: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_I1_top_to_sincronizador,
+         SYNC_OUT => C_I1_sincronizador_to_edge
+);
+
+Inst_SincronizadorI2: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_I2_top_to_sincronizador,
+         SYNC_OUT => C_I2_sincronizador_to_edge
+);
+
+Inst_SincronizadorI3: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_I3_top_to_sincronizador,
+         SYNC_OUT => C_I3_sincronizador_to_edge
+);
+
+Inst_SincronizadorO1: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_O1_top_to_sincronizador,
+         SYNC_OUT => C_O1_sincronizador_to_edge
+);
+
+Inst_SincronizadorO2: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_O2_top_to_sincronizador,
+         SYNC_OUT => C_O2_sincronizador_to_edge
+);
+
+Inst_SincronizadorO3: SincronizadorBotones Port map (
+         CLK => clk,
+         ASYNC_IN => C_O3_top_to_sincronizador,
+         SYNC_OUT => C_O3_sincronizador_to_edge
+);
+
+Inst_DetectorFlancoI1: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_I1_sincronizador_to_edge,
+        EDGE => C_I1_edge_to_counter
+);  
+
+Inst_DetectorFlancoI2: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_I2_sincronizador_to_edge,
+        EDGE => C_I2_edge_to_counter
+);  
+
+Inst_DetectorFlancoI3: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_I3_sincronizador_to_edge,
+        EDGE => C_I3_edge_to_counter
+);      
+
+Inst_DetectorFlancoO1: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_O1_sincronizador_to_edge,
+        EDGE => C_O1_edge_to_counter
+);      
+
+Inst_DetectorFlancoO2: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_O2_sincronizador_to_edge,
+        EDGE => C_O2_edge_to_counter
+);      
+
+Inst_DetectorFlancoO3: EDGEDTCTR Port map (
+        CLK => clk,
+        SYNC_IN => C_O3_sincronizador_to_edge,
+        EDGE => C_O3_edge_to_counter
+);      
+   
+    
 Inst_Counter1: COUNTER Port map ( --Contador de parking planta 1
     RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
-    CAR_IN => C_I1_top_to_counter,
-    CAR_OUT => C_O1_top_to_counter,
+    CAR_IN => C_I1_edge_to_counter,
+    CAR_OUT => C_O1_edge_to_counter,
     FULL => FULL1_Counter_to_agrupador
 );
 
@@ -237,8 +341,8 @@ Inst_Counter2: COUNTER Port map ( --Contador de parking planta 2
     RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
-    CAR_IN => C_I2_top_to_counter,
-    CAR_OUT => C_O2_top_to_counter,
+    CAR_IN => C_I2_edge_to_counter,
+    CAR_OUT => C_O2_edge_to_counter,
     FULL => FULL2_Counter_to_agrupador
 );
 
@@ -246,8 +350,8 @@ Inst_Counter3: COUNTER Port map (  --Contador de parking planta 3
     RESET_N => RESET_N,
     CLK => clk,
     CE => '1',
-    CAR_IN => C_I3_top_to_counter,
-    CAR_OUT => C_O3_top_to_counter,
+    CAR_IN => C_I3_edge_to_counter,
+    CAR_OUT => C_O3_edge_to_counter,
     FULL => FULL3_Counter_to_agrupador
 );
 
@@ -322,8 +426,8 @@ Inst_decoder_indicador: decoder_indicador Port map(
         
         EMER_FMS_to_top <= EMER_FMS_to_señal;
         ESTADO_ACTUAL <= ESTADO_FSM_to_Gestor_Prioridad;
-        PLANTA_INTERNA <= PLANTA_PANEL_SPI_to_SINCRONIZADOR;
-        PLANTA_EXTERNA <= PLANTA_EXTERNA_SPI_to_SINCRONIZADOR;
-        
+        FULL_PLANTA1 <= FULL1_Counter_to_agrupador;
+        FULL_PLANTA2 <= FULL2_Counter_to_agrupador;
+        FULL_PLANTA3 <= FULL3_Counter_to_agrupador;
         
 end Behavioral;

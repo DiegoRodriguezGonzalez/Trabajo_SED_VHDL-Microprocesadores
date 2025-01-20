@@ -33,7 +33,7 @@ use IEEE.NUMERIC_STD.ALL;
 entity COUNTER is
     generic (                                                   
            WIDTH : positive := 4;                               -- Parámetro genérico para mayor flexibilidad (si se aumenta nº plazas)
-           MAX_CAPACITY : integer := 15                         -- Número de plazas por planta
+           MAX_CAPACITY : integer := 5                         -- Número de plazas por planta
     );
     Port ( RESET_N : in STD_LOGIC;                              -- Reset asíncrono activo a nivel bajo. Máxima prioridad
            CE : in STD_LOGIC;                                   -- CHIP ENABLE síncrono
@@ -46,32 +46,34 @@ entity COUNTER is
 end COUNTER;
 
 architecture Behavioral of COUNTER is
-    signal count_i : UNSIGNED(WIDTH-1 downto 0):= (others => '0');
-    signal full_i : STD_LOGIC := '0';                                                 
+                                             
 begin
     cnt: process(CLK,RESET_N)
+        variable count_i : UNSIGNED(WIDTH-1 downto 0):= (others => '0');
+        variable full_i : STD_LOGIC := '0';    
       begin
         if RESET_N = '0' then                                               -- Si se pide RESET
-            count_i <= (others => '0');
-            full_i <= '0';
+            count_i := (others => '0');
+            full_i := '0';
         elsif RISING_EDGE (CLK) then                                        -- No RESET y R_E de CLK
           if CE = '1' then                                                  -- Chip activado
             if CAR_IN = '1' and full_i = '0' then
-                count_i <= count_i + 1;                                     -- Añadir coche
+                count_i := count_i + 1;                                     -- Añadir coche
             end if;
-            if CAR_OUT = '1' and count_i > 0 then
-                count_i <= count_i - 1;                                     -- Quitar coche
+            if CAR_OUT = '1' and to_integer(count_i) > 0 then
+                count_i := count_i - 1;                                     -- Quitar coche
             end if;
           end if;
           --full_i <= '1' when count_i = MAX_CAPACITY else '0';           NO VÁLIDA SI NO ES VHDL 2008
-          if count_i = MAX_CAPACITY then full_i <= '1'; 
-          else full_i <= '0';
+          if to_integer(count_i) = MAX_CAPACITY then full_i := '1'; 
+          else full_i := '0';
           end if;
       end if;
+      COUNT <= count_i;         
+                                           
+       FULL <= full_i;  
     end process;
     
-COUNT <= count_i;         
-                                           
-FULL <= full_i;       
+     
 
 end Behavioral;

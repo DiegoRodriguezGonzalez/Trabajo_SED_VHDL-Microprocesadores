@@ -4,7 +4,7 @@ use ieee.std_logic_1164.all;
 entity Motor is
     generic
     (
-        constant speed: integer :=30_000    -- Velocidad del motor
+        constant speed: integer :=19_000    -- Velocidad del motor
     );
     port(
         CLK : in std_logic; -- Reloj
