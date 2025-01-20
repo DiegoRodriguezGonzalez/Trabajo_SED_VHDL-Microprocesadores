@@ -193,7 +193,7 @@ int main(void)
 	  //Obtención posición del ascensor con ultrasonidos
 	  //distancia = HCSR04_Get_Distance();
 	  HCSR04_Read();
-	  HAL_Delay(200);
+	  HAL_Delay(100);
 	  distancia = getDistance();
 
 	  /*sprintf(buf_lcd, "%lu", distancia);
@@ -218,7 +218,7 @@ int main(void)
 	  //if(flag_tiempoTrans == 1) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
 
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
-	  //representaPlanta(key);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
+	  representaPlanta(key,temperature);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
 
 	  //Funciones por si acaso
 	  //lcd_barrido("Planta 2");
