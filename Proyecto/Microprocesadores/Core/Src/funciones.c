@@ -26,20 +26,9 @@ void representaPlanta(char key, float temperature){
 				  case '*': lcd_put_cur(0,2); lcd_send_string("No existe P*"); break;
 				  default: break;
 			  }
-
-			  //*key = '\0';  // Resetear tecla
-/*
-			  //if(*flag_t == 1
-			  if(HAL_GetTick()- tiempo_tick >=1000)
-			  {
-				  *key = '\0';  // Resetear tecla
-				  //*flag_t = 0;
-				  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-			  }
-			  */
-
 		  }
-		  else {
+
+	 else {
 			  lcd_clear();
 			  lcd_put_cur(0,2);
 			  lcd_send_string("Temperatura: ");
@@ -47,11 +36,6 @@ void representaPlanta(char key, float temperature){
 			  snprintf(str, sizeof(str), "%.0f", (float)temperature);
 			  lcd_put_cur(1,7);
 			  lcd_send_string(str);
-
-			  //sprintf(str, "%lu", temperature);
-			  //lcd_put_cur(1,4);
-			  //lcd_send_string(str);
-
 		  }
 }
 
@@ -74,12 +58,6 @@ uint8_t calculaDestino (char *key, uint8_t *flag_t)
 
 	if (*key != '\0'){
 
-		/*if(HAL_GetTick()- tiempo_tick >=3000)
-		  {
-			  *key = '\0';  // Resetear tecla
-			  //*flag_t = 0;
-			  HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_14);
-		  }*/
 		if(*flag_t){
 			*key = '\0';
 			*flag_t = 0;
@@ -89,18 +67,10 @@ uint8_t calculaDestino (char *key, uint8_t *flag_t)
 			  case '1': return 0b10000010; break;
 			  case '2': return 0b10000100; break;
 			  case '3': return 0b10001000; break;
-//			  case '4': return 0b00000000; break;
-//			  case '5': return 0b00000000; break;
-//			  case '6': return 0b00000000; break;
-//			  case '7': return 0b00000000; break;
-//			  case '8': return 0b00000000; break;
-//			  case '9': return 0b00000000; break;
 			  case 'A': return 0b01000001; break;
 			  case 'B': return 0b01000010; break;
 			  case 'C': return 0b01000100; break;
 			  case 'D': return 0b01001000; break;
-//			  case '#': return 0b00000000; break;
-//			  case '*': return 0b00000000; break;
 			  default: return 0b00000000; break;
 		  }
 

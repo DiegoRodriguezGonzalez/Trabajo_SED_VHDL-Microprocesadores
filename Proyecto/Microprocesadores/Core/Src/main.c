@@ -1,20 +1,5 @@
 /* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
+
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
@@ -41,8 +26,6 @@
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
 
-#define tres_s 500
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -53,56 +36,41 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-volatile char key = '\0';
-volatile uint8_t posicion;
-volatile uint8_t destino;
-volatile uint8_t flag_tiempoTrans = 0; //Flag usado para borrar la tecla tras un tiempo de transmisión
 
+volatile char key = '\0'; // Char que guarda el valor de la tecla pulsada
+volatile uint8_t posicion; // Entero sin signo que recoge la posición de la cabina de ascensor (para la planta)
+volatile uint8_t destino;  // Entero son signo que recoge el destino de la cabina
+volatile uint8_t flag_tiempoTrans = 0; // Flag usado para borrar la tecla tras un tiempo de transmisión
+uint8_t distancia = 0; // Entero sin signo que recoge la distancia a la que se encuentra la cabina de ascensor
+volatile uint8_t cicloEnvio = 0; // Contador que cambia entre 0 y 1 para enviar los datos alternativamente a la FPGA
+uint8_t envioDatos; // Datos que se transmiten a través del SPI
+uint32_t ADC_val; // Valor recogido del conversor analógico/digital empleado para obtener la temperatura del sensor de la placa
+float temperature; // Float que recoge el valor de la función que devuelve la temperatura correspondiente con el valor obtenido del ADC
+
+extern TIM_HandleTypeDef htim3;
 
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-void actualizaInfoSPI (void);
-void enviaSPI (void);
-void gestorTemperatura (void);
+void actualizaInfoSPI (void); // Función que gestiona la lógica de envío de datos a la FPGA
+void enviaSPI (void); // Función encargada del envío de los datos gestionados con actualizaInfoSPI
+void gestorTemperatura (void); // Función que calcula el valor de la temperatura correspondiente con el valor recogido por el conversor ADC
 
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-uint8_t distancia = 0;
-char buf_lcd[18];
-volatile uint8_t cicloEnvio = 0;
-
-volatile uint8_t contador = 0;
-
-uint8_t envioDatos;
-
-uint32_t ADC_val;
-float temperature;
-
-volatile uint32_t tiempo_tick;
-
-extern TIM_HandleTypeDef htim3;
-
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-		interrupt(GPIO_Pin, &htim3);
-
-		//__HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
-		//HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-		//HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-		//HAL_NVIC_EnableIRQ(EXTI2_IRQn);
-		//HAL_NVIC_EnableIRQ(EXTI3_IRQn);
-
+		interrupt(GPIO_Pin, &htim3); // Llamada a la función interrupt, encargada de gestionar la interrupción. Externalizada por limpieza visual
 }
 
 void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 {
-	procesadoTemporizador(htim);
+	procesadoTemporizador(htim); // Llamada a procesadoTemporizador, gestiona y externalizada.
 }
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
@@ -110,24 +78,18 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if (htim->Instance == TIM3)
 	{
 		flag_tiempoTrans = 1; //Pasados los 3 segundos tras llamar a la planta, se deja de enviar
-		HAL_TIM_Base_Stop_IT(&htim3);
-
-
+		HAL_TIM_Base_Stop_IT(&htim3); // Para la cuenta
 	}
-
 }
+
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc){
 		if(hadc-> Instance == ADC1 )
 		{
-			ADC_val = HAL_ADC_GetValue(&hadc1);
-			temperature = getTemperature(ADC_val);
+			ADC_val = HAL_ADC_GetValue(&hadc1); // Obtiene el valor del conversor
+			temperature = getTemperature(ADC_val); // Hace la conversión a un valor real
 		}
-
-	}
-
-
-
+}
 
 
 /* USER CODE END 0 */
@@ -166,16 +128,9 @@ int main(void)
   MX_SPI3_Init();
   MX_ADC1_Init();
   MX_TIM3_Init();
-  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_IC_Start_IT(&htim1, TIM_CHANNEL_1);
-
-  //HCSR04_Init();
   lcd_init();
-
-
-  //for (volatile uint32_t i = 0; i < tres_s; i++)lcd_enviar("Selecciona:",0,1); // Retardo para evitar HAL_Delay()
-  //lcd_clear();
 
   /* USER CODE END 2 */
 
@@ -191,19 +146,11 @@ int main(void)
 	  flagTecla(&key);
 
 	  //Obtención posición del ascensor con ultrasonidos
-	  //distancia = HCSR04_Get_Distance();
 	  HCSR04_Read();
 	  HAL_Delay(100);
 	  distancia = getDistance();
 
-	  /*sprintf(buf_lcd, "%lu", distancia);
-	  lcd_clear();
-	  lcd_enviar(buf_lcd, 0, 0); //(ms,row,colum-> mueve a la derecha) Centrado
-	  lcd_send_string("     cm");
-	  HAL_Delay(400);*/ //No se va a representar pero es el código usado para ver las distancias con el ultrasonidos
-
 	  //Codificación de planta para envío
-	  //posicion = calculaPosicion(distancia);
 	  posicion = calculaPosicion(distancia);
 
 	  //Codificación de tecla pulsada para envío
@@ -215,17 +162,8 @@ int main(void)
 	  //Envío de datos a través del SPI
 	  enviaSPI();
 
-	  //if(flag_tiempoTrans == 1) HAL_GPIO_TogglePin(GPIOD, GPIO_PIN_12);
-
 	  // Mostrar en el panel LCD la tecla pulsada durante 2s
 	  representaPlanta(key,temperature);//Comprobar que para 2s ha sucedido la transmisión y no hay una sobreescritura indeseada de key
-
-	  //Funciones por si acaso
-	  //lcd_barrido("Planta 2");
-	  /*lcd_enviar("Planta 2", 0, 4); //(ms,row,colum-> mueve a la derecha) Centrado
-	  HAL_Delay(5000);
-	  lcd_clear();*/
-
 
     /* USER CODE END WHILE */
 
@@ -280,10 +218,6 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-int __io_putchar(int ch) {
- ITM_SendChar(ch);
- return ch;
- }
 
 void actualizaInfoSPI (void)
 {
@@ -301,12 +235,11 @@ void actualizaInfoSPI (void)
 
 void enviaSPI (void)
 {
-	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET);
+	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_4, GPIO_PIN_RESET); // Se activa la transmisión master-slave
 
 	HAL_SPI_Transmit(&hspi3, &envioDatos, 1, HAL_MAX_DELAY);
 
-	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET);
-
+	HAL_GPIO_WritePin(GPIOA,GPIO_PIN_4,GPIO_PIN_SET); // Se desactiva la transmisión M-S
 }
 
 void gestorTemperatura (void)
