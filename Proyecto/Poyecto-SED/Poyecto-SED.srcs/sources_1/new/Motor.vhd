@@ -20,14 +20,14 @@ begin
 process(CLK)
 begin
     if rising_edge(CLK) then
-        -- Se incrementa el contador para ajustar el PWM (ciclo de trabajo de 0,6)
+        -- Se incrementa el contador para ajustar el PWM. Cuando llega al máximo se resetea.
         count <= count + 1;
         if (count = 49_999) then
             count <= 0;
         end if;
 
         -- Generar señal PWM 
-        if (count < speed) then
+        if (count < speed) then     -- En el ciclo de trabajo, si la cuenta es menor que la velocidad, se mueve el motor.
             case ORDEN_MOTOR is
                 when "10" =>        -- Motor sube
                     PWM1 <= '1';

@@ -3,8 +3,8 @@
 # SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
 # IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
 # SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
-# Start of session at: Mon Jan 20 19:51:58 2025
-# Process ID: 21212
+# Start of session at: Thu Jan 23 13:41:18 2025
+# Process ID: 19264
 # Current directory: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1
 # Command line: vivado.exe -log Top.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Top.tcl -notrace
 # Log file: C:/Users/diego/Documents/GitHub/VHDL-Trabajo/Proyecto/Poyecto-SED/Poyecto-SED.runs/impl_1/Top.vdi
@@ -17,8 +17,8 @@
 # CPU Physical cores:8
 # CPU Logical cores :16
 # Host memory       :16474 MB
-# Swap memory       :1073 MB
-# Total Virtual     :17548 MB
-# Available Virtual :3980 MB
+# Swap memory       :1223 MB
+# Total Virtual     :17698 MB
+# Available Virtual :3647 MB
 #-----------------------------------------------------------
 source Top.tcl -notrace

@@ -27,17 +27,17 @@ begin
     process(CLK)
     begin
         if rising_edge(CLK) then
-            if RST_N = '0' then
-                planta_panel_sync_1 <= (others => '0');
-                planta_panel_sync_2 <= (others => '0');
+            if RST_N = '0' then     -- Si se presiona reset, las salidas se ponen a 0
+                planta_panel_sync_1 <= (others => '0'); 
+                planta_panel_sync_2 <= (others => '0'); 
             else
-                planta_panel_sync_1 <= PLANTA_PANEL_IN;
-                planta_panel_sync_2 <= planta_panel_sync_1;
+                planta_panel_sync_1 <= PLANTA_PANEL_IN;         -- Primera asignación a señal intermedia. Se actualiza en un flanco.
+                planta_panel_sync_2 <= planta_panel_sync_1;     -- Segunda asignación a señal intermedia. Se actualiza en el siguiente flanco.
             end if;
         end if;
     end process;
 
-    -- Sincronización de la salida PLANTA_EXTERNA
+    -- Sincronización de la salida PLANTA_EXTERNA. Misma explicación que el proceso anterior.
     process(CLK)
     begin
         if rising_edge(CLK) then
@@ -51,7 +51,7 @@ begin
         end if;
     end process;
 
-    -- Sincronización de la salida PLANTA_ACTUAL
+    -- Sincronización de la salida PLANTA_ACTUAL. Misma explicación que el proceso anterior.
     process(CLK)
     begin
         if rising_edge(CLK) then
@@ -65,7 +65,7 @@ begin
         end if;
     end process;
 
-    -- Asignaciones de salidas sincronizadas
+    -- Asignaciones de salidas sincronizadas.
     PLANTA_PANEL_SYNC <= planta_panel_sync_2;
     PLANTA_EXTERNA_SYNC <= planta_externa_sync_2;
     PLANTA_ACTUAL_SYNC <= planta_actual_sync_2;

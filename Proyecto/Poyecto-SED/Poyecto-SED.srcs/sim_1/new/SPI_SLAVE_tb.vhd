@@ -12,17 +12,13 @@ architecture Behavioral of SPI_SLAVE_TB is
         TAM_PALABRA : natural := 8 -- Tamaño de la palabra
     );
     port (
-        -- CLK      : in  std_logic;  -- Reloj FPGA
         RST_N    : in  std_logic;  -- Reset FPGA
         SCLK     : in  std_logic;  -- Reloj SPI STM32
         CS_N     : in  std_logic;  -- Chip select (activo en nivel bajo)
         MOSI     : in  std_logic;  -- Master output slave input (datos de STM a FPGA)
-        --MISO     : out std_logic;  -- Master input slave output (datos de FPGA a STM)
         PLANTA_PANEL : out std_logic_vector(TAM_PALABRA-5 downto 0);
         PLANTA_EXTERNA : out std_logic_vector(TAM_PALABRA-5 downto 0);
         PLANTA_ACTUAL : out std_logic_vector(TAM_PALABRA-5 downto 0)
-        --REG    : out std_logic_vector(TAM_PALABRA-1 downto 0)
-        --DOUT_VLD : out std_logic  -- Datos válidos recibidos
     );
     end component;
 
@@ -32,12 +28,10 @@ architecture Behavioral of SPI_SLAVE_TB is
     signal SCLK           : std_logic := '0';
     signal CS_N           : std_logic := '1';
     signal MOSI           : std_logic := '0';
-   -- signal MISO           : std_logic;
     signal PLANTA_PANEL   : std_logic_vector(TAM_PALABRA-5 downto 0);
     signal PLANTA_EXTERNA : std_logic_vector(TAM_PALABRA-5 downto 0);
     signal PLANTA_ACTUAL  : std_logic_vector(TAM_PALABRA-5 downto 0);
-   -- signal REG            : std_logic_vector(TAM_PALABRA-1 downto 0);
-   -- signal DOUT_VLD : std_logic; 
+
     -- Periodo del reloj
     constant CLK_PERIOD : time := 20 ns;
 
@@ -52,12 +46,9 @@ begin
             SCLK           => SCLK,
             CS_N           => CS_N,
             MOSI           => MOSI,
-        --  MISO           => MISO,
             PLANTA_PANEL   => PLANTA_PANEL,
             PLANTA_EXTERNA => PLANTA_EXTERNA,
             PLANTA_ACTUAL  => PLANTA_ACTUAL
-        --    REG            => REG
-        --  DOUT_VLD       => DOUT_VLD
         );
 
     -- Generación del reloj

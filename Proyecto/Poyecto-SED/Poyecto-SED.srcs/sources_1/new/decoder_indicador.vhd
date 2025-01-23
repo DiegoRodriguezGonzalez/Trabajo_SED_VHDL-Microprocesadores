@@ -24,11 +24,11 @@ begin
       LED_PANTALLA <= "1111110";        -- Se pone una raya. Equivale a emergencia
     elsif MOTOR_ASCENSOR = "00" then
       case PLANTA is
-        when "000" => LED_PANTALLA <= "0000001";
-        when "001" => LED_PANTALLA <= "1001111";
-        when "010" => LED_PANTALLA <= "0010010";
-        when "011" => LED_PANTALLA <= "0000110";
-        when others => LED_PANTALLA <="1111110";          --Lo mismo que emer
+        when "000" => LED_PANTALLA <= "0000001";    -- Se representa un 0
+        when "001" => LED_PANTALLA <= "1001111";    -- Se representa un 1   
+        when "010" => LED_PANTALLA <= "0010010";    -- Se representa un 2
+        when "011" => LED_PANTALLA <= "0000110";    -- Se representa un 3
+        when others => LED_PANTALLA <="1111110";    --Lo mismo que emer
       end case;
     else
       case MOTOR_ASCENSOR is

@@ -50,7 +50,7 @@ entity Top is
     SCLK : in std_logic;    -- Reloj del microprocesador
     CS_N : in std_logic;    -- Chip select del microprocesador
     MOSI : in std_logic;    -- Master output slave input
-    EMER_FMS_to_top : out std_logic;
+    EMER_FSM_to_top : out std_logic;
     ASCENSOR_SUBE_motor_to_top: out std_logic;
     ASCENSOR_BAJA_motor_to_top: out std_logic;
     PUERTA_ABRE_motor_to_top: out std_logic;
@@ -227,7 +227,7 @@ architecture Behavioral of Top is
      signal MOTOR_ASCENSOR: std_logic_vector(1 downto 0);  --Señal motor de ascensor
      signal DESTINO_Prioridad_to_FMS: std_logic_vector(Nplantas-1 downto 0); --Vector con planta a la que moverse
      signal PLANTAACTUAL_BIN_Codificador_to_Decoder: std_logic_vector(Plantas_BIN downto 0);
-     signal EMER_FMS_to_señal: std_logic;
+     signal EMER_FSM_to_señal: std_logic;
      signal ESTADO_FSM_to_Gestor_Prioridad: std_logic_vector(3 downto 0);
      signal C_I1_sincronizador_to_edge: std_logic;
      signal C_I2_sincronizador_to_edge: std_logic;
@@ -393,7 +393,7 @@ Inst_FMS: FSM Port map (
       	CLK => clk,
         MOVIMIENTOMOTOR => MOTOR_ASCENSOR,
         MOVIMIENTOPUERTA => MOTOR_PUERTA, 
-        SALIDAEMERGENCIA => EMER_FMS_to_señal,
+        SALIDAEMERGENCIA => EMER_FSM_to_señal,
         ESTADO_ACTUAL => ESTADO_FSM_to_Gestor_Prioridad
 );
 
@@ -419,12 +419,12 @@ Inst_codificador: Codificador_Panel_Decoder Port map(
 
 Inst_decoder_indicador: decoder_indicador Port map(
           PLANTA => PLANTAACTUAL_BIN_Codificador_to_Decoder,
-          EMER  => EMER_FMS_to_señal,
+          EMER  => EMER_FSM_to_señal,
           MOTOR_ASCENSOR => MOTOR_ASCENSOR,  -- Motor indica subiendo o bajando
           LED_PANTALLA => LEDS    -- Se muestra por los segmentos el número o letra
        );
         
-        EMER_FMS_to_top <= EMER_FMS_to_señal;
+        EMER_FSM_to_top <= EMER_FSM_to_señal;
         ESTADO_ACTUAL <= ESTADO_FSM_to_Gestor_Prioridad;
         FULL_PLANTA1 <= FULL1_Counter_to_agrupador;
         FULL_PLANTA2 <= FULL2_Counter_to_agrupador;
