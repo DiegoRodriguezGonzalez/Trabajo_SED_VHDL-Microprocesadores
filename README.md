@@ -1,2 +1,2 @@
-# VHDL-Trabajo
-Trabajo en VHDL (Vivado) para la asignatura Sistemas Electrónicos Digitales
+# VHDL y Microprocesadores -Trabajo
+Trabajo en VHDL(Vivado) y STM32 para la asignatura Sistemas Electrónicos Digitales
